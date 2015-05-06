@@ -5,7 +5,7 @@
 ## Login   <cardon_v@epitech.net>
 ## 
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Thu Apr 30 13:47:04 2015 Valentin Cardon
+## Last update Wed May  6 15:04:08 2015 Jérémy MATHON
 ##
 
 NAME		=	bomberman
@@ -17,7 +17,7 @@ OBJ		=	$(SRC:.cpp=.o)
 
 TMP		=	$(SRC:.cpp=.cpp~)
 
-CXXFLAGS	=	-I ./header
+CXXFLAGS	=	-I ./header - –Ilib/includes/ -Llib/libs/ -lgdl_gl –lGL –lGLEW –ldl –lrt –lfbxsdk –lSDL2 –lpthread
 
 all		:	$(NAME)
 
