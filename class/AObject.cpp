@@ -5,12 +5,12 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:05 2015 Jérémy MATHON
-** Last update Wed May  6 15:53:44 2015 Jérémy MATHON
+// Last update Thu May  7 13:49:04 2015 Valentin Cardon
 */
 
 #include	"AObject.hpp"
 
-AObject() :
+AObject::AObject() :
   _position(0, 0, 0), // On initialise la position a 0
   _rotation(0, 0, 0), // pareil pour la rotation
   _scale(1, 1, 1) // l'echelle est mise a 1
