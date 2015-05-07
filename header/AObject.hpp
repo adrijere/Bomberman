@@ -5,16 +5,17 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:00 2015 Jérémy MATHON
-** Last update Wed May  6 16:24:04 2015 Jérémy MATHON
+// Last update Thu May  7 13:05:17 2015 Valentin Cardon
 */
 
 #ifndef AOBJECT_HPP_
 # define AOBJECT_HPP_
 
+#include <iostream>
 #include <SdlContext.hh>
+#include <AShader.hh>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
 
 // La classe abstraite representant un objet avec sa position, sa rotation et son echelle
 class AObject

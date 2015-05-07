@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-** Last update Wed May  6 16:46:47 2015 Jérémy MATHON
+// Last update Thu May  7 13:08:05 2015 Valentin Cardon
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -14,6 +14,8 @@
 #pragma once
 #include <Game.hh>
 #include <SdlContext.hh>
+#include <vector>
+#include <BasicShader.hh>
 #include "AObject.hpp"
 
 /*

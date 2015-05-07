@@ -5,13 +5,12 @@
 ## Login   <cardon_v@epitech.net>
 ## 
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Wed May  6 16:45:27 2015 Jérémy MATHON
+## Last update Thu May  7 13:08:37 2015 Valentin Cardon
 ##
 
 NAME		=	bomberman
 
 SRC		=	source/main.cpp		\
-			class/init.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
