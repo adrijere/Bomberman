@@ -5,14 +5,13 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-** Last update Wed May  6 16:47:35 2015 Jérémy MATHON
+// Last update Thu May  7 15:34:18 2015 Valentin Cardon
 */
 
 #include	"GameEngine.hpp"
 
 GameEngine::GameEngine()
-{
-}
+{}
 
 bool	GameEngine::initialize()
 {

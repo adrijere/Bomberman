@@ -5,17 +5,18 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-** Last update Thu May  7 13:21:00 2015 Jérémy MATHON
+// Last update Thu May  7 15:36:35 2015 Valentin Cardon
 */
 
 #ifndef GAMEENGINE_HPP_
 # define GAMEENGINE_HPP_
 
 #pragma	once
-#include	<Game.hh>
 #include	<SdlContext.hh>
-#include	<vector>
 #include	<BasicShader.hh>
+#include	<Game.hh>
+#include	<Clock.hh>
+#include	<vector>
 #include	"AObject.hpp"
 #include	"Cube.hpp"
 
