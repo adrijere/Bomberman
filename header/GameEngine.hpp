@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-// Last update Thu May  7 15:36:35 2015 Valentin Cardon
+// Last update Thu May  7 20:46:42 2015 Valentin Cardon
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -29,8 +29,8 @@ private:
   gdl::SdlContext _context;
   gdl::Clock _clock;
   gdl::Input _input;
-  gdl::BasicShader _shader;
   std::vector<AObject*> _objects;
+  gdl::BasicShader _shader;
 public:
   GameEngine();
   bool initialize();

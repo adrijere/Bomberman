@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-** Last update Thu May  7 19:46:50 2015 Jérémy MATHON
+// Last update Thu May  7 20:44:49 2015 Valentin Cardon
 */
 
 #include	"Cube.hpp"
@@ -93,7 +93,7 @@ bool	Cube::initialize()
   return (true);
 }
 
-  // Ici le cube bougera avec les fleches du clavier
+// Ici le cube bougera avec les fleches du clavier
 void Cube::update(gdl::Clock const &clock, gdl::Input &input)
 {
   // On multiplie par le temps ecoule depuis la derniere image pour que la vitesse ne depende pas de la puissance de l'ordinateur
