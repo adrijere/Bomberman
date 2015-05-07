@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu Apr 30 13:38:09 2015 Valentin Cardon
-** Last update Wed May  6 15:32:57 2015 Jérémy MATHON
+// Last update Thu May  7 16:57:45 2015 Valentin Cardon
 */
 
 #include	<cstdlib>
@@ -15,6 +15,7 @@ int main()
 {
   // On cree son engine
   GameEngine engine;
+
   if (engine.initialize() == false)
     return (EXIT_FAILURE);
   while (engine.update() == true)

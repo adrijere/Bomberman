@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-// Last update Thu May  7 13:35:58 2015 Valentin Cardon
+// Last update Thu May  7 17:21:36 2015 Valentin Cardon
 */
 
 #ifndef CUBE_HPP_
@@ -35,11 +35,11 @@ public:
   {
     _speed = 10.0f;
     // On charge la texture qui sera affichee sur chaque face du Cube
-    if (_texture.load("./assets/texture.tga") == false)
+    if (_texture.load("./lib/assets/grass.tga") == false)
       {
 	std::cerr << "Cannot load the cube texture" << std::endl;
 	return (false);
-      }
+	}
     // on set la color d'une premiere face
     _geometry.setColor(glm::vec4(1, 0, 0, 1));
     // tout les pushVertex qui suivent seront de cette couleur
@@ -117,13 +117,13 @@ public:
   virtual void update(gdl::Clock const &clock, gdl::Input &input)
   {
     // On multiplie par le temps ecoule depuis la derniere image pour que la vitesse ne depende pas de la puissance de l'ordinateur
-    if (input.getKey(SDLK_UP))
-      translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
     if (input.getKey(SDLK_DOWN))
+      translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
+    if (input.getKey(SDLK_UP))
       translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-    if (input.getKey(SDLK_LEFT))
-      translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     if (input.getKey(SDLK_RIGHT))
+      translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+    if (input.getKey(SDLK_LEFT))
       translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   }
 
