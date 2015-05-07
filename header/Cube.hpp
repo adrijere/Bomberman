@@ -5,11 +5,16 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-** Last update Wed May  6 16:01:43 2015 Jérémy MATHON
+** Last update Thu May  7 13:26:52 2015 Jérémy MATHON
 */
 
 #ifndef CUBE_HPP_
 # define CUBE_HPP_
+
+#include	<SdlContext.hh>
+#include	<glm/glm.hpp>
+#include	<glm/gtc/matrix_transform.hpp>
+#include	"AObject.hpp"
 
 class Cube : public AObject
 {

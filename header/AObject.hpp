@@ -5,21 +5,27 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:00 2015 Jérémy MATHON
-// Last update Thu May  7 13:05:17 2015 Valentin Cardon
+** Last update Thu May  7 13:22:42 2015 Jérémy MATHON
 */
 
 #ifndef AOBJECT_HPP_
 # define AOBJECT_HPP_
 
-#include <iostream>
-#include <SdlContext.hh>
-#include <AShader.hh>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+#include	<iostream>
+#include	<SdlContext.hh>
+#include	<AShader.hh>
+#include	<BasicShader.hh>
+#include	<Game.hh>
+#include	<glm/glm.hpp>
+#include	<glm/gtc/matrix_transform.hpp>
 
 // La classe abstraite representant un objet avec sa position, sa rotation et son echelle
 class AObject
 {
+protected:
+  glm::vec3 _position;
+  glm::vec3 _rotation;
+  glm::vec3 _scale;
 public:
   AObject();
   virtual ~AObject(){};
@@ -32,10 +38,6 @@ public:
   void	rotate(glm::vec3 const &axis, float angle);
   void	scale(glm::vec3 const &scale);
   glm::mat4	getTransformation();
-protected:
-  glm::vec3 _position;
-  glm::vec3 _rotation;
-  glm::vec3 _scale;
 };
 
 #endif /* !AOBJECT_HPP_ */

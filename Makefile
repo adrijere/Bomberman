@@ -5,12 +5,15 @@
 ## Login   <cardon_v@epitech.net>
 ## 
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Thu May  7 13:08:37 2015 Valentin Cardon
+## Last update Thu May  7 13:10:51 2015 Jérémy MATHON
 ##
 
 NAME		=	bomberman
 
 SRC		=	source/main.cpp		\
+			class/GameEngine.cpp	\
+			class/AObject.cpp	\
+			class/Cube.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 

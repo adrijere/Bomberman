@@ -5,18 +5,19 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-// Last update Thu May  7 13:08:05 2015 Valentin Cardon
+** Last update Thu May  7 13:21:00 2015 Jérémy MATHON
 */
 
 #ifndef GAMEENGINE_HPP_
 # define GAMEENGINE_HPP_
 
-#pragma once
-#include <Game.hh>
-#include <SdlContext.hh>
-#include <vector>
-#include <BasicShader.hh>
-#include "AObject.hpp"
+#pragma	once
+#include	<Game.hh>
+#include	<SdlContext.hh>
+#include	<vector>
+#include	<BasicShader.hh>
+#include	"AObject.hpp"
+#include	"Cube.hpp"
 
 /*
 On cree sa class GameEngine qui herite de Game
