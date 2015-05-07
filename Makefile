@@ -5,7 +5,7 @@
 ## Login   <cardon_v@epitech.net>
 ## 
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Thu May  7 20:47:00 2015 Valentin Cardon
+## Last update Thu May  7 21:03:10 2015 Jérémy MATHON
 ##
 
 NAME		=	bomberman
@@ -21,12 +21,12 @@ TMP		=	$(SRC:.cpp=.cpp~)
 
 CXXFLAGS	=	-I ./header -I ./lib/includes
 
-LDFLAGS		=	-ldl -fPIC -lpthread -lrt -lGL -L./lib/libs/ -lgdl_gl -lGLEW -lfbxsdk -lSDL2
+LDFLAGS		=	-ldl -fPIC -lpthread -lrt -lGL -L./lib/libs/ -lgdl_gl -lGLEW -lfbxsdk -lSDL2 -ldl
 
 all		:	$(NAME)
 
 $(NAME)		:	$(OBJ)
-			clang++ $(OBJ) -o $(NAME) $(LDFLAGS)
+			g++ $(OBJ) -o $(NAME) $(LDFLAGS)
 
 clean		:
 			rm -rf $(OBJ) $(TMP)
