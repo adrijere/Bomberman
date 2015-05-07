@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-// Last update Thu May  7 17:21:36 2015 Valentin Cardon
+// Last update Thu May  7 17:32:17 2015 Valentin Cardon
 */
 
 #ifndef CUBE_HPP_
@@ -35,7 +35,7 @@ public:
   {
     _speed = 10.0f;
     // On charge la texture qui sera affichee sur chaque face du Cube
-    if (_texture.load("./lib/assets/grass.tga") == false)
+    if (_texture.load("./lib/assets/Bomberman.tga") == false)
       {
 	std::cerr << "Cannot load the cube texture" << std::endl;
 	return (false);

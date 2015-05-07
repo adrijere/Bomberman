@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Thu May  7 17:08:31 2015 Valentin Cardon
+// Last update Thu May  7 17:32:52 2015 Valentin Cardon
 */
 
 #include	"GameEngine.hpp"
@@ -21,10 +21,7 @@ bool	GameEngine::initialize()
   if (!_shader.load("./lib/shaders/basic.fp", GL_FRAGMENT_SHADER)
       || !_shader.load("./lib/shaders/basic.vp", GL_VERTEX_SHADER)
       || !_shader.build())
-    {
-      std::cout << "test" << std::endl;
-      return false;
-    }
+    return false;
   glm::mat4 projection;
   glm::mat4 transformation;
   projection = glm::perspective(60.0f, 800.0f / 600.0f, 0.1f, 100.0f);
