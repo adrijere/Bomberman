@@ -5,7 +5,7 @@
 ## Login   <cardon_v@epitech.net>
 ## 
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Thu May  7 16:44:49 2015 Valentin Cardon
+## Last update Thu May  7 20:27:58 2015 Jérémy MATHON
 ##
 
 NAME		=	bomberman
@@ -28,7 +28,7 @@ LDFLAGS		=	-ldl -fPIC -lpthread -lrt -lGL -L./lib/libs/ -lgdl_gl  -lGLEW  -lfbxs
 all		:	$(NAME)
 
 $(NAME)		:	$(OBJ)
-			clang++ $(OBJ) -o $(NAME) $(LDFLAGS)
+			g++ $(OBJ) -o $(NAME) $(LDFLAGS)
 
 clean		:
 			rm -rf $(OBJ) $(TMP)
