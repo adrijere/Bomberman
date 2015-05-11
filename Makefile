@@ -10,10 +10,7 @@
 
 NAME		=	bomberman
 
-SRC		=	source/main.cpp		\
-			class/GameEngine.cpp	\
-			class/AObject.cpp	\
-			class/Cube.cpp
+include		source.mk
 
 OBJ		=	$(SRC:.cpp=.o)
 
