@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-// Last update Thu May  7 20:48:28 2015 Valentin Cardon
+** Last update Tue May 12 10:28:28 2015 Jérémy MATHON
 */
 
 #ifndef CUBE_HPP_

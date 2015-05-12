@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Thu May  7 17:32:52 2015 Valentin Cardon
+** Last update Tue May 12 09:57:16 2015 Jérémy MATHON
 */
 
 #include	"GameEngine.hpp"
@@ -15,17 +15,17 @@ GameEngine::GameEngine()
 
 bool	GameEngine::initialize()
 {
-  if (!_context.start(800, 600, "My bomberman!")) // on cree une fenetre
+  if (!_context.start(1280, 720, "Bomberman 0.0.1")) // on cree une fenetre
     return false;
   glEnable(GL_DEPTH_TEST);
   if (!_shader.load("./lib/shaders/basic.fp", GL_FRAGMENT_SHADER)
       || !_shader.load("./lib/shaders/basic.vp", GL_VERTEX_SHADER)
-      || !_shader.build())
+      || !_shader.build()) // on charge ici la libraire pour les shaders
     return false;
   glm::mat4 projection;
   glm::mat4 transformation;
-  projection = glm::perspective(60.0f, 800.0f / 600.0f, 0.1f, 100.0f);
-  transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+  projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
+  transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
   // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
   _shader.bind();
   _shader.setUniform("view", transformation);

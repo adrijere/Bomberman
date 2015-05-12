@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Thu May  7 20:44:49 2015 Valentin Cardon
+** Last update Tue May 12 09:59:33 2015 Jérémy MATHON
 */
 
 #include	"Cube.hpp"
@@ -14,7 +14,7 @@ bool	Cube::initialize()
 {
   _speed = 10.0f;
   // On charge la texture qui sera affichee sur chaque face du Cube
-  if (_texture.load("./lib/assets/Bomberman.tga") == false)
+  if (_texture.load("./lib/assets/grass.tga") == false)
     {
       std::cerr << "Cannot load the cube texture" << std::endl;
       return (false);
@@ -33,8 +33,8 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
   // ETC ETC
-  _geometry.setColor(glm::vec4(1, 1, 0, 1));
 
+  _geometry.setColor(glm::vec4(1, 1, 0, 1));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 0.5, -0.5));
@@ -44,8 +44,8 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
-  _geometry.setColor(glm::vec4(0, 1, 1, 1));
 
+  _geometry.setColor(glm::vec4(0, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
@@ -55,8 +55,8 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
-  _geometry.setColor(glm::vec4(1, 0, 1, 1));
 
+  _geometry.setColor(glm::vec4(1, 0, 1, 1));
   _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 0.5, -0.5));
@@ -66,8 +66,8 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
-  _geometry.setColor(glm::vec4(0, 1, 0, 1));
 
+  _geometry.setColor(glm::vec4(0, 1, 0, 1));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 0.5, -0.5));
@@ -77,8 +77,8 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
-  _geometry.setColor(glm::vec4(0, 0, 1, 1));
 
+  _geometry.setColor(glm::vec4(0, 0, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
