@@ -22,4 +22,3 @@ int main()
     engine.draw();
   return EXIT_SUCCESS;
 }
-

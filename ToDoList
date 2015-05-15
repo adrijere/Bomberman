@@ -1,5 +1,5 @@
 TOUJOURS PULL AVANT DE PUSH
-MESSAGE DU COMMIT EXPLICITE 
+MESSAGE DU COMMIT EXPLICITE
 
 Faire ensemble l'architecture du projet
 
@@ -10,7 +10,7 @@ Gérer la map en temps réel
 Sauvegarder une partie
 Lancer une partie sauvegardée
 Gérer Victoire / Défaite
-Gérer Score et Classement persistant 
+Gérer Score et Classement persistant
 Faire une intro
 Faire un menu
 Gérer le mode 2Joueurs
