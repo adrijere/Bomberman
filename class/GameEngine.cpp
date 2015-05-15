@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-** Last update Tue May 12 09:57:16 2015 Jérémy MATHON
+** Last update Fri May 15 17:25:03 2015 Jérémy MATHON
 */
 
 #include	"GameEngine.hpp"
@@ -30,11 +30,11 @@ bool	GameEngine::initialize()
   _shader.bind();
   _shader.setUniform("view", transformation);
   _shader.setUniform("projection", projection);
-  // on creer un cube qu'on ajoute a la suite de la liste d'objets
-  AObject *cube = new Cube();
-  if (cube->initialize() == false)
+ // on creer un cube qu'on ajoute a la suite de la liste d'objets
+  AObject *model = new Model();
+  if (model->initialize() == false)
     return (false);
-  _objects.push_back(cube);
+  _objects.push_back(model);
   return true;
 }
 
