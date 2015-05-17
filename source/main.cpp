@@ -16,9 +16,12 @@ int main()
   // On cree son engine
   GameEngine engine;
 
+
   if (engine.initialize() == false)
     return (EXIT_FAILURE);
+
   while (engine.update() == true)
     engine.draw();
+
   return EXIT_SUCCESS;
 }

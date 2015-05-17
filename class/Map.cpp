@@ -4,8 +4,7 @@
 
 #include "../header/Map.hpp"
 
-
-Map::Map(int, height, int width, int diff, std::string name) {
+Map::Map(int height, int width, int diff, std::string name) {
     this->height = height;
     this->width = width;
     this->difficulty = diff;
@@ -15,18 +14,22 @@ Map::Map(int, height, int width, int diff, std::string name) {
 Map::~Map() {
 }
 
-int             Map::getHeight() {
+int             Map::getHeight() const {
     return (this->height);
 }
 
-int             Map::getWidth() {
+int             Map::getWidth() const {
     return (this->width);
 }
 
-int             Map::getDiff() {
+int             Map::getDiff() const {
     return (this->difficulty);
 }
 
-std::string     Map::getName() {
+std::string     Map::getName() const {
     return (this->name);
+}
+
+void		Map::setMap(char **map) {
+
 }
