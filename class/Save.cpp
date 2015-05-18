@@ -5,11 +5,15 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Mon May 18 17:53:28 2015 simon hure
-// Last update Mon May 18 18:04:33 2015 simon hure
+// Last update Mon May 18 18:22:51 2015 simon hure
 //
+
+#include "../header/Save.hpp"
 
 Save::Save()
 {
+  _file_number = 1;
+  _counter = 0;
   //init state and file counter to 1
 }
 
@@ -18,15 +22,48 @@ Save::~Save()
   //check for tmp file that should be deleted
 }
 
+std::string	Save::file_number()
+{
+  std::string	path;
+  std::stringstream ss;
+
+  ss << _file_number;
+  path += "save_";
+  path += ss.str();
+  path += ".data";
+  std::ifstream f(path.c_str());
+  if (!f.good())
+      return (path);
+  else
+    {
+      _file_number++;
+      path = "NULL";
+    }
+  return (path);
+}
+
 void	Save::save()
 {
+  std::string path;
+
   //check state
-  //get file number
   //write to tmp file
   //use specific function for parts such as header,maps...
   //include time reference to each save
-  //encrypt and write to definive file
-  //encrypt with +12 rotone
+
+  //get file number
+  while (1)
+    {
+      if ((path = file_number()) != "NULL")
+	{
+	  std::ofstream file(path.c_str());
+	  //encrypt and write to definive file
+	  //encrypt with +12 rotone
+	  file << "hello world !\n";
+	  file.close();
+	  return ;
+	}
+    }
 }
 
 void	Save::get_save()
