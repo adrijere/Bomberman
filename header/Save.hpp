@@ -5,7 +5,7 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Mon May 18 18:04:53 2015 simon hure
-// Last update Mon May 18 18:18:56 2015 simon hure
+// Last update Tue May 19 16:56:06 2015 simon hure
 //
 
 #ifndef _SAVE_HH_
@@ -33,6 +33,8 @@ public:
   void	score();
 
   std::string file_number();
+  void	output_file(std::string &);
+  void	build_tmp();
 };
 
 #endif

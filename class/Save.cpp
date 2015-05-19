@@ -5,7 +5,7 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Mon May 18 17:53:28 2015 simon hure
-// Last update Mon May 18 18:22:51 2015 simon hure
+// Last update Tue May 19 17:16:47 2015 simon hure
 //
 
 #include "../header/Save.hpp"
@@ -31,6 +31,7 @@ std::string	Save::file_number()
   path += "save_";
   path += ss.str();
   path += ".data";
+
   std::ifstream f(path.c_str());
   if (!f.good())
       return (path);
@@ -42,25 +43,61 @@ std::string	Save::file_number()
   return (path);
 }
 
+void	Save::output_file(std::string &path)
+{
+  std::ofstream file(path.c_str());
+  std::ifstream temp("tmp");
+  char	c;
+
+  while (!temp.eof())
+    {
+      temp.get(c);
+      //encrypt and write to definive file
+      //encrypt with +12 rotone
+      c += 12;
+      file << c;
+    }
+  temp.close();
+  std::remove("tmp");
+  file.close();
+  return ;
+}
+
+void	Save::build_tmp()
+{
+  std::ofstream tmp("tmp");
+  std::time_t	t_time;
+  std::stringstream ss;
+  
+  ss << _file_number;
+  t_time = time(NULL);
+  tmp << ss.str();
+  tmp << std::endl;
+  tmp << "DATE: ";
+  tmp << std::asctime(std::localtime(&t_time)); //add current time
+  tmp << std::endl;
+  tmp << "toto" << std::endl;
+  tmp.close();
+  //add futher information if needed
+}
+
 void	Save::save()
 {
   std::string path;
-
-  //check state
-  //write to tmp file
-  //use specific function for parts such as header,maps...
-  //include time reference to each save
 
   //get file number
   while (1)
     {
       if ((path = file_number()) != "NULL")
 	{
-	  std::ofstream file(path.c_str());
-	  //encrypt and write to definive file
-	  //encrypt with +12 rotone
-	  file << "hello world !\n";
-	  file.close();
+	  //check state
+	  //write to tmp file
+	  build_tmp();
+
+	  //use specific function for parts such as header,maps...
+	  //include time reference to each save
+
+	  output_file(path);
 	  return ;
 	}
     }
@@ -79,6 +116,7 @@ void	Save::get_save()
 
 void	Save::score()
 {
+
   //get highscore at begining and store them in list
   //store score and events in file
   //need encryption too
