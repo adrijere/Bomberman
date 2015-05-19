@@ -5,7 +5,7 @@
 ## Login   <marsil_g@epitech.net>
 ## 
 ## Started on  Mon May 11 11:33:16 2015 Gabriele Marsili
-## Last update Sun May 17 15:15:17 2015 Gabriele Marsili
+## Last update Tue May 19 10:29:47 2015 Gabriele Marsili
 ##
 
 SRC		+=			source/main.cpp
@@ -14,3 +14,4 @@ SRC		+=			class/AObject.cpp
 SRC		+=			class/Cube.cpp
 SRC		+=			class/Model.cpp
 SRC		+=			class/Map.cpp
+SRC		+=			class/Menu.cpp

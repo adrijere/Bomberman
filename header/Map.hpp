@@ -26,4 +26,4 @@ public:
     void            setMap(char **);
 };
 
-# endif /* ! MAP_H */
+#endif /* ! MAP_H */

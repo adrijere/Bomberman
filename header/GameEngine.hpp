@@ -26,17 +26,20 @@ On cree sa class GameEngine qui herite de Game
 */
 class GameEngine : public gdl::Game
 {
+
 private:
-  gdl::SdlContext _context;
-  gdl::Clock _clock;
-  gdl::Input _input;
+  gdl::SdlContext       _context;
+  gdl::Clock            _clock;
+  gdl::Input            _input;
   std::vector<AObject*> _objects;
-  gdl::BasicShader _shader;
+  gdl::BasicShader      _shader;
+
 public:
   GameEngine();
-  bool initialize();
-  bool update();
-  void draw();
+  bool  initialize();
+  bool  update();
+  void  draw();
+  bool  Menu();
   ~GameEngine();
 };
 #endif /* !GAMEENGINE_HPP_ */
