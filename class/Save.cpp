@@ -5,7 +5,7 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Mon May 18 17:53:28 2015 simon hure
-// Last update Tue May 19 17:16:47 2015 simon hure
+// Last update Wed May 20 19:44:18 2015 simon hure
 //
 
 #include "../header/Save.hpp"
@@ -13,7 +13,7 @@
 Save::Save()
 {
   _file_number = 1;
-  _counter = 0;
+  _counter = 1;
   //init state and file counter to 1
 }
 
@@ -52,13 +52,11 @@ void	Save::output_file(std::string &path)
   while (!temp.eof())
     {
       temp.get(c);
-      //encrypt and write to definive file
-      //encrypt with +12 rotone
-      c += 12;
+      c += 12; //encrypt with +12 rotone
       file << c;
     }
   temp.close();
-  std::remove("tmp");
+  std::remove("tmp"); //remove tmp file
   file.close();
   return ;
 }
@@ -91,8 +89,7 @@ void	Save::save()
       if ((path = file_number()) != "NULL")
 	{
 	  //check state
-	  //write to tmp file
-	  build_tmp();
+	  build_tmp(); //write to tmp file
 
 	  //use specific function for parts such as header,maps...
 	  //include time reference to each save
@@ -103,20 +100,81 @@ void	Save::save()
     }
 }
 
+void	Save::read_file(std::string &path)
+{
+  std::ifstream in(path.c_str());
+  std::ofstream temp("temp");
+  char	c;
+
+  while (!in.eof())
+    {
+      in.get(c);
+      c -= 12; //decrypt file with -12 rotone
+      temp << c; //add to temporary file
+    }
+  temp.close();
+  in.close();
+}
+
+void	Save::store_data() //actually only display on stdout
+{
+  std::string line;
+  std::ifstream temp("temp");
+
+  while (getline(temp, line))
+    {
+      std::cout << "DATA: " << line << std::endl;
+    }
+  temp.close();
+  std::remove("temp");
+}
+
+std::string	Save::read_number()
+{
+  std::string	path;
+  std::stringstream ss;
+
+  ss << _file_number;
+  path += "save_";
+  path += ss.str();
+  path += ".data";
+  std::ifstream f(path.c_str());
+  if (f.good())
+    {
+      _file_number++;
+      return (path);
+    }
+  else
+    {
+      _counter++;
+      path = "NULL";
+    }
+  return (path);
+}
+
 void	Save::get_save()
 {
-  //read file by incresing number
-  //if found write and decrypt data to tmp
-  //decrypt with -12 rotone
-  //add element to list of data
-  //class by time (if possible)
-  //delete tmp file after use
-  //else search for next file if 5 time in a row no valid file exits
+  int	k = 0;
+  std::string path;
+
+  _file_number = 1;
+  while (1)
+    {
+      if (_counter > 10)
+	break; //end loop if no file found 10 times in a row
+      if ((path = read_number()) != "NULL") //read file by incresing number
+	{
+	  _counter = 0;
+	  //std::cout << "file number" << _file_number << " k "<< k << std::endl;
+	  read_file(path);
+	  store_data();   //add element to list of data
+	}
+      std::cout << "K " << _counter << std::endl;
+    }
 }
 
 void	Save::score()
 {
-
   //get highscore at begining and store them in list
   //store score and events in file
   //need encryption too
