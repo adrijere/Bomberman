@@ -5,7 +5,7 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Mon May 18 17:53:28 2015 simon hure
-// Last update Wed May 20 19:44:18 2015 simon hure
+// Last update Thu May 21 10:04:08 2015 simon hure
 //
 
 #include "../header/Save.hpp"
@@ -173,9 +173,3 @@ void	Save::get_save()
     }
 }
 
-void	Save::score()
-{
-  //get highscore at begining and store them in list
-  //store score and events in file
-  //need encryption too
-}
