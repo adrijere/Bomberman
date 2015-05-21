@@ -5,7 +5,7 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Mon May 18 17:53:28 2015 simon hure
-// Last update Thu May 21 10:04:08 2015 simon hure
+// Last update Thu May 21 12:34:39 2015 simon hure
 //
 
 #include "../header/Save.hpp"
@@ -154,7 +154,6 @@ std::string	Save::read_number()
 
 void	Save::get_save()
 {
-  int	k = 0;
   std::string path;
 
   _file_number = 1;
@@ -169,7 +168,6 @@ void	Save::get_save()
 	  read_file(path);
 	  store_data();   //add element to list of data
 	}
-      std::cout << "K " << _counter << std::endl;
     }
 }
 
