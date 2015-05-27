@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-** Last update Fri May 15 18:12:55 2015 Jérémy MATHON
+** Last update Thu May 21 12:08:55 2015 Jérémy MATHON
 */
 
 
@@ -33,7 +33,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input)
     translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_RIGHT))
     translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-  this->_model.setCurrentAnim("Take 001");
+  this->_model.setCurrentAnim(0);
 }
 
 void	Model::draw(gdl::AShader &shader, gdl::Clock const &clock)

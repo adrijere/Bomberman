@@ -9,6 +9,7 @@ Map::Map(int height, int width, int diff, std::string name) {
     this->width = width;
     this->difficulty = diff;
     this->name = name;
+    setMap();
 }
 
 Map::~Map() {
@@ -30,6 +31,19 @@ std::string     Map::getName() const {
     return (this->name);
 }
 
-void		Map::setMap(char **map) {
+void		Map::setMap() {
+  int		i;
+  int		j;
 
+  i = 0;
+  while (i != this->height)
+    {
+      j = 0;
+      while (j != this->width)
+	{
+	  map[i][j] = new Cube;
+	  j++;
+	}      
+      i++;
+    }
 }

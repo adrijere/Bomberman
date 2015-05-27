@@ -6,24 +6,27 @@
 # define MAP_H
 
 #include <iostream>
+#include "AObject.hpp"
 
-class Map {
-
-    int             height;
-    int             width;
-    int             difficulty;
-    std::string     name;
-    char            **map;
+class Map 
+{
+  int             height;
+  int             width;
+  int             difficulty;
+  std::string     name;
+  std::vector< std::vector<AObject *> >	map;
 
 public:
-    Map(int, int, int, std::string);
-    ~Map();
+  Map(int, int, int, std::string);
+  ~Map();
 
-    int             getHeight() const;
-    int             getWidth() const;
-    int             getDiff() const;
-    std::string     getName() const;
-    void            setMap(char **);
+  int             getHeight() const;
+  int             getWidth() const;
+  int             getDiff() const;
+  std::string     getName() const;
+  void            setMap();
 };
+
+void	operator[](std::vector<std::vector<AObject *> >);
 
 #endif /* ! MAP_H */
