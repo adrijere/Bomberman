@@ -5,7 +5,7 @@
 // Login   <hure_s@epitech.net>
 // 
 // Started on  Thu May 21 10:04:23 2015 simon hure
-// Last update Thu May 21 12:20:07 2015 simon hure
+// Last update Wed May 27 16:46:57 2015 simon hure
 //
 
 #ifndef _SCORE_HH_
@@ -37,7 +37,9 @@ public:
   ~Score();
 
   void	load_score();
-  void	edit_score();
+  void	edit_score_file();
+  void	edit_score_list();
+  void	append_in_list(int, std::list<t_high>::iterator &);
 
   void	decrypt_data();
   void	load_data();
