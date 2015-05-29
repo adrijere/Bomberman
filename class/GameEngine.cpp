@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-** Last update Fri May 15 17:25:03 2015 Jérémy MATHON
+// Last update Fri May 29 14:17:06 2015 Valentin Cardon
 */
 
 #include	"GameEngine.hpp"
@@ -32,9 +32,13 @@ bool	GameEngine::initialize()
   _shader.setUniform("projection", projection);
  // on creer un cube qu'on ajoute a la suite de la liste d'objets
   AObject *model = new Model();
+  AObject *ia = new IA();
   if (model->initialize() == false)
     return (false);
+  if (ia->initialize() == false)
+    return (false);
   _objects.push_back(model);
+  _objects.push_back(ia);
   return true;
 }
 
@@ -49,6 +53,7 @@ bool	GameEngine::update()
   _context.updateClock(_clock);
   _context.updateInputs(_input);
   // Mise a jour des differents objets
+  std::cout << "size = " << _objects.size() << std ::endl;
   for (size_t i = 0; i < _objects.size(); ++i)
     _objects[i]->update(_clock, _input);
   return true;
