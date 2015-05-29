@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-** Last update Tue May 12 15:36:48 2015 Jérémy MATHON
+// Last update Fri May 29 16:31:30 2015 Valentin Cardon
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -20,6 +20,7 @@
 #include	"AObject.hpp"
 #include	"Cube.hpp"
 #include	"Model.hpp"
+#include	"IA.hpp"
 
 /*
 On cree sa class GameEngine qui herite de Game
