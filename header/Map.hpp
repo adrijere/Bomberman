@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "AObject.hpp"
+#include "vector"
 
 class Map 
 {
@@ -14,7 +15,8 @@ class Map
   int             width;
   int             difficulty;
   std::string     name;
-  std::vector< std::vector<AObject *> >	map;
+
+  std::vector < std::vector<AObject *> >	map;
 
 public:
   Map(int, int, int, std::string);
@@ -27,6 +29,6 @@ public:
   void            setMap();
 };
 
-void	operator[](std::vector<std::vector<AObject *> >);
+// void	operator[](std::vector<std::vector<AObject *> >);
 
 #endif /* ! MAP_H */

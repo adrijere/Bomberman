@@ -3,6 +3,7 @@
 */
 
 #include "../header/Map.hpp"
+#include "../header/Cube.hpp"
 
 Map::Map(int height, int width, int diff, std::string name) {
     this->height = height;
@@ -43,7 +44,7 @@ void		Map::setMap() {
 	{
 	  map[i][j] = new Cube;
 	  j++;
-	}      
+	}
       i++;
     }
 }

@@ -14,7 +14,7 @@ TMP		=	$(SRC:.cpp=.cpp~)
 
 CXXFLAGS	=	-I ./header -I ./lib/includes
 
-LDFLAGS		=	-ldl -fPIC -lpthread -lrt -lGL -L./lib/libs/ -lgdl_gl -lGLEW -lfbxsdk -lSDL2 -ldl
+LDFLAGS		=	-ldl -fPIC -lpthread -lrt -lGL -L./lib/libs/ -lgdl_gl -lGLEW -lfbxsdk -lSDL2 -ldl -lSDL -lSDLmain -lSDL_image
 
 include		source.mk
 
