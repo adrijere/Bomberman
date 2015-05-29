@@ -43,6 +43,8 @@ bool	GameEngine::update()
   // Si la touche ECHAP est appuyee ou si l'utilisateur ferme la fenetre, on quitte les programmes
   if (_input.getKey(SDLK_ESCAPE) || _input.getInput(SDL_QUIT))
     return false;
+  if (_input.getKey(SDLK_RETURN))
+    return false;
   // Mise a jour des inputs et de l'horloge de jeu
   _context.updateClock(_clock);
   _context.updateInputs(_input);
