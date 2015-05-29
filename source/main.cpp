@@ -21,11 +21,11 @@ int main()
   while (engine.update() == true)
     engine.draw();
 
-/*  if (engine.initialize() == false)
+  if (engine.initialize() == false)
     return (EXIT_FAILURE);
 
   while (engine.update() == true)
-    engine.draw();*/
+    engine.draw();
 
   return EXIT_SUCCESS;
 }
