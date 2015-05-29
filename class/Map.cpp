@@ -33,18 +33,14 @@ std::string     Map::getName() const {
 }
 
 void		Map::setMap() {
-  int		i;
-  int		j;
+    int		i;
+    int		j;
 
-  i = 0;
-  while (i != this->height)
+    i = -1;
+    while (++i != this->height)
     {
-      j = 0;
-      while (j != this->width)
-	{
-	  map[i][j] = new Cube;
-	  j++;
-	}
-      i++;
+        j = -1;
+        while (++j != this->width)
+            map[i][j] = new Cube;
     }
 }

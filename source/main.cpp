@@ -18,13 +18,13 @@ int main()
   if (engine.Menu() == false)
     return (EXIT_FAILURE);
 
-  while (engine.update() == true)
+  while (engine.update() != 0)
     engine.draw();
 
-  if (engine.initialize() == false)
+  if (engine.initialize() == 1)
     return (EXIT_FAILURE);
 
-  while (engine.update() == true)
+  while (engine.update() != -1)
     engine.draw();
 
   return EXIT_SUCCESS;
