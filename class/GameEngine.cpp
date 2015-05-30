@@ -32,6 +32,9 @@ bool	GameEngine::initialize()
   _shader.setUniform("projection", projection);
  // on creer un cube qu'on ajoute a la suite de la liste d'objets
   AObject *model = new Model();
+
+/* AVEC L'AJOUT DES LIGNE DE L'IA LE BONHOMME NE S'AFFICHE PLUS ET LE JEU SE FERME TOUT SEUL*/
+
   AObject *ia = new IA();
   if (model->initialize() == false)
     return (false);
