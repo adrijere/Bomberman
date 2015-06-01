@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:05 2015 Jérémy MATHON
-// Last update Thu May  7 13:52:47 2015 Valentin Cardon
+// Last update Mon Jun  1 17:43:36 2015 Valentin Cardon
 */
 
 #include	"AObject.hpp"

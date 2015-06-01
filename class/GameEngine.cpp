@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Fri May 29 14:17:06 2015 Valentin Cardon
+// Last update Mon Jun  1 17:38:39 2015 Valentin Cardon
 */
 
 #include	"GameEngine.hpp"
@@ -30,18 +30,16 @@ bool	GameEngine::initialize()
   _shader.bind();
   _shader.setUniform("view", transformation);
   _shader.setUniform("projection", projection);
- // on creer un cube qu'on ajoute a la suite de la liste d'objets
+  // on creer un cube qu'on ajoute a la suite de la liste d'objets
   AObject *model = new Model();
+  AObject *ia = new IA();
 
-/* AVEC L'AJOUT DES LIGNES DE L'IA LE BONHOMME NE S'AFFICHE PLUS ET LE JEU SE FERME TOUT SEUL*/
-
-//  AObject *ia = new IA();
   if (model->initialize() == false)
     return (false);
-//  if (ia->initialize() == false)
-//    return (false);
+  if (ia->initialize() == false)
+    return (false);
   _objects.push_back(model);
-//  _objects.push_back(ia);
+  _objects.push_back(ia);
   return true;
 }
 
@@ -61,7 +59,6 @@ bool	GameEngine::update()
     _objects[i]->update(_clock, _input);
   return true;
 }
-
 
 void	GameEngine::draw()
 {

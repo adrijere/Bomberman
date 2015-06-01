@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:00 2015 Jérémy MATHON
-// Last update Thu May  7 15:35:08 2015 Valentin Cardon
+// Last update Mon Jun  1 17:43:10 2015 Valentin Cardon
 */
 
 #ifndef AOBJECT_HPP_
@@ -34,7 +34,8 @@ public:
   virtual void update(gdl::Clock const &clock, gdl::Input &input);
   // La fonction draw sert a dessiner l'objet
   virtual void draw(gdl::AShader &shader, gdl::Clock const &clock) = 0;
-  void	translate(glm::vec3 const &v);
+  // La fonction play sert au lancement de l'IA
+   void	translate(glm::vec3 const &v);
   void	rotate(glm::vec3 const &axis, float angle);
   void	scale(glm::vec3 const &scale);
   glm::mat4	getTransformation();

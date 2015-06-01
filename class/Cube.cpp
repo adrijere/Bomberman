@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-** Last update Tue May 12 09:59:33 2015 Jérémy MATHON
+// Last update Mon Jun  1 17:43:41 2015 Valentin Cardon
 */
 
 #include	"Cube.hpp"
