@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Mon Jun  1 17:38:39 2015 Valentin Cardon
+// Last update Mon Jun  1 18:55:36 2015 Valentin Cardon
 */
 
 #include	"GameEngine.hpp"
@@ -54,7 +54,7 @@ bool	GameEngine::update()
   _context.updateClock(_clock);
   _context.updateInputs(_input);
   // Mise a jour des differents objets
-  std::cout << "size = " << _objects.size() << std ::endl;
+  //std::cout << "size = " << _objects.size() << std ::endl;
   for (size_t i = 0; i < _objects.size(); ++i)
     _objects[i]->update(_clock, _input);
   return true;

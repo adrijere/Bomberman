@@ -5,13 +5,14 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-// Last update Fri May 29 16:31:30 2015 Valentin Cardon
+// Last update Mon Jun  1 18:48:12 2015 Valentin Cardon
 */
 
 #ifndef GAMEENGINE_HPP_
 # define GAMEENGINE_HPP_
 
 #pragma	once
+#include	<unistd.h>
 #include	<SdlContext.hh>
 #include	<BasicShader.hh>
 #include	<Game.hh>
