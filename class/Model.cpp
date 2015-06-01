@@ -14,11 +14,13 @@
 bool	Model::initialize()
 {
   this->_speed = 10.0f;
+  
   if (_model.load("./lib/assets/marvin.fbx") == false)
     {
       std::cerr << "Cannot load the model texture" << std::endl;
       return (false);
-    }
+    } 
+  
   this->scale(glm::vec3(0.01, 0.01, 0.01)); 
   return (true);
 }

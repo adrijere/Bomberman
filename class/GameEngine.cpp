@@ -33,15 +33,15 @@ bool	GameEngine::initialize()
  // on creer un cube qu'on ajoute a la suite de la liste d'objets
   AObject *model = new Model();
 
-/* AVEC L'AJOUT DES LIGNE DE L'IA LE BONHOMME NE S'AFFICHE PLUS ET LE JEU SE FERME TOUT SEUL*/
+/* AVEC L'AJOUT DES LIGNES DE L'IA LE BONHOMME NE S'AFFICHE PLUS ET LE JEU SE FERME TOUT SEUL*/
 
-  AObject *ia = new IA();
+//  AObject *ia = new IA();
   if (model->initialize() == false)
     return (false);
-  if (ia->initialize() == false)
-    return (false);
+//  if (ia->initialize() == false)
+//    return (false);
   _objects.push_back(model);
-  _objects.push_back(ia);
+//  _objects.push_back(ia);
   return true;
 }
 
