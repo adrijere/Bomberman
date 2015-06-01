@@ -29,11 +29,5 @@ bool	GameEngine::Menu(){
   if (model->initialize() == false)
     return (false);
   _objects.push_back(model);
-  return true;    
-    
-    
-    
-    
-    
-    
+  return true;           
 }
