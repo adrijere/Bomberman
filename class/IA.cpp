@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Mon Jun  1 19:06:00 2015 Valentin Cardon
+// Last update Mon Jun  1 19:08:29 2015 Valentin Cardon
 //
 
 #include	"IA.hpp"
@@ -51,6 +51,7 @@ void		IA::move(gdl::Clock const& clock, int const& input)
     {
       //BOOOOOOOM TA MERE
       //recule pour ne pas se faire peter la tronche lui mê
+      //attend que la bombe explose
     }
 }
 
