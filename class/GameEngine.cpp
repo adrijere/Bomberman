@@ -25,13 +25,11 @@ bool	GameEngine::initialize()
 
   projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
 
-  AObject *menu = new MyMenu();
-  AObject *model = new Model();
-  AObject *ia = new IA();
-
   if (this->_pause == 0) {
 
-    transformation = glm::lookAt(glm::vec3(0, 0, 1.35), glm::vec3(0, 0, 0), glm::vec3(-175, 1, 0));
+    AObject *menu = new MyMenu();
+
+    transformation = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 0), glm::vec3(-175, 1, 0));
     _shader.bind();
     _shader.setUniform("view", transformation);
     _shader.setUniform("projection", projection);
@@ -42,6 +40,9 @@ bool	GameEngine::initialize()
   }
 
   else if (this->_pause == 1) {
+
+    AObject *model = new Model();
+    AObject *ia = new IA();
 
     transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
     // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
@@ -68,10 +69,11 @@ bool	GameEngine::update()
   // Si la touche ECHAP est appuyee ou si l'utilisateur ferme la fenetre, on quitte les programmes
   if (_input.getKey(SDLK_ESCAPE) || _input.getInput(SDL_QUIT))
     return false;
-  if (_input.getKey(SDLK_RETURN)) {
+
+//  if (_input.getKey(SDLK_RETURN)) {
 //    this->_pause = 0;
-    return true;
-  }
+//    return true;
+ //}
   // Mise a jour des inputs et de l'horloge de jeu
   _context.updateClock(_clock);
   _context.updateInputs(_input);
