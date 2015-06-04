@@ -30,8 +30,13 @@ bool	GameEngine::initialize()
   _shader.setUniform("projection", projection);
   // on creer un cube qu'on ajoute a la suite de la liste d'objets
 
-//  transformation = glm::lookAt(glm::vec3(0, 0, -0.5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
-//  AObject *menu = new MyMenu();
+
+/* ----------------> BUILD POUR LE MENU <-----------------*/
+
+/*  transformation = glm::lookAt(glm::vec3(0, 0, 1.5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
+  _shader.bind();
+  _shader.setUniform("view", transformation);
+  _shader.setUniform("projection", projection);  AObject *menu = new MyMenu();*/
   AObject *model = new Model();
   AObject *ia = new IA();
   
@@ -40,7 +45,7 @@ bool	GameEngine::initialize()
   
   if (model->initialize() == false)
     return (false);
-  
+
   if (ia->initialize() == false)
     return (false);
   
