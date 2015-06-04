@@ -19,18 +19,19 @@ bool	MyMenu::initialize(){
     
   _speed = 10.0f;
 
-  if (_texture.load("./img/menu.tga") == false)
+  std::string   imgMenu;
+
+  imgMenu = "./img/menu.tga";
+  if (_texture.load(imgMenu) == false)
     {
-      std::cerr << "Cannot load the cube texture diocan" << std::endl;
+      std::cerr << "Cannot load the texture " << imgMenu << " needed for the menu."<< std::endl;
       return (false);
   }
 
-//  _geometry.setColor(glm::vec4(1, 0, 0, 1));
-
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, -0.9, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0.9, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0.9, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, -0.9, 0.5));
 
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));

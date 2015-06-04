@@ -1,9 +1,9 @@
 /*
 ** GameEngine.cpp for GameEngine in /home/mathon_j/rendu/cpp_bomberman/class
-** 
+**
 ** Made by Jérémy MATHON
 ** Login   <mathon_j@mathonj>
-** 
+**
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
 // Last update Mon Jun  1 18:55:36 2015 Valentin Cardon
 */
@@ -22,37 +22,44 @@ bool	GameEngine::initialize()
     return false;
   glm::mat4 projection;
   glm::mat4 transformation;
+
   projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
-  transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
-  // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
-  _shader.bind();
-  _shader.setUniform("view", transformation);
-  _shader.setUniform("projection", projection);
-  // on creer un cube qu'on ajoute a la suite de la liste d'objets
 
-
-/* ----------------> BUILD POUR LE MENU <-----------------*/
-
-/*  transformation = glm::lookAt(glm::vec3(0, 0, 1.5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
-  _shader.bind();
-  _shader.setUniform("view", transformation);
-  _shader.setUniform("projection", projection);  AObject *menu = new MyMenu();*/
+  AObject *menu = new MyMenu();
   AObject *model = new Model();
   AObject *ia = new IA();
-  
-/*  if (menu->initialize() == false)
-    return (false);*/
-  
-  if (model->initialize() == false)
-    return (false);
 
-  if (ia->initialize() == false)
-    return (false);
-  
-//  _objects.push_back(menu);
-  _objects.push_back(model);
-  _objects.push_back(ia);
-  
+  if (this->_pause == 0) {
+
+    transformation = glm::lookAt(glm::vec3(0, 0, 1.35), glm::vec3(0, 0, 0), glm::vec3(-175, 1, 0));
+    _shader.bind();
+    _shader.setUniform("view", transformation);
+    _shader.setUniform("projection", projection);
+
+    if (menu->initialize() == false)
+      return (false);
+    _objects.push_back(menu);
+  }
+
+  else if (this->_pause == 1) {
+
+    transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
+    // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
+    _shader.bind();
+    _shader.setUniform("view", transformation);
+    _shader.setUniform("projection", projection);
+    // on creer un cube qu'on ajoute a la suite de la liste d'objets
+
+    if (model->initialize() == false)
+      return (false);
+
+    if (ia->initialize() == false)
+      return (false);
+
+    _objects.push_back(ia);
+    _objects.push_back(model);
+  }
+
   return true;
 }
 
@@ -61,8 +68,10 @@ bool	GameEngine::update()
   // Si la touche ECHAP est appuyee ou si l'utilisateur ferme la fenetre, on quitte les programmes
   if (_input.getKey(SDLK_ESCAPE) || _input.getInput(SDL_QUIT))
     return false;
-  if (_input.getKey(SDLK_RETURN))
-    return false;
+  if (_input.getKey(SDLK_RETURN)) {
+//    this->_pause = 0;
+    return true;
+  }
   // Mise a jour des inputs et de l'horloge de jeu
   _context.updateClock(_clock);
   _context.updateInputs(_input);
@@ -87,6 +96,7 @@ void	GameEngine::draw()
 }
 
 GameEngine::GameEngine() {
+  this->_pause = 1;
 }
 
 GameEngine::~GameEngine()

@@ -36,6 +36,7 @@ private:
   gdl::Input            _input;
   std::vector<AObject*> _objects;
   gdl::BasicShader      _shader;
+  int                   _pause;
 
 public:
   GameEngine();
