@@ -2,6 +2,7 @@
 #########################
 bomberman
 unit
+CMakeLists.txt
 a.out
 .score
 .idea

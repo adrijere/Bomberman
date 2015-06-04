@@ -5,7 +5,7 @@
 ## Login   <cardon_v@epitech.net>
 ##
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Thu May  7 21:03:10 2015 Jérémy MATHON
+## Last update Thu Jun  4 16:46:21 2015 Gabriele Marsili
 ##
 
 NAME		=	bomberman

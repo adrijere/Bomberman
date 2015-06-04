@@ -1,33 +1,64 @@
 //
-// Created by marsil_g on 19/05/15.
+// Menu.cpp for menu in /home/marsil_g/rendu/cpp_bomberman
+// 
+// Made by Gabriele Marsili
+// Login   <marsil_g@epitech.net>
+// 
+// Started on  Thu Jun  4 17:05:18 2015 Gabriele Marsili
+// Last update Thu Jun  4 17:05:18 2015 Gabriele Marsili
 //
 
-#include        "../header/GameEngine.hpp"
-#include        <SDL/SDL.h>
-#include        <SDL/SDL_image.h>
+#include        "../header/Menu.hpp"
 
-bool	GameEngine::Menu(){
+MyMenu::MyMenu() {
+}
 
-    if (!_context.start(420, 280, "Main Menu")) // on cree une fenetre
-        return false;
-  glEnable(GL_DEPTH_TEST);
-  if (!_shader.load("./lib/shaders/basic.fp", GL_FRAGMENT_SHADER)
-      || !_shader.load("./lib/shaders/basic.vp", GL_VERTEX_SHADER)
-      || !_shader.build()) // on charge ici la libraire pour les shaders
-    return false;
-  glm::mat4 projection;
-  glm::mat4 transformation;
-  projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
-  transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
-  // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
-  _shader.bind();
-  _shader.setUniform("view", transformation);
-  _shader.setUniform("projection", projection);
- // on creer un cube qu'on ajoute a la suite de la liste d'objets
-  AObject *model = new Model();
+MyMenu::~MyMenu() {
+}
+bool	MyMenu::initialize(){
+    
+  _speed = 10.0f;
 
-  if (model->initialize() == false)
-    return (false);
-  _objects.push_back(model);
-  return true;           
+  if (_texture.load("./img/menu.tga") == false)
+    {
+      std::cerr << "Cannot load the cube texture diocan" << std::endl;
+      return (false);
+  }
+
+//  _geometry.setColor(glm::vec4(1, 0, 0, 1));
+
+  _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
+
+  _geometry.pushUv(glm::vec2(0.0f, 0.0f));
+  _geometry.pushUv(glm::vec2(1.0f, 0.0f));
+  _geometry.pushUv(glm::vec2(1.0f, 1.0f));
+  _geometry.pushUv(glm::vec2(0.0f, 1.0f));
+
+  _geometry.build();
+  return (true);
+}
+
+void MyMenu::update(gdl::Clock const &clock, gdl::Input &input)
+{
+
+  if (input.getKey(SDLK_DOWN))
+    translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input.getKey(SDLK_UP))
+    translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input.getKey(SDLK_RIGHT))
+    translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input.getKey(SDLK_LEFT))
+    translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+}
+
+void MyMenu::draw(gdl::AShader &shader, gdl::Clock const &clock)
+{
+  (void)clock;
+  
+  _texture.bind();
+  
+  _geometry.draw(shader, getTransformation(), GL_QUADS);
 }

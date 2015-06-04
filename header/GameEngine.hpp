@@ -22,6 +22,7 @@
 #include	"Cube.hpp"
 #include	"Model.hpp"
 #include	"IA.hpp"
+#include	"Menu.hpp"
 
 /*
 On cree sa class GameEngine qui herite de Game

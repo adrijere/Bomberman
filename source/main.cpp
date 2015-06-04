@@ -15,12 +15,6 @@ int main()
 {
   GameEngine engine;
 
-/*  if (engine.Menu() == false)
-    return (EXIT_FAILURE);
-
-  while (engine.update() == true)
-    engine.draw();*/
-
   if (engine.initialize() == false)
     return (EXIT_FAILURE);
 

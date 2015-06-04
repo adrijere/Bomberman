@@ -8,10 +8,8 @@
 // Last update Mon Jun  1 18:55:36 2015 Valentin Cardon
 */
 
-#include	"GameEngine.hpp"
-
-GameEngine::GameEngine()
-{}
+#include	"../header/GameEngine.hpp"
+#include    "../header/Menu.hpp"
 
 bool	GameEngine::initialize()
 {
@@ -31,15 +29,25 @@ bool	GameEngine::initialize()
   _shader.setUniform("view", transformation);
   _shader.setUniform("projection", projection);
   // on creer un cube qu'on ajoute a la suite de la liste d'objets
+
+//  transformation = glm::lookAt(glm::vec3(0, 0, -0.5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
+//  AObject *menu = new MyMenu();
   AObject *model = new Model();
   AObject *ia = new IA();
-
+  
+/*  if (menu->initialize() == false)
+    return (false);*/
+  
   if (model->initialize() == false)
     return (false);
+  
   if (ia->initialize() == false)
     return (false);
+  
+//  _objects.push_back(menu);
   _objects.push_back(model);
   _objects.push_back(ia);
+  
   return true;
 }
 
@@ -71,6 +79,9 @@ void	GameEngine::draw()
     _objects[i]->draw(_shader, _clock);
   // On met ensuite a jour l'ecran pour que ce que l'on a dessine s'affiche
   _context.flush();
+}
+
+GameEngine::GameEngine() {
 }
 
 GameEngine::~GameEngine()
