@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Mon Jun  1 18:55:36 2015 Valentin Cardon
+// Last update Fri Jun  5 15:10:23 2015 Valentin Cardon
 */
 
 #include	"../header/GameEngine.hpp"

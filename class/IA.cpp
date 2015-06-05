@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Thu Jun  4 16:35:51 2015 Valentin Cardon
+// Last update Fri Jun  5 15:11:07 2015 Valentin Cardon
 //
 
 #include	"IA.hpp"
@@ -22,16 +22,20 @@ bool		IA::initialize()
   return (true);
 }
 
-void		IA::go_back(gdl::Clock const& clock)
+void		IA::go_back(gdl::Clock const& clock, int input)
 {
-  
+  if (input == 0)
+    translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input == 1)
+    translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input == 2)
+    translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input == 3)
+    translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
 }
 
 void		IA::move(gdl::Clock const& clock, int input)
 {
-  int		i;
-
-  i = 0;
   if (input == 0)
     translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input == 1)
@@ -44,8 +48,8 @@ void		IA::move(gdl::Clock const& clock, int input)
     {
       std::cout << "BOOM !!" << std::endl;
       //AObject *bomb = new Bomb();
-      //bomb->initalize();
-      go_back(clock);
+      //bomb->initialize();
+      //go_back(clock, input);
     }
 }
 

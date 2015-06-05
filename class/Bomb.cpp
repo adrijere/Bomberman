@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Thu Jun  4 15:05:38 2015 Valentin Cardon
+// Last update Fri Jun  5 13:11:26 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -28,9 +28,12 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input)
     delete (this);
 }
 
-void	Bomb::update(gdl::AShader &shader, gdl::Clock const &clock)
+/*void	Bomb::update(gdl::AShader &shader, gdl::Clock const &clock)
 {
   (void)clock;
   _texture.bind();
   _geometry.draw(shader, getTransformation(), GL_QUADS);
-}
+  }*/
+
+void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)
+{}
