@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Mon Jun  1 19:08:29 2015 Valentin Cardon
+// Last update Thu Jun  4 16:35:51 2015 Valentin Cardon
 //
 
 #include	"IA.hpp"
@@ -22,36 +22,30 @@ bool		IA::initialize()
   return (true);
 }
 
-void		IA::move(gdl::Clock const& clock, int const& input)
+void		IA::go_back(gdl::Clock const& clock)
 {
-  std::list<int>	last_move;
+  
+}
 
-  last_move.push_back(input);
+void		IA::move(gdl::Clock const& clock, int input)
+{
+  int		i;
+
+  i = 0;
   if (input == 0)
-    {
-      //rotation(up)
-      translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-    }
+    translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input == 1)
-    {
-      //rotation(dowm)
-      translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
-    }
+    translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input == 2)
-    {
-      //rotation(right);
-      translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-    }
+    translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input == 3)
-    {
-      //rotation(left);
-      translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-    }
+    translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input == 4)
     {
-      //BOOOOOOOM TA MERE
-      //recule pour ne pas se faire peter la tronche lui mê
-      //attend que la bombe explose
+      std::cout << "BOOM !!" << std::endl;
+      //AObject *bomb = new Bomb();
+      //bomb->initalize();
+      go_back(clock);
     }
 }
 
@@ -62,10 +56,16 @@ void		IA::draw(gdl::AShader &shader, gdl::Clock const& clock)
 
 void		IA::update(gdl::Clock const& clock, gdl::Input &input)
 {
-  int		i;
+  static int	i = rand() % 5;
+  static int	time = 25;
 
-  srand(time(NULL));
-  i = rand() % 5;
+  if (i == 4 || time == 0)
+    {
+      i = rand() % 5;
+      time = 25;
+    }
+  else
+    time--;
   move(clock, i);
   usleep(5000);
 }

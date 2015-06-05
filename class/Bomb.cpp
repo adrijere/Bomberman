@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-** Last update Wed Jun  3 18:08:01 2015 Jérémy MATHON
+// Last update Thu Jun  4 15:05:38 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -23,7 +23,7 @@ bool	Bomb::initialize()
 void	Bomb::update(gdl::Clock const &clock, gdl::Input &input)
 {
   if (this->_time > 0)
-    time--;
+    _time--;
   if (this->_time == 0)
     delete (this);
 }

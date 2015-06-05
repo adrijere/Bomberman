@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-** Last update Tue May 12 10:47:38 2015 Jérémy MATHON
+// Last update Thu Jun  4 14:42:43 2015 Valentin Cardon
 */
 
 #ifndef MODEL_HPP_
@@ -25,16 +25,6 @@ private:
 public:
   Model() { }
   virtual ~Model() { }
-  bool	initialize();
-  void	update(gdl::Clock const &clock, gdl::Input &input);
-  void	draw(gdl::AShader &shader, gdl::Clock const &clock);
-};
-
-class Bomb : public AObject
-{
-public:
-  Bomb() { }
-  virtual ~Bomb() { }
   bool	initialize();
   void	update(gdl::Clock const &clock, gdl::Input &input);
   void	draw(gdl::AShader &shader, gdl::Clock const &clock);
