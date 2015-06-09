@@ -19,15 +19,15 @@ class Map
   std::vector < std::vector<AObject *> >	map;
 
 public:
-  Map();
-  Map(int, int, int, std::string);
+  Map(std::vector<AObject *> &);
+  Map(int, int, int, std::string, std::vector<AObject *> &);
   ~Map();
 
   int           getHeight() const;
   int           getWidth() const;
   int           getDiff() const;
   std::string   getName() const;
-  void		setMap();
+  void		setMap(std::vector<AObject *> &);
   std::vector<AObject *>		operator[](size_t);
 };
 
