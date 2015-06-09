@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-** Last update Tue Jun  9 11:14:32 2015 Jérémy MATHON
+// Last update Tue Jun  9 22:43:40 2015 hures
 */
 
 #ifndef CUBE_HPP_
@@ -24,10 +24,12 @@ private:
   gdl::Texture _texture;   // La texture utilisee pour le Cube
   gdl::Geometry _geometry;   // La geometrie du Cube
   float _speed; // La vitesse de deplacement du Cube
+  int	_x;
+  int	_y;
   
 public:
-  Cube() { }
-  virtual ~Cube() { }
+  Cube(int, int);
+  virtual ~Cube();
   bool	initialize();
   void	update(gdl::Clock const &clock, gdl::Input &input);
   void	draw(gdl::AShader &shader, gdl::Clock const &clock);

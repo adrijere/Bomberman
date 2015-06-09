@@ -5,10 +5,21 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-** Last update Tue Jun  9 10:43:48 2015 Jérémy MATHON
+// Last update Tue Jun  9 22:44:55 2015 hures
 */
 
 #include	"Cube.hpp"
+
+Cube::Cube(int x, int y)
+{
+  _x = x;
+  _y = y;
+}
+
+Cube::~Cube()
+{
+
+}
 
 bool	Cube::initialize()
 {
@@ -90,6 +101,8 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
+
+  translate(glm::vec3(_x, 0, _y));
   // Tres important, on n'oublie pas de build la geometrie pour envoyer ses informations a la carte graphique
   _geometry.build();
   return (true);
@@ -99,14 +112,15 @@ bool	Cube::initialize()
 void Cube::update(gdl::Clock const &clock, gdl::Input &input)
 {
   // On multiplie par le temps ecoule depuis la derniere image pour que la vitesse ne depende pas de la puissance de l'ordinateur
-  if (input.getKey(SDLK_DOWN))
-    translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
-  if (input.getKey(SDLK_UP))
-    translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-  if (input.getKey(SDLK_RIGHT))
-    translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-  if (input.getKey(SDLK_LEFT))
-    translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+  
+  // if (input.getKey(SDLK_DOWN))
+  //   translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
+  // if (input.getKey(SDLK_UP))
+  //   translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
+  // if (input.getKey(SDLK_RIGHT))
+  //   translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+  // if (input.getKey(SDLK_LEFT))
+  //   translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
 }
 
 void Cube::draw(gdl::AShader &shader, gdl::Clock const &clock)

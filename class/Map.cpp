@@ -54,7 +54,7 @@ void		Map::setMap(std::vector<AObject *> &object) {
         while (++j != this->width)
 	  {
 	    //	  this->map[i][j] = new Cube();
-	    obj = new Grass(i, j);
+	    obj = new Cube(i, j);
 	    obj->initialize();
 	    object.push_back(obj);
 	  }
