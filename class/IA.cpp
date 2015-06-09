@@ -5,20 +5,20 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-** Last update Tue Jun  9 11:14:42 2015 Jérémy MATHON
+// Last update Tue Jun  9 17:02:38 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
 
 bool		IA::initialize()
 {
-  this->_speed = 10.0f;
+  this->_speed = 5.0f;
   if(_ia.load("./lib/assets/marvin.fbx") == false)
     {
       std::cerr << "Cannot load the model texture" << std::endl;
       return (false);
     }
-  this->scale(glm::vec3(0.01, 0.01, 0.01));
+  this->scale(glm::vec3(0.001, 0.001, 0.001));
   return (true);
 }
 

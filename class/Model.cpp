@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-** Last update Tue Jun  9 11:13:11 2015 Jérémy MATHON
+// Last update Tue Jun  9 17:08:22 2015 Valentin Cardon
 */
 
 
@@ -13,7 +13,7 @@
 
 bool	Model::initialize()
 {
-  this->_speed = 10.0f;
+  this->_speed = 5.0f;
   
   if (_model.load("./lib/assets/marvin.fbx") == false)
     {
@@ -21,7 +21,7 @@ bool	Model::initialize()
       return (false);
     } 
   
-  this->scale(glm::vec3(0.01, 0.01, 0.01)); 
+  this->scale(glm::vec3(0.0015, 0.0015, 0.0015)); 
   return (true);
 }
 
