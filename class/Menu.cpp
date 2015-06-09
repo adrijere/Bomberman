@@ -5,7 +5,7 @@
 // Login   <marsil_g@epitech.net>
 // 
 // Started on  Thu Jun  4 17:05:18 2015 Gabriele Marsili
-** Last update Tue Jun  9 16:00:57 2015 Jérémy MATHON
+** Last update Tue Jun  9 16:30:05 2015 Jérémy MATHON
 */
 
 #include        "../header/Menu.hpp"
@@ -46,6 +46,7 @@ bool	Menu::Check(int ac, char **av)
 	  std::cout << std::endl;
 	  if (ret.compare("R") == 0)
 	    {
+	      this->_map = "";
 	      std::cout << "Map random générée" << std::endl;
 	      std::cout << std::endl;
 	      break;

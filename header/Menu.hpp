@@ -5,7 +5,7 @@
 // Login   <marsil_g@epitech.net>
 // 
 // Started on  Thu Jun  4 17:05:27 2015 Gabriele Marsili
-** Last update Tue Jun  9 15:43:28 2015 Jérémy MATHON
+** Last update Tue Jun  9 16:29:13 2015 Jérémy MATHON
 */
 
 #ifndef			MENU_HPP_
@@ -17,11 +17,9 @@
 
 class		Menu
 {
-protected:
+public:
   int			_players;
   std::string		_map;
-
-public:
   Menu();
   ~Menu();
   bool	Check(int, char **);
