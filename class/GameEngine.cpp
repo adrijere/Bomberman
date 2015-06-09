@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Tue Jun  9 22:27:23 2015 hures
+// Last update Tue Jun  9 23:06:22 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -25,44 +25,32 @@ bool	GameEngine::initialize()
 
   projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
 
-  if (this->_pause == 0) {
+  transformation = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 0), glm::vec3(-175, 1, 0));
+  _shader.bind();
+  _shader.setUniform("view", transformation);
+  _shader.setUniform("projection", projection);
 
-    AObject *menu = new MyMenu();
-
-    transformation = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 0), glm::vec3(-175, 1, 0));
-    _shader.bind();
-    _shader.setUniform("view", transformation);
-    _shader.setUniform("projection", projection);
-
-    if (menu->initialize() == false)
-      return (false);
-    _objects.push_back(menu);
-  }
-
-  else if (this->_pause == 1) {
-
-    AObject *model = new Model();
-    AObject *ia = new IA();
-    Map	test(20, 20, 2, "test", _objects);
+  AObject *model = new Model();
+  AObject *ia = new IA();
+  Map	test(20, 20, 2, "test", _objects);
     
-    transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
-    // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
-    _shader.bind();
-    _shader.setUniform("view", transformation);
-    _shader.setUniform("projection", projection);
-    // on creer un cube qu'on ajoute a la suite de la liste d'objets
+  transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
+  // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
+  _shader.bind();
+  _shader.setUniform("view", transformation);
+  _shader.setUniform("projection", projection);
+  // on creer un cube qu'on ajoute a la suite de la liste d'objets
 
-    if (model->initialize() == false)
-      return (false);
+  if (model->initialize() == false)
+    return (false);
 
-    if (ia->initialize() == false)
-      return (false);
+  if (ia->initialize() == false)
+    return (false);
 
-    _objects.push_back(ia);
-    _objects.push_back(model);
-  }
-
-  return true;
+  _objects.push_back(ia);
+  _objects.push_back(model);
+  
+return true;
 }
 
 bool	GameEngine::update()
