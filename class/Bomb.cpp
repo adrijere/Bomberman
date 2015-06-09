@@ -5,14 +5,14 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-** Last update Tue Jun  9 10:43:46 2015 Jérémy MATHON
+// Last update Tue Jun  9 17:59:36 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
 
 bool	Bomb::initialize()
 {
-  if (_texture.load("./lib/assets/grass.tga") == false)
+  if (_texture.load("./lib/assets/bombe.tga") == false)
     {
       std::cerr << "Cannot load the cube texture" << std::endl;
       return (false);

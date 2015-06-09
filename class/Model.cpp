@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Tue Jun  9 17:08:22 2015 Valentin Cardon
+// Last update Tue Jun  9 18:08:15 2015 Valentin Cardon
 */
 
 
@@ -35,6 +35,10 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input)
     translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_RIGHT))
     translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+  if (input.getKey(SDLK_SPACE))
+    {
+      //pose une bombe
+    }
   this->_model.setCurrentAnim(0);
 }
 

@@ -5,13 +5,14 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-** Last update Tue Jun  9 11:13:30 2015 Jérémy MATHON
+// Last update Tue Jun  9 18:05:58 2015 Valentin Cardon
 */
 
 #ifndef MODEL_HPP_
 # define MODEL_HPP_
 
 #include	<Model.hh>
+#include	"Bomb.hpp"
 #include	"AObject.hpp"
 
 class Model : public AObject
