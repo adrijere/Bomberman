@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Tue Jun  9 17:02:38 2015 Valentin Cardon
+// Last update Tue Jun  9 17:38:41 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
@@ -18,7 +18,7 @@ bool		IA::initialize()
       std::cerr << "Cannot load the model texture" << std::endl;
       return (false);
     }
-  this->scale(glm::vec3(0.001, 0.001, 0.001));
+  this->scale(glm::vec3(0.0015, 0.0015, 0.0015));
   return (true);
 }
 
