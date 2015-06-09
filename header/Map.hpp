@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Grass.hpp"
 #include "AObject.hpp"
 
 class Map 
@@ -15,7 +16,7 @@ class Map
   int             width;
   int             difficulty;
   std::string     name;
-
+  
   std::vector < std::vector<AObject *> >	map;
 
 public:

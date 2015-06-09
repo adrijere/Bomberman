@@ -12,6 +12,8 @@ Map::Map(std::vector<AObject *> &object)
   this->width = rand() % 100;
   this->difficulty = 0;
   this->name = "";
+  std::vector < std::vector<AObject *> >        tmp(height, std::vector<AObject *>(width));
+  map = tmp;
   setMap(object);
 }
 
@@ -20,6 +22,8 @@ Map::Map(int height, int width, int diff, std::string name, std::vector<AObject 
     this->width = width;
     this->difficulty = diff;
     this->name = name;
+    std::vector < std::vector<AObject *> >        tmp(height, std::vector<AObject *>(width));
+    map = tmp;
     setMap(object);
 }
 
@@ -46,17 +50,20 @@ void		Map::setMap(std::vector<AObject *> &object) {
     int		i;
     int		j;
     AObject	*obj;
-
+    
     i = -1;
     while (++i != this->height)
     {
         j = -1;
         while (++j != this->width)
 	  {
-	    //	  this->map[i][j] = new Cube();
-	    obj = new Cube(i, j);
+	    if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
+	      obj = new Cube(i, j);
+	    else
+	      obj = new Grass(i, j);
 	    obj->initialize();
 	    object.push_back(obj);
+	    this->map[i][j] = obj;
 	  }
     }
 }
@@ -65,4 +72,4 @@ std::vector<AObject*>	Map::operator[](size_t i)
 {
   if (i < this->map.size())
     return (this->map[i]);
-} 
+}
