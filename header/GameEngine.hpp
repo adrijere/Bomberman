@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-// Last update Tue Jun  9 22:28:54 2015 hures
+** Last update Tue Jun  9 16:29:02 2015 Jérémy MATHON
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -18,6 +18,7 @@
 #include	<Game.hh>
 #include	<Clock.hh>
 #include	<vector>
+#include	<string>
 #include	"AObject.hpp"
 #include	"Cube.hpp"
 #include	"Model.hpp"
@@ -40,6 +41,8 @@ protected:
   int                   _pause;
 
 public:
+  int			_players;
+  std::string		_map;
   GameEngine();
   bool  initialize();
   bool  update();
