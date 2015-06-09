@@ -1,28 +1,5 @@
 TOUJOURS PULL AVANT DE PUSH
 MESSAGE DU COMMIT EXPLICITE
 
-Faire ensemble l'architecture du projet
-
-Coder IA
-Coder Player(Déplacement, poser des bombes)
-Coder Explosion bombe
-Gérer la map en temps réel
-Sauvegarder une partie
-Lancer une partie sauvegardée
-Gérer Victoire / Défaite
-Gérer Score et Classement persistant
-Faire une intro
-Faire un menu
-Gérer le mode 2Joueurs
-Générer un générateur de map random
-Créer des maps prédéfinis
-Gérer les 3 bonus OBLIGATOIRES : poser une bombe supplémentaire, augmenter la portée des bombes d'une case, augmenter la vitesse du Player de 1 unité
-
-BONUS :
-Réaliser des modes (tel que Capture The Flag)
-Utilisation du LeapMotion
-Plusieurs Skins pour les personnages
-Pouvoir modifier les touches pour se déplacer
-Différentes types de bombes
-Différents Bonus (plus de bombes, les bombes explosent plus loin, augmentation de la vitesse de déplacement du Player)
-Proposer plusieurs Script d'IA --> UTILISATION DU LANGAGE LUA FORTEMENT RECOMMANDÉE
+Option -l pour la save
+map prédéfinie (parser à faire)
