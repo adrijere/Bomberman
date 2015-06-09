@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-** Last update Tue Jun  9 11:12:20 2015 Jérémy MATHON
+// Last update Tue Jun  9 22:28:54 2015 hures
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -22,6 +22,7 @@
 #include	"Cube.hpp"
 #include	"Model.hpp"
 #include	"IA.hpp"
+#include	"Map.hpp"
 #include	"Menu.hpp"
 
 /*

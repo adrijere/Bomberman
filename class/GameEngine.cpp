@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-** Last update Tue Jun  9 11:45:28 2015 Jérémy MATHON
+// Last update Tue Jun  9 22:27:23 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -43,7 +43,8 @@ bool	GameEngine::initialize()
 
     AObject *model = new Model();
     AObject *ia = new IA();
-
+    Map	test(20, 20, 2, "test", _objects);
+    
     transformation = glm::lookAt(glm::vec3(0, 10, -30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // et ici la position
     // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
     _shader.bind();

@@ -5,22 +5,22 @@
 #include "../header/Map.hpp"
 #include "../header/Cube.hpp"
 
-Map::Map()
+Map::Map(std::vector<AObject *> &object)
 {
   srand(time(NULL));
   this->height = rand() % 100;
   this->width = rand() % 100;
   this->difficulty = 0;
   this->name = "";
-  setMap();
+  setMap(object);
 }
 
-Map::Map(int height, int width, int diff, std::string name) {
+Map::Map(int height, int width, int diff, std::string name, std::vector<AObject *> &object) {
     this->height = height;
     this->width = width;
     this->difficulty = diff;
     this->name = name;
-    setMap();
+    setMap(object);
 }
 
 Map::~Map() {
@@ -42,16 +42,22 @@ std::string     Map::getName() const {
     return (this->name);
 }
 
-void		Map::setMap() {
+void		Map::setMap(std::vector<AObject *> &object) {
     int		i;
     int		j;
+    AObject	*obj;
 
     i = -1;
     while (++i != this->height)
     {
         j = -1;
         while (++j != this->width)
-	  this->map[i][j] = new Cube();
+	  {
+	    //	  this->map[i][j] = new Cube();
+	    obj = new Cube(i, j);
+	    obj->initialize();
+	    object.push_back(obj);
+	  }
     }
 }
 
