@@ -5,7 +5,7 @@
 ## Login   <cardon_v@epitech.net>
 ##
 ## Started on  Thu Apr 30 13:35:19 2015 Valentin Cardon
-## Last update Tue Jun  9 11:06:17 2015 Jérémy MATHON
+## Last update Tue Jun  9 13:48:50 2015 Valentin Cardon
 ##
 
 NAME		=	bomberman
@@ -24,7 +24,7 @@ OBJ		=	$(SRC:.cpp=.o)
 all		:	$(NAME)
 
 $(NAME)		:	$(OBJ)
-			g++ $(OBJ) -o $(NAME) $(LDFLAGS)
+			clang++ $(OBJ) -o $(NAME) $(LDFLAGS)
 
 clean		:
 			rm -rf $(OBJ) $(TMP)
