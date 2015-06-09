@@ -1,12 +1,12 @@
-//
+/*
 // IA.cpp for bomberman.cpp in /home/cardon_v/Documents/CPP/cpp_bomberman/class
 // 
 // Made by Valentin Cardon
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Fri Jun  5 15:11:07 2015 Valentin Cardon
-//
+** Last update Tue Jun  9 11:14:42 2015 Jérémy MATHON
+*/
 
 #include	"IA.hpp"
 
@@ -47,9 +47,14 @@ void		IA::move(gdl::Clock const& clock, int input)
   if (input == 4)
     {
       std::cout << "BOOM !!" << std::endl;
-      //AObject *bomb = new Bomb();
-      //bomb->initialize();
-      //go_back(clock, input);
+      AObject *bomb = new Bomb();
+      if(bomb->initialize() == false)
+	{
+	  std::cerr << "Cannot load the bomb" << std::endl;
+	  return ;
+	}
+      //      _objects.push_back(bomb);
+      go_back(clock, input);
     }
 }
 

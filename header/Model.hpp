@@ -5,15 +5,12 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-// Last update Thu Jun  4 14:42:43 2015 Valentin Cardon
+** Last update Tue Jun  9 11:13:30 2015 Jérémy MATHON
 */
 
 #ifndef MODEL_HPP_
 # define MODEL_HPP_
 
-#include	<SdlContext.hh>
-#include	<glm/glm.hpp>
-#include	<glm/gtc/matrix_transform.hpp>
 #include	<Model.hh>
 #include	"AObject.hpp"
 

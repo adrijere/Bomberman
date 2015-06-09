@@ -5,6 +5,16 @@
 #include "../header/Map.hpp"
 #include "../header/Cube.hpp"
 
+Map::Map()
+{
+  srand(time(NULL));
+  this->height = rand() % 100;
+  this->width = rand() % 100;
+  this->difficulty = 0;
+  this->name = "";
+  setMap();
+}
+
 Map::Map(int height, int width, int diff, std::string name) {
     this->height = height;
     this->width = width;
@@ -41,6 +51,12 @@ void		Map::setMap() {
     {
         j = -1;
         while (++j != this->width)
-            map[i][j] = new Cube;
+	  this->map[i][j] = new Cube();
     }
 }
+
+std::vector<AObject*>	Map::operator[](size_t i)
+{
+  if (i < this->map.size())
+    return (this->map[i]);
+} 

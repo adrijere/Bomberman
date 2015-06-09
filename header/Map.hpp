@@ -6,8 +6,8 @@
 # define MAP_H
 
 #include <iostream>
+#include <vector>
 #include "AObject.hpp"
-#include "vector"
 
 class Map 
 {
@@ -19,16 +19,17 @@ class Map
   std::vector < std::vector<AObject *> >	map;
 
 public:
+  Map();
   Map(int, int, int, std::string);
   ~Map();
 
-  int             getHeight() const;
-  int             getWidth() const;
-  int             getDiff() const;
-  std::string     getName() const;
-  void            setMap();
+  int           getHeight() const;
+  int           getWidth() const;
+  int           getDiff() const;
+  std::string   getName() const;
+  void		setMap();
+  std::vector<AObject *>		operator[](size_t);
 };
 
-// void	operator[](std::vector<std::vector<AObject *> >);
 
 #endif /* ! MAP_H */

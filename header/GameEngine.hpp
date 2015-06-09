@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-// Last update Mon Jun  1 18:48:12 2015 Valentin Cardon
+** Last update Tue Jun  9 11:12:20 2015 Jérémy MATHON
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -30,7 +30,7 @@ On cree sa class GameEngine qui herite de Game
 class GameEngine : public gdl::Game
 {
 
-private:
+protected:
   gdl::SdlContext       _context;
   gdl::Clock            _clock;
   gdl::Input            _input;
