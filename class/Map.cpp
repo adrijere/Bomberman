@@ -12,7 +12,7 @@ Map::Map(std::vector<AObject *> &object)
   this->width = rand() % 100;
   this->difficulty = 0;
   this->name = "";
-  std::vector < std::vector<AObject *> >        tmp(height, std::vector<AObject *>(width));
+  std::vector < std::vector<AObject *> >	tmp(height, std::vector<AObject *>(width));
   map = tmp;
   setMap(object);
 }
@@ -22,7 +22,7 @@ Map::Map(int height, int width, int diff, std::string name, std::vector<AObject 
     this->width = width;
     this->difficulty = diff;
     this->name = name;
-    std::vector < std::vector<AObject *> >        tmp(height, std::vector<AObject *>(width));
+    std::vector < std::vector<AObject *> >	tmp(height, std::vector<AObject *>(width));
     map = tmp;
     setMap(object);
 }
@@ -49,21 +49,37 @@ std::string     Map::getName() const {
 void		Map::setMap(std::vector<AObject *> &object) {
     int		i;
     int		j;
+    int		block_pos;
     AObject	*obj;
     
     i = -1;
     while (++i != this->height)
     {
         j = -1;
+	block_pos = rand() % this-> width;
         while (++j != this->width)
 	  {
 	    if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
-	      obj = new Cube(i, j);
+	      {
+		obj = new Cube(i, j);
+		obj->initialize();
+		object.push_back(obj);
+		this->map[i][j] = obj;
+	      }
+	    else if (j == block_pos)
+	      {
+		obj = new Block(i, j);
+		obj->initialize();
+		object.push_back(obj);
+		this->map[i][j] = obj;
+		block_pos = rand() % this-> width;
+	      }
 	    else
-	      obj = new Grass(i, j);
-	    obj->initialize();
-	    object.push_back(obj);
-	    this->map[i][j] = obj;
+	      {
+		obj = new Grass(i, j);
+		obj->initialize();
+		object.push_back(obj);
+	      }
 	  }
     }
 }

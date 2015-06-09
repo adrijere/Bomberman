@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include "Grass.hpp"
+#include "Block.hpp"
 #include "AObject.hpp"
 
 class Map 
