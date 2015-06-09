@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Tue Jun  9 16:32:26 2015 Valentin Cardon
+// Last update Tue Jun  9 19:54:35 2015 Valentin Cardon
 */
 
 #include	"Cube.hpp"
@@ -23,8 +23,6 @@ Cube::~Cube()
 
 bool	Cube::initialize()
 {
-    
-  _speed = 10.0f;
   // On charge la texture qui sera affichee sur chaque face du Cube
   if (_texture.load("./lib/assets/images.tga") == false)
     {
@@ -47,7 +45,7 @@ bool	Cube::initialize()
   // ETC ETC
 
   
-  //Face de devant/derriere
+  //Face de devant ou de derriere
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
@@ -59,7 +57,7 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  //face droite/gauche
+  //Face de droite ou de gauche
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
@@ -71,7 +69,7 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
   
-  //face droite/gauche
+  //Face de droite ou de gauche
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
@@ -83,7 +81,7 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  //face dessus/dessous
+  //Face de dessus
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
@@ -95,7 +93,7 @@ bool	Cube::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  //face dessous/dessus
+  //Face de dessous
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
@@ -113,20 +111,8 @@ bool	Cube::initialize()
   return (true);
 }
 
-// Ici le cube bougera avec les fleches du clavier
 void Cube::update(gdl::Clock const &clock, gdl::Input &input)
-{
-  // On multiplie par le temps ecoule depuis la derniere image pour que la vitesse ne depende pas de la puissance de l'ordinateur
-  
-  // if (input.getKey(SDLK_DOWN))
-  //   translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
-  // if (input.getKey(SDLK_UP))
-  //   translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-  // if (input.getKey(SDLK_RIGHT))
-  //   translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-  // if (input.getKey(SDLK_LEFT))
-  //   translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-}
+{}
 
 void Cube::draw(gdl::AShader &shader, gdl::Clock const &clock)
 {

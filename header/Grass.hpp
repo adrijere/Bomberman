@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 15:17:13 2015 Valentin Cardon
-// Last update Tue Jun  9 16:13:36 2015 Valentin Cardon
+// Last update Tue Jun  9 19:55:58 2015 Valentin Cardon
 //
 
 #ifndef		_GRASS_HPP_
@@ -22,7 +22,6 @@
 class	Grass : public AObject
 {
 private:
-  float		_speed;
   gdl::Texture	_texture;
   gdl::Geometry	_geometry;
   int		_x;

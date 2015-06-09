@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-// Last update Tue Jun  9 22:43:40 2015 hures
+// Last update Tue Jun  9 19:54:55 2015 Valentin Cardon
 */
 
 #ifndef CUBE_HPP_
@@ -23,7 +23,6 @@ class Cube : public AObject
 private:
   gdl::Texture _texture;   // La texture utilisee pour le Cube
   gdl::Geometry _geometry;   // La geometrie du Cube
-  float _speed; // La vitesse de deplacement du Cube
   int	_x;
   int	_y;
   

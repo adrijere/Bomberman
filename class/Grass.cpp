@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 15:17:03 2015 Valentin Cardon
-// Last update Tue Jun  9 16:52:06 2015 Valentin Cardon
+// Last update Tue Jun  9 19:55:51 2015 Valentin Cardon
 //
 
 
@@ -23,7 +23,6 @@ Grass::~Grass()
 
 bool		Grass::initialize()
 {
-  _speed = 10.0f;
   if (_texture.load("./lib/assets/grass.tga") == false)
     {
       std::cerr << "Cannot load the grass texture" << std::endl;
@@ -45,7 +44,6 @@ bool		Grass::initialize()
 
 void		Grass::update(gdl::Clock const& clock, gdl::Input &input)
 {}
-
 
 void		Grass::draw(gdl::AShader &shader, gdl::Clock const& clock)
 {

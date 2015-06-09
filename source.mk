@@ -5,7 +5,7 @@
 ## Login   <marsil_g@epitech.net>
 ## 
 ## Started on  Mon May 11 11:33:16 2015 Gabriele Marsili
-## Last update Tue Jun  9 17:30:57 2015 Valentin Cardon
+## Last update Tue Jun  9 19:41:39 2015 Valentin Cardon
 ##
 
 SRC		+=			source/main.cpp
@@ -19,3 +19,4 @@ SRC		+=			class/Menu.cpp
 SRC		+=			class/Bomb.cpp
 SRC		+=			class/Grass.cpp
 SRC		+=			class/Block.cpp
+SRC		+=			class/Flame.cpp
