@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Tue Jun  9 18:08:15 2015 Valentin Cardon
+// Last update Wed Jun 10 12:02:51 2015 Valentin Cardon
 */
 
 
@@ -14,14 +14,13 @@
 bool	Model::initialize()
 {
   this->_speed = 5.0f;
-  
   if (_model.load("./lib/assets/marvin.fbx") == false)
     {
       std::cerr << "Cannot load the model texture" << std::endl;
       return (false);
-    } 
-  
-  this->scale(glm::vec3(0.0015, 0.0015, 0.0015)); 
+    }
+  this->scale(glm::vec3(0.0015, 0.0015, 0.0015));
+  //translate(glm::vec3(20, 0, 1)); ===> changer les coordonéees en fonction de la map
   return (true);
 }
 

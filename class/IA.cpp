@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Tue Jun  9 18:00:37 2015 Valentin Cardon
+// Last update Wed Jun 10 12:02:31 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
@@ -19,6 +19,7 @@ bool		IA::initialize()
       return (false);
     }
   this->scale(glm::vec3(0.0015, 0.0015, 0.0015));
+  //translate(glm::vec3(20, 0, 1)); ===> changer les coordonées en fonction de la map
   return (true);
 }
 
