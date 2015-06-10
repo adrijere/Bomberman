@@ -109,7 +109,7 @@ std::string   imgMenu;
 if (input.getKey(SDLK_DOWN)){
 
 int i = 0;
-while (++i != 25000000);
+while (++i != 20000000);
 //std::cout << i << std::endl;
 
 this->_img += 1;
@@ -146,7 +146,7 @@ _geometry.build();
 
 if (input.getKey(SDLK_UP)){
 int i = 0;
-while (++i != 25000000);
+while (++i != 20000000);
 //std::cout << i << std::endl;
 
 _img -= 1;
