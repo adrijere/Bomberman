@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Wed Jun 10 18:47:32 2015 hures
+// Last update Wed Jun 10 18:52:45 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -21,7 +21,7 @@ bool	GameEngine::initialize()
       || !_shader.build()) // on charge ici la libraire pour les shaders
     return false;
 
-  int	  width = 10;
+  int	  width = 40;
   AObject *model = new Model();
   AObject *ia = new IA();
   Map	  test(width, width, 2, "test", _objects);
