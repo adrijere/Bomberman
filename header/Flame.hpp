@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 19:40:37 2015 Valentin Cardon
-// Last update Wed Jun 10 17:17:16 2015 Valentin Cardon
+// Last update Wed Jun 10 17:57:33 2015 Valentin Cardon
 //
 
 #ifndef FLAME_HPP_
@@ -27,7 +27,7 @@ private:
   int	_y;
   
 public:
-  Flame(int, int);
+  Flame(int x, int y);
   virtual ~Flame();
   bool	initialize();
   void	update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&);

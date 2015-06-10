@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:37:15 2015 Valentin Cardon
+// Last update Wed Jun 10 17:59:58 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -108,16 +108,32 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
     _time--;
   if (this->_time == 0)
     {
+      AObject *flame_up = new Flame(_x, (_y + 1));
+      AObject *flame_down = new Flame(_x, (_y - 1));
+      AObject *flame_left = new Flame((_x + 1), _y);
+      AObject *flame_right = new Flame((_x -1), _y);
+
+      if (flame_up->initialize() == false)
+	return ;
+      if (flame_down->initialize() == false)
+	return ;
+      if (flame_left->initialize() == false)
+	return ;
+      if (flame_right->initialize() == false)
+	return ;
+      object.push_back(flame_up);
+      object.push_back(flame_down);
+      object.push_back(flame_left);
+      object.push_back(flame_right);
       //deletes la bombes
-      //ajouter les flames + les mettre dans la liste
       //delete les flames
       //delete le cube ou le perso que la flame touche
     }
 }
 
-void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)
-{
-  (void)clock;
-  _texture.bind();
-  _geometry.draw(shader, getTransformation(), GL_QUADS);
-}
+  void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)
+  {
+    (void)clock;
+    _texture.bind();
+    _geometry.draw(shader, getTransformation(), GL_QUADS);
+  }

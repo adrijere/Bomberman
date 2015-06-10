@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Wed Jun 10 17:29:08 2015 Valentin Cardon
+// Last update Wed Jun 10 17:42:20 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
@@ -63,7 +63,7 @@ void		IA::move(gdl::Clock const& clock, int input)
 	  std::cerr << "Cannot load the bomb" << std::endl;
 	  return ;
 	}
-      // _object.push_back(bomb); //Ajout dans liste d'object
+      _object.push_back(bomb);
       go_back(clock, input);
     }
 }
