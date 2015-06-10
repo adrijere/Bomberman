@@ -5,10 +5,20 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Wed Jun 10 13:45:34 2015 Valentin Cardon
+// Last update Wed Jun 10 17:11:43 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
+
+Bomb::Bomb(int x, int y)
+{
+  _x = x;
+  _y = y;
+  _time = 3;
+}
+
+Bomb::~Bomb()
+{}
 
 bool	Bomb::initialize()
 {
@@ -85,6 +95,8 @@ bool	Bomb::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
+
+  translate(glm::vec3(_x, 0, _y));
   // Tres important, on n'oublie pas de build la geometrie pour envoyer ses informations a la carte graphique
   _geometry.build();
   return (true);
@@ -95,7 +107,7 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input)
   if (this->_time > 0)
     _time--;
   if (this->_time == 0)
-    delete (this);
+    
 }
 
 void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)

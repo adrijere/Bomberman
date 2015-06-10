@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:15 2015 Jérémy MATHON
-// Last update Tue Jun  9 17:36:52 2015 Valentin Cardon
+// Last update Wed Jun 10 17:15:51 2015 Valentin Cardon
 */
 
 #ifndef BLOCK_HPP_
@@ -31,7 +31,7 @@ public:
   Block(int, int);
   virtual ~Block();
   bool	initialize();
-  void	update(gdl::Clock const &clock, gdl::Input &input);
+  void	update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&);
   void	draw(gdl::AShader &shader, gdl::Clock const &clock);
 };
 

@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:01:48 2015 Valentin Cardon
-// Last update Wed Jun 10 21:00:12 2015 hures
+// Last update Wed Jun 10 17:01:36 2015 Valentin Cardon
 //
 
 #ifndef		_IA_HPP_
@@ -18,6 +18,7 @@
 #include	<Model.hh>
 #include	"AObject.hpp"
 #include	"Bomb.hpp"
+#include	"Block.hpp"
 
 class		IA : public AObject
 {
@@ -25,7 +26,7 @@ private:
   gdl::Model	 _ia;
   float		 _speed;
   std::list<int> last_moves;
-  std::vector<AObject *> _object;
+  std::vector<AObject *> &_object;
   
 public:
   IA(std::vector<AObject *> &);

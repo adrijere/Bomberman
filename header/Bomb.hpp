@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:01:08 2015 Jérémy MATHON
-** Last update Tue Jun  9 10:30:08 2015 Jérémy MATHON
+// Last update Wed Jun 10 14:32:42 2015 Valentin Cardon
 */
 
 #ifndef BOMB_HPP_
@@ -20,9 +20,12 @@ class Bomb : public AObject
   gdl::Texture	_texture;
   gdl::Geometry	_geometry;
   int           _time;
+  int		_x;
+  int		_y;
+
 public:
-  Bomb() : _time(3) { }
-  virtual ~Bomb() { }
+  Bomb(int x, int y);
+  virtual ~Bomb();
   bool  initialize();
   void  update(gdl::Clock const &clock, gdl::Input &input);
   void	draw(gdl::AShader&, gdl::Clock const& clock);

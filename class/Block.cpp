@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Wed Jun 10 13:39:50 2015 Valentin Cardon
+// Last update Wed Jun 10 17:16:43 2015 Valentin Cardon
 */
 
 #include	"Block.hpp"
@@ -113,20 +113,8 @@ bool	Block::initialize()
   return (true);
 }
 
-// Ici le cube bougera avec les fleches du clavier
-void Block::update(gdl::Clock const &clock, gdl::Input &input)
-{
-  // On multiplie par le temps ecoule depuis la derniere image pour que la vitesse ne depende pas de la puissance de l'ordinateur
-  
-  // if (input.getKey(SDLK_DOWN))
-  //   translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
-  // if (input.getKey(SDLK_UP))
-  //   translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-  // if (input.getKey(SDLK_RIGHT))
-  //   translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-  // if (input.getKey(SDLK_LEFT))
-  //   translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-}
+void Block::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>& object)
+{}
 
 void Block::draw(gdl::AShader &shader, gdl::Clock const &clock)
 {

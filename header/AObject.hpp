@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:00 2015 Jérémy MATHON
-** Last update Tue Jun  9 11:14:11 2015 Jérémy MATHON
+// Last update Wed Jun 10 17:15:03 2015 Valentin Cardon
 */
 
 #ifndef AOBJECT_HPP_
@@ -33,7 +33,7 @@ public:
   virtual ~AObject(){};
   virtual bool initialize();
   // La fonction update sert a gerer le comportement de l'objet
-  virtual void update(gdl::Clock const &clock, gdl::Input &input);
+  virtual void update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&);
   // La fonction draw sert a dessiner l'objet
   virtual void draw(gdl::AShader &shader, gdl::Clock const &clock) = 0;
   // La fonction play sert au lancement de l'IA
