@@ -30,6 +30,7 @@ public:
   int           getDiff() const;
   std::string   getName() const;
   void		setMap(std::vector<AObject *> &);
+
   std::vector<AObject *>		operator[](size_t);
 };
 

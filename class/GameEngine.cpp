@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-** Last update Wed Jun 10 09:58:51 2015 Jérémy MATHON
+// Last update Wed Jun 10 18:27:45 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -25,11 +25,11 @@ bool	GameEngine::initialize()
   AObject *model = new Model();
   AObject *ia = new IA();
   Map	  test(40, width, 2, "test", _objects);
-  AObject *camera = new Camera();
+  AObject *camera = new Camera(width, _shader);
 
   // on creer un cube qu'on ajoute a la suite de la liste d'objets
-  camera->width = width;
-  camera->_shader = _shader;
+  //camera->width = width;
+  //camera->_shader = _shader;
   if (camera->initialize() == false)
     return (false);
   if (model->initialize() == false)

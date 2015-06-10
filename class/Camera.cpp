@@ -5,10 +5,21 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue Jun  9 17:10:58 2015 Jérémy MATHON
-** Last update Wed Jun 10 09:54:23 2015 Jérémy MATHON
+// Last update Wed Jun 10 18:27:09 2015 hures
 */
 
 #include	"Camera.hpp"
+
+Camera::Camera(int new_width, gdl::BasicShader &shader)
+{
+  width = new_width;
+  _shader = shader;
+}
+
+Camera::~Camera()
+{
+
+}
 
 bool	Camera::initialize()
 {
