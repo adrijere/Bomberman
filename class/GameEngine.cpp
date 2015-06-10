@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:24:56 2015 Valentin Cardon
+** Last update Wed Jun 10 18:40:38 2015 Jérémy MATHON
 */
 
 #include	"../header/GameEngine.hpp"
@@ -15,6 +15,8 @@ bool	GameEngine::initialize() {
   if (!_context.start(1280, 720, "Bomberman 0.0.1")) // on cree une fenetre
     return false;
   glEnable(GL_DEPTH_TEST);
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   if (!_shader.load("./lib/shaders/basic.fp", GL_FRAGMENT_SHADER)
       || !_shader.load("./lib/shaders/basic.vp", GL_VERTEX_SHADER)
       || !_shader.build()) // on charge ici la libraire pour les shaders

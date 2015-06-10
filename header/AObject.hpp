@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:00 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:25:56 2015 Valentin Cardon
+** Last update Wed Jun 10 18:36:07 2015 Jérémy MATHON
 */
 
 #ifndef AOBJECT_HPP_
