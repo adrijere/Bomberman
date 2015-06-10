@@ -13,6 +13,7 @@
 
 MyMenu::MyMenu() : _players(0), _map("")
 {
+	this->_lvMenu = 0;
 }
 
 MyMenu::~MyMenu()
@@ -124,23 +125,7 @@ imgMenu = "./img/menu";
 imgMenu += converted;
 imgMenu += ".tga";
 
-if (_texture.load(imgMenu) == false)
-{
-std::cerr << "Cannot load the texture " << imgMenu << " needed for the menu."<< std::endl;
-exit (0);
-}
-
-_geometry.pushVertex(glm::vec3(0.5, -0.9, 9.15));
-_geometry.pushVertex(glm::vec3(0.5, 0.9, 9.15));
-_geometry.pushVertex(glm::vec3(-0.5, 0.9, 9.15));
-_geometry.pushVertex(glm::vec3(-0.5, -0.9, 9.15));
-
-_geometry.pushUv(glm::vec2(0.0f, 0.0f));
-_geometry.pushUv(glm::vec2(1.0f, 0.0f));
-_geometry.pushUv(glm::vec2(1.0f, 1.0f));
-_geometry.pushUv(glm::vec2(0.0f, 1.0f));
-
-_geometry.build();
+BuildImg(imgMenu);
 
 }
 
@@ -164,27 +149,20 @@ imgMenu = "./img/menu";
 imgMenu += converted;
 imgMenu += ".tga";
 
-if (_texture.load(imgMenu) == false)
-{
-std::cerr << "Cannot load the texture " << imgMenu << " needed for the menu."<< std::endl;
-exit (0);
+BuildImg(imgMenu);
+
 }
 
-_geometry.pushVertex(glm::vec3(0.5, -0.9, 9.15));
-_geometry.pushVertex(glm::vec3(0.5, 0.9, 9.15));
-_geometry.pushVertex(glm::vec3(-0.5, 0.9, 9.15));
-_geometry.pushVertex(glm::vec3(-0.5, -0.9, 9.15));
-
-_geometry.pushUv(glm::vec2(0.0f, 0.0f));
-_geometry.pushUv(glm::vec2(1.0f, 0.0f));
-_geometry.pushUv(glm::vec2(1.0f, 1.0f));
-_geometry.pushUv(glm::vec2(0.0f, 1.0f));
-
-_geometry.build();
+if (input.getKey(SDLK_RETURN)){
+if (this->_img == 5)
+	exit(EXIT_SUCCESS);
+if (this->_img == 1){
+	this->_players = 1;
+}
+if (this->_img == 2){
+	this->_players = 2;
 }
 
-if (input.getKey(SDLK_RETURN) && this->_img == 5){
-exit(EXIT_SUCCESS);
 }
 }
 
@@ -193,4 +171,26 @@ void MyMenu::draw(gdl::AShader &shader, gdl::Clock const &clock)
 (void)clock;
 _texture.bind();
 _geometry.draw(shader, getTransformation(), GL_QUADS);
+}
+
+void		MyMenu::BuildImg(std::string imgMenu){
+
+	if (_texture.load(imgMenu) == false)
+	{
+		std::cerr << "Cannot load the texture " << imgMenu << " needed for the menu."<< std::endl;
+		exit (0);
+	}
+
+	_geometry.pushVertex(glm::vec3(0.5, -0.9, 9.15));
+	_geometry.pushVertex(glm::vec3(0.5, 0.9, 9.15));
+	_geometry.pushVertex(glm::vec3(-0.5, 0.9, 9.15));
+	_geometry.pushVertex(glm::vec3(-0.5, -0.9, 9.15));
+
+	_geometry.pushUv(glm::vec2(0.0f, 0.0f));
+	_geometry.pushUv(glm::vec2(1.0f, 0.0f));
+	_geometry.pushUv(glm::vec2(1.0f, 1.0f));
+	_geometry.pushUv(glm::vec2(0.0f, 1.0f));
+
+	_geometry.build();
+
 }
