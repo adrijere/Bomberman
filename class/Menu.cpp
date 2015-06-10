@@ -88,18 +88,10 @@ bool	MyMenu::initialize(){
 		return (false);
 	}
 
-	_geometry.pushVertex(glm::vec3(0.5, -0.9, 9));
-	_geometry.pushVertex(glm::vec3(0.5, 0.9, 9));
-	_geometry.pushVertex(glm::vec3(-0.5, 0.9, 9));
-	_geometry.pushVertex(glm::vec3(-0.5, -0.9, 9));
-
-
-	/* BACKUP POSITION */
-
-/*	_geometry.pushVertex(glm::vec3(0.5, -0.9, 9.15));
+	_geometry.pushVertex(glm::vec3(0.5, -0.9, 9.15));
 	_geometry.pushVertex(glm::vec3(0.5, 0.9, 9.15));
 	_geometry.pushVertex(glm::vec3(-0.5, 0.9, 9.15));
-	_geometry.pushVertex(glm::vec3(-0.5, -0.9, 9.15));*/
+	_geometry.pushVertex(glm::vec3(-0.5, -0.9, 9.15));
 
 	_geometry.pushUv(glm::vec2(0.0f, 0.0f));
 	_geometry.pushUv(glm::vec2(1.0f, 0.0f));

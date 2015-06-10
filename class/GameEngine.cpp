@@ -22,10 +22,12 @@ bool	GameEngine::initialize() {
 
     glm::mat4 projection;
     glm::mat4 transformation;
-    if (this->_pause == 0) {
+
+    if (this->_pause == 1) {
 
         AObject *menu = new MyMenu();
 
+        projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
         transformation = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 1), glm::vec3(-175, 1, 0));
         _shader.bind();
         _shader.setUniform("view", transformation);
@@ -36,14 +38,12 @@ bool	GameEngine::initialize() {
         _objects.push_back(menu);
     }
 
-    else if (this->_pause == 1) {
+    else if (this->_pause == 0) {
         int width = 40;
         AObject *camera = new Camera(width, _shader);
         AObject *model = new Model();
         AObject *ia = new IA();
         Map test(40, width, 2, "test", _objects);
-
-
 
         /*camera->width = width;
         camera->_shader = _shader;*/
@@ -98,7 +98,6 @@ void	GameEngine::draw()
 GameEngine::GameEngine() {
     this->_pause = 1;
 }
-
 
 GameEngine::~GameEngine()
 {

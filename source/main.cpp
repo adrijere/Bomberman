@@ -16,10 +16,10 @@ int main(int ac, char **av)
   GameEngine	engine;
   MyMenu		menu;
 
-  if (menu.Check(ac, av) == false)
+/*  if (menu.Check(ac, av) == false)
     return (EXIT_FAILURE);
   menu._players = engine._players;
-  menu._map = engine._map;
+  menu._map = engine._map;*/
   if (engine.initialize() == false)
     return (EXIT_FAILURE);
 
