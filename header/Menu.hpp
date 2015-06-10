@@ -30,6 +30,7 @@ class		MyMenu : public AObject
   gdl::Model          _Menu;
   float		          _speed;
   int                 _img;
+  int                 _lvMenu;
 
 public:
   int			_players;
@@ -41,6 +42,7 @@ public:
   bool		initialize();
   void		update(gdl::Clock const& clock, gdl::Input &input);
   void		draw(gdl::AShader &shader, gdl::Clock const& clock);
+  void      BuildImg(std::string);
 };
 
 #endif		/*_MENU_HPP_*/
