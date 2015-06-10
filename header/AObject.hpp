@@ -26,6 +26,8 @@ protected:
   glm::vec3 _position;
   glm::vec3 _rotation;
   glm::vec3 _scale;
+  int       _img;
+
 public:
   AObject();
   virtual ~AObject(){};
