@@ -95,19 +95,19 @@ void		Map::setMap(std::vector<AObject *> &object) {
 		object.push_back(obj);
 		this->map[i][j] = obj;
 	      }
-	    else if (j == block_pos)
+	    else
+	      {
+		obj = new Grass(i, j);
+		obj->initialize();
+		object.push_back(obj);
+	      }
+	    if (j == block_pos)
 	      {
 		obj = new Block(i, j);
 		obj->initialize();
 		object.push_back(obj);
 		this->map[i][j] = obj;
 		block_pos = rand() % this-> width;
-	      }
-	    else
-	      {
-		obj = new Grass(i, j);
-		obj->initialize();
-		object.push_back(obj);
 	      }
 	  }
     }
