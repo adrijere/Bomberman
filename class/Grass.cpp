@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 15:17:03 2015 Valentin Cardon
-// Last update Tue Jun  9 19:55:51 2015 Valentin Cardon
+// Last update Wed Jun 10 13:21:13 2015 Valentin Cardon
 //
 
 
@@ -29,10 +29,10 @@ bool		Grass::initialize()
       return false;
     }
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
   _geometry.pushVertex(glm::vec3(-0.5, -0.5, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
