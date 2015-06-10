@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:33:59 2015 Jérémy MATHON
-** Last update Tue Jun  9 16:29:02 2015 Jérémy MATHON
+** Last update Wed Jun 10 09:53:59 2015 Jérémy MATHON
 */
 
 #ifndef GAMEENGINE_HPP_
@@ -25,6 +25,7 @@
 #include	"IA.hpp"
 #include	"Map.hpp"
 #include	"Menu.hpp"
+#include	"Camera.hpp"
 
 /*
 On cree sa class GameEngine qui herite de Game

@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Tue Jun  9 17:16:59 2015 Valentin Cardon
+** Last update Wed Jun 10 09:58:51 2015 Jérémy MATHON
 */
 
 #include	"../header/GameEngine.hpp"
@@ -20,30 +20,25 @@ bool	GameEngine::initialize()
       || !_shader.load("./lib/shaders/basic.vp", GL_VERTEX_SHADER)
       || !_shader.build()) // on charge ici la libraire pour les shaders
     return false;
-  glm::mat4 projection;
-  glm::mat4 transformation;
-
-  projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
 
   int	  width = 40;
   AObject *model = new Model();
   AObject *ia = new IA();
   Map	  test(40, width, 2, "test", _objects);
+  AObject *camera = new Camera();
 
-  // 0 2 -5     0 0 0     0 1 0
-  transformation = glm::lookAt(glm::vec3((width / 2), 4, -10), glm::vec3((width / 2), 0, 0), glm::vec3(0, 1, 0)); // et ici la position
-  // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
-  _shader.bind();
-  _shader.setUniform("view", transformation);
-  _shader.setUniform("projection", projection);
   // on creer un cube qu'on ajoute a la suite de la liste d'objets
-
+  camera->width = width;
+  camera->_shader = _shader;
+  if (camera->initialize() == false)
+    return (false);
   if (model->initialize() == false)
     return (false);
 
   if (ia->initialize() == false)
     return (false);
-
+  
+  _objects.push_back(camera);
   _objects.push_back(ia);
   _objects.push_back(model);
   

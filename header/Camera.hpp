@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue Jun  9 17:13:20 2015 Jérémy MATHON
-** Last update Tue Jun  9 17:18:43 2015 Jérémy MATHON
+** Last update Wed Jun 10 09:58:20 2015 Jérémy MATHON
 */
 
 #ifndef CAMERA_HPP_
@@ -16,7 +16,11 @@
 class	Camera : public AObject
 {
 protected:
-  float		_speed;
+  glm::mat4		projection;
+  glm::mat4		transformation;
+  float			_speed;
+  int			width;
+  gdl::BasicShader	_shader;
 public:
   Camera() { }
   virtual ~Camera() { }
