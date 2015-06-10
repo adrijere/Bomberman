@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:01:48 2015 Valentin Cardon
-// Last update Fri Jun  5 11:55:06 2015 Valentin Cardon
+// Last update Wed Jun 10 21:00:12 2015 hures
 //
 
 #ifndef		_IA_HPP_
@@ -25,10 +25,11 @@ private:
   gdl::Model	 _ia;
   float		 _speed;
   std::list<int> last_moves;
-
+  std::vector<AObject *> _object;
+  
 public:
-  IA() { }
-  virtual ~IA() { }  
+  IA(std::vector<AObject *> &);
+  virtual ~IA();
   bool		initialize();
   void		update(gdl::Clock const& clock, gdl::Input &input);
   void		move(gdl::Clock const& clock, int input);

@@ -5,10 +5,20 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Wed Jun 10 12:02:31 2015 Valentin Cardon
+// Last update Wed Jun 10 20:56:51 2015 hures
 */
 
 #include	"IA.hpp"
+
+IA::IA(std::vector<AObject *> &object)
+{
+  _object = object;
+}
+
+IA::~IA()
+{
+
+}
 
 bool		IA::initialize()
 {
@@ -54,7 +64,7 @@ void		IA::move(gdl::Clock const& clock, int input)
 	  std::cerr << "Cannot load the bomb" << std::endl;
 	  return ;
 	}
-      //_objects.push_back(bomb);
+      // _object.push_back(bomb); //Ajout dans liste d'object
       go_back(clock, input);
     }
 }

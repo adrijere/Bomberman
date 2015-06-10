@@ -5,11 +5,21 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Wed Jun 10 12:02:51 2015 Valentin Cardon
+// Last update Wed Jun 10 20:54:43 2015 hures
 */
 
 
 #include	"Model.hpp"
+
+Model::Model(std::vector<AObject *> &object)
+{
+  _object = object;
+}
+
+Model::~Model()
+{
+
+}
 
 bool	Model::initialize()
 {
@@ -36,6 +46,8 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input)
     translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_SPACE))
     {
+      //ajoute la bombe a _object directement
+      
       //pose une bombe
     }
   this->_model.setCurrentAnim(0);
