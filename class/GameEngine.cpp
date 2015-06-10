@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-** Last update Wed Jun 10 09:58:51 2015 Jérémy MATHON
+// Last update Wed Jun 10 20:45:03 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -43,7 +43,7 @@ bool	GameEngine::initialize() {
         AObject *camera = new Camera(width, _shader);
         AObject *model = new Model();
         AObject *ia = new IA();
-        Map test(40, width, 2, "test", _objects);
+        Map test(width, width, 2, "test", _objects);
 
         /*camera->width = width;
         camera->_shader = _shader;*/
@@ -54,7 +54,6 @@ bool	GameEngine::initialize() {
 
         if (ia->initialize() == false)
             return (false);
-
         _objects.push_back(camera);
         _objects.push_back(ia);
         _objects.push_back(model);
