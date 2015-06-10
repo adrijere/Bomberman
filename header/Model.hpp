@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-// Last update Wed Jun 10 21:00:34 2015 hures
+// Last update Wed Jun 10 21:31:35 2015 hures
 */
 
 #ifndef MODEL_HPP_
@@ -21,9 +21,11 @@ private:
   gdl::Model	_model;
   float		_speed;
   std::vector<AObject *> _object;
+  int		_x;
+  int		_y;
   
 public:
-  Model(std::vector<AObject *> &);
+  Model(int, int, std::vector<AObject *> &);
   virtual ~Model();
   bool	initialize();
   void	update(gdl::Clock const &clock, gdl::Input &input);

@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Wed Jun 10 20:51:23 2015 hures
+// Last update Wed Jun 10 21:39:02 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -41,7 +41,7 @@ bool	GameEngine::initialize() {
     else if (this->_pause == 1) {
         int width = 40;
         AObject *camera = new Camera(width, _shader);
-        AObject *model = new Model(_objects);
+        AObject *model = new Model(20, 10, _objects); //positon next to be set in map
         AObject *ia = new IA(_objects);
         Map test(width, width, 2, "test", _objects);
 

@@ -5,14 +5,16 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Wed Jun 10 20:54:43 2015 hures
+// Last update Wed Jun 10 21:33:22 2015 hures
 */
 
 
 #include	"Model.hpp"
 
-Model::Model(std::vector<AObject *> &object)
+Model::Model(int x, int y, std::vector<AObject *> &object)
 {
+  _x = x;
+  _y = y;
   _object = object;
 }
 
@@ -29,8 +31,8 @@ bool	Model::initialize()
       std::cerr << "Cannot load the model texture" << std::endl;
       return (false);
     }
-  this->scale(glm::vec3(0.0015, 0.0015, 0.0015));
-  //translate(glm::vec3(20, 0, 1)); ===> changer les coordonéees en fonction de la map
+  this->scale(glm::vec3(0.0018, 0.0018, 0.0018));
+  translate(glm::vec3(_x, 0, _y)); //===> changer les coordonéees en fonction de la map
   return (true);
 }
 
