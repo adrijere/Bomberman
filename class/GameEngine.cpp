@@ -23,7 +23,7 @@ bool	GameEngine::initialize() {
     glm::mat4 projection;
     glm::mat4 transformation;
 
-    if (this->_pause == 1) {
+    if (this->_pause == 0) {
 
         AObject *menu = new MyMenu();
 
@@ -38,7 +38,7 @@ bool	GameEngine::initialize() {
         _objects.push_back(menu);
     }
 
-    else if (this->_pause == 0) {
+    else if (this->_pause == 1) {
         int width = 40;
         AObject *camera = new Camera(width, _shader);
         AObject *model = new Model();
