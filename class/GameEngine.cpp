@@ -43,6 +43,8 @@ bool	GameEngine::initialize() {
         AObject *ia = new IA();
         Map test(40, width, 2, "test", _objects);
 
+
+
         /*camera->width = width;
         camera->_shader = _shader;*/
         if (camera->initialize() == false)
