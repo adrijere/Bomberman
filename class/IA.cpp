@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Wed Jun 10 20:56:51 2015 hures
+** Last update Wed Jun 10 17:19:00 2015 Jérémy MATHON
 */
 
 #include	"IA.hpp"
@@ -74,7 +74,7 @@ void		IA::draw(gdl::AShader &shader, gdl::Clock const& clock)
   this->_ia.draw(shader, getTransformation(), clock.getElapsed());
 }
 
-void		IA::update(gdl::Clock const& clock, gdl::Input &input)
+void		IA::update(gdl::Clock const& clock, gdl::Input &input, std::vector<AObject*>&object)
 {
   static int	i = rand() % 5;
   static int	time = 25;

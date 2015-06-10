@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:11:43 2015 Valentin Cardon
+** Last update Wed Jun 10 17:21:55 2015 Jérémy MATHON
 */
 
 #include	"Bomb.hpp"
@@ -102,7 +102,7 @@ bool	Bomb::initialize()
   return (true);
 }
 
-void	Bomb::update(gdl::Clock const &clock, gdl::Input &input)
+void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&object)
 {
   if (this->_time > 0)
     _time--;

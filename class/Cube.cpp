@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Wed Jun 10 13:41:29 2015 Valentin Cardon
+** Last update Wed Jun 10 17:18:05 2015 Jérémy MATHON
 */
 
 #include	"Cube.hpp"
@@ -111,7 +111,7 @@ bool	Cube::initialize()
   return (true);
 }
 
-void Cube::update(gdl::Clock const &clock, gdl::Input &input)
+void Cube::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&object)
 {}
 
 void Cube::draw(gdl::AShader &shader, gdl::Clock const &clock)
