@@ -97,6 +97,7 @@ GameEngine::GameEngine() {
     this->_pause = 1;
 }
 
+
 GameEngine::~GameEngine()
 {
     // N'oublions pas de supprimer les objets une fois le programme termine!
