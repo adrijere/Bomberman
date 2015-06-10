@@ -67,49 +67,49 @@ int		Map::solid_block_pos()
 }
   
 void		Map::setMap(std::vector<AObject *> &object) {
-    int		i;
-    int		j;
-    int		solid_pos;
-    int		block_pos;
-    AObject	*obj;
+  int		i;
+  int		j;
+  int		solid_pos;
+  int		block_pos;
+  AObject	*obj;
     
-    i = -1;
-    solid_pos = solid_block_pos();
-    while (++i != this->height)
+  i = -1;
+  solid_pos = solid_block_pos();
+  while (++i != this->height)
     {
-        j = -1;
-	block_pos = rand() % this-> width;
-        while (++j != this->width)
-	  {
-	    if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
-	      {
-		obj = new Cube(i, j);
-		obj->initialize();
-		object.push_back(obj);
-		this->map[i][j] = obj;
-	      }
-	    else if (solid_pos != 1 && j % solid_pos == 0 && i % solid_pos == 0)
-	      {
-		obj = new Cube(i, j);
-		obj->initialize();
-		object.push_back(obj);
-		this->map[i][j] = obj;
-	      }
-	    else
-	      {
-		obj = new Grass(i, j);
-		obj->initialize();
-		object.push_back(obj);
-	      }
-	    if (j == block_pos)
-	      {
-		obj = new Block(i, j);
-		obj->initialize();
-		object.push_back(obj);
-		this->map[i][j] = obj;
-		block_pos = rand() % this-> width;
-	      }
-	  }
+      j = -1;
+      block_pos = rand() % this-> width;
+      while (++j != this->width)
+	{
+	  if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
+	    {
+	      obj = new Cube(i, j);
+	      obj->initialize();
+	      object.push_back(obj);
+	      this->map[i][j] = obj;
+	    }
+	  else if (solid_pos != 1 && j % solid_pos == 0 && i % solid_pos == 0)
+	    {
+	      obj = new Cube(i, j);
+	      obj->initialize();
+	      object.push_back(obj);
+	      this->map[i][j] = obj;
+	    }
+	  else
+	    {
+	      obj = new Grass(i, j);
+	      obj->initialize();
+	      object.push_back(obj);
+	    }
+	  if (j == block_pos)
+	    {
+	      obj = new Block(i, j);
+	      obj->initialize();
+	      object.push_back(obj);
+	      this->map[i][j] = obj;
+	      block_pos = rand() % this-> width;
+	    }
+	}
     }
 }
 

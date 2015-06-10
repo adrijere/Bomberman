@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:17:39 2015 Valentin Cardon
+// Last update Wed Jun 10 17:34:07 2015 Valentin Cardon
 */
 
 #include	"Flame.hpp"
@@ -109,7 +109,7 @@ bool	Flame::initialize()
   return (true);
 }
 
-void Flame::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*> object)
+void Flame::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*> &object)
 {}
 
 void Flame::draw(gdl::AShader &shader, gdl::Clock const &clock)

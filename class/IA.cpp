@@ -5,14 +5,13 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-** Last update Wed Jun 10 17:19:00 2015 Jérémy MATHON
+// Last update Wed Jun 10 17:29:08 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
 
-IA::IA(std::vector<AObject *> &object)
+IA::IA(std::vector<AObject *> &object) : _object(object)
 {
-  _object = object;
 }
 
 IA::~IA()
@@ -58,7 +57,7 @@ void		IA::move(gdl::Clock const& clock, int input)
   if (input == 4)
     {
       std::cout << "BOOM !!" << std::endl;
-      AObject *bomb = new Bomb();
+      AObject *bomb = new Bomb(21, 1);
       if(bomb->initialize() == false)
 	{
 	  std::cerr << "Cannot load the bomb" << std::endl;

@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Wed Jun 10 16:54:38 2015 Valentin Cardon
+// Last update Wed Jun 10 17:24:56 2015 Valentin Cardon
 */
 
 #include	"../header/GameEngine.hpp"
@@ -73,7 +73,7 @@ bool	GameEngine::update()
   _context.updateInputs(_input);
   // Mise a jour des differents objets
   for (size_t i = 0; i < _objects.size(); ++i)
-    _objects[i]->update(_clock, _input);
+    _objects[i]->update(_clock, _input, _objects);
   return true;
 }
 

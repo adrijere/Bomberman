@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:43:05 2015 Jérémy MATHON
-// Last update Mon Jun  1 17:43:36 2015 Valentin Cardon
+// Last update Wed Jun 10 17:26:53 2015 Valentin Cardon
 */
 
 #include	"AObject.hpp"
@@ -22,7 +22,7 @@ bool	AObject::initialize()
   return (true);
 }
 
-void	AObject::update(gdl::Clock const &clock, gdl::Input &input)
+void	AObject::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>& object)
 {
 }
 

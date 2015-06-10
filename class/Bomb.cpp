@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-** Last update Wed Jun 10 17:21:55 2015 Jérémy MATHON
+// Last update Wed Jun 10 17:37:15 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -107,7 +107,12 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
   if (this->_time > 0)
     _time--;
   if (this->_time == 0)
-    
+    {
+      //deletes la bombes
+      //ajouter les flames + les mettre dans la liste
+      //delete les flames
+      //delete le cube ou le perso que la flame touche
+    }
 }
 
 void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)

@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 15:17:03 2015 Valentin Cardon
-// Last update Wed Jun 10 13:28:22 2015 Valentin Cardon
+// Last update Wed Jun 10 17:18:45 2015 Valentin Cardon
 //
 
 
@@ -42,7 +42,7 @@ bool		Grass::initialize()
   return true;
 }
 
-void		Grass::update(gdl::Clock const& clock, gdl::Input &input)
+void		Grass::update(gdl::Clock const& clock, gdl::Input &input, std::vector<AObject*>&)
 {}
 
 void		Grass::draw(gdl::AShader &shader, gdl::Clock const& clock)
