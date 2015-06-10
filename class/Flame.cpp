@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Tue Jun  9 19:43:19 2015 Valentin Cardon
+// Last update Wed Jun 10 13:44:27 2015 Valentin Cardon
 */
 
 #include	"Flame.hpp"
@@ -33,10 +33,10 @@ bool	Flame::initialize()
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
   // tout les pushVertex qui suivent seront de cette couleur
   // On y push les vertices d une premiere face
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 1, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 1, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0, 0.5));
   // Les UVs d'une premiere face
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
@@ -45,10 +45,10 @@ bool	Flame::initialize()
   
   //Face de devant ou de derriere
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, -0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0, -0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 1, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 1, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0, -0.5));
 
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
@@ -57,10 +57,10 @@ bool	Flame::initialize()
 
   //face de droite ou de gauche
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0, -0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 1, -0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 1, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0, 0.5));
 
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
@@ -69,10 +69,10 @@ bool	Flame::initialize()
   
   //face de droite ou de gauche
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 1, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 1, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0, -0.5));
 
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
@@ -81,10 +81,10 @@ bool	Flame::initialize()
 
   //face de dessus
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(0.5, 0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.5, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 1, 0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 1, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 1, -0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 1, 0.5));
 
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
@@ -93,10 +93,10 @@ bool	Flame::initialize()
 
   //face de dessous
   _geometry.setColor(glm::vec4(1, 1, 1, 1));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, -0.5));
-  _geometry.pushVertex(glm::vec3(0.5, -0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, 0.5));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.5, -0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0, -0.5));
+  _geometry.pushVertex(glm::vec3(0.5, 0, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0, 0.5));
+  _geometry.pushVertex(glm::vec3(-0.5, 0, -0.5));
 
   _geometry.pushUv(glm::vec2(0.0f, 0.0f));
   _geometry.pushUv(glm::vec2(1.0f, 0.0f));
