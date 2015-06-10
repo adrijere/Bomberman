@@ -30,7 +30,8 @@ public:
   int           getDiff() const;
   std::string   getName() const;
   void		setMap(std::vector<AObject *> &);
-
+  int		solid_block_pos();
+  
   std::vector<AObject *>		operator[](size_t);
 };
 

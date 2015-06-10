@@ -46,13 +46,35 @@ std::string     Map::getName() const {
     return (this->name);
 }
 
+int		Map::solid_block_pos()
+{
+  int		k = 0;
+
+  if (this->width / 10 > 0)
+    {
+      k = this->width / 10;
+      while (k != 0)
+	{
+	  if (k / 10 <= 0)
+	    return (k);
+	  else if (k / 10 > 0)
+	    k = k / 10;
+	}
+    }
+  else
+    return (1);
+  return (0);
+}
+  
 void		Map::setMap(std::vector<AObject *> &object) {
     int		i;
     int		j;
+    int		solid_pos;
     int		block_pos;
     AObject	*obj;
     
     i = -1;
+    solid_pos = solid_block_pos();
     while (++i != this->height)
     {
         j = -1;
@@ -60,6 +82,13 @@ void		Map::setMap(std::vector<AObject *> &object) {
         while (++j != this->width)
 	  {
 	    if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
+	      {
+		obj = new Cube(i, j);
+		obj->initialize();
+		object.push_back(obj);
+		this->map[i][j] = obj;
+	      }
+	    else if (solid_pos != 1 && j % solid_pos == 0 && i % solid_pos == 0)
 	      {
 		obj = new Cube(i, j);
 		obj->initialize();

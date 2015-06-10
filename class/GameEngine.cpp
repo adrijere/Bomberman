@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Wed Jun 10 18:27:45 2015 hures
+// Last update Wed Jun 10 18:47:32 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -21,10 +21,10 @@ bool	GameEngine::initialize()
       || !_shader.build()) // on charge ici la libraire pour les shaders
     return false;
 
-  int	  width = 40;
+  int	  width = 10;
   AObject *model = new Model();
   AObject *ia = new IA();
-  Map	  test(40, width, 2, "test", _objects);
+  Map	  test(width, width, 2, "test", _objects);
   AObject *camera = new Camera(width, _shader);
 
   // on creer un cube qu'on ajoute a la suite de la liste d'objets
@@ -34,7 +34,6 @@ bool	GameEngine::initialize()
     return (false);
   if (model->initialize() == false)
     return (false);
-
   if (ia->initialize() == false)
     return (false);
   
