@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Thu Jun 11 19:47:55 2015 hures
+// Last update Thu Jun 11 20:41:52 2015 hures
 */
 
 
@@ -33,7 +33,6 @@ bool	Model::initialize()
       std::cerr << "Cannot load the model texture" << std::endl;
       return (false);
     }
-  this->_model.setCurrentAnim(0); // FULL ANIMATION NEED TO CREATE SUB ANIM
   this->scale(glm::vec3(0.0018, 0.0018, 0.0018));
   translate(glm::vec3(_x, 0, _y)); //===> changer les coordonéees en fonction de la map
   return (true);
@@ -109,6 +108,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
       if (bombe->initialize() != false)
 	object.push_back(bombe);
     }
+  this->_model.setCurrentAnim(0); // FULL ANIMATION NEED TO CREATE SUB ANIM
 }
 
 void	Model::draw(gdl::AShader &shader, gdl::Clock const &clock)
