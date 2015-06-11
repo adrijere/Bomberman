@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Thu Jun 11 17:06:44 2015 hures
+// Last update Thu Jun 11 17:24:16 2015 hures
 */
 
 
@@ -91,9 +91,11 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     }
   if (input.getKey(SDLK_SPACE))
     {
-      //ajoute la bombe a _object directement
-      
+      //ajoute la bombe a _object directement      
       //pose une bombe
+      AObject *bombe = new Bomb(_y - 10, _x);
+      if (bombe->initialize() != false)
+	object.push_back(bombe);
     }
 }
 
