@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Thu Jun 11 17:31:02 2015 hures
+// Last update Thu Jun 11 18:18:36 2015 hures
 */
 
 
@@ -43,19 +43,19 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 {
   if (input.getKey(SDLK_UP))
     {
-      _x += 1;
-      if (_x >= _height * 5)
+      _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_x >= _height - 2)
 	{
-	  _x = _height * 5;
+	  _x = _height - 2;
 	  return ;
 	}
       translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-      std::cout << "X = " << _x << " Y = " << _y << " add +3" << std::endl;
+      std::cout << "X = " << _x << " Y = " << _y << " add +3"  << std::endl;
     }
   if (input.getKey(SDLK_DOWN))
     {
       _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_x <= 0)
+      if (_x <= 1)
 	{
 	  _x = 1;
 	  return ;
@@ -66,10 +66,10 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     }
   if (input.getKey(SDLK_LEFT))
     {
-      _y += 1;
-      if (_y >= _widht * 5)
+      _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_y >= _widht - 2)
 	{
-	  _y = _widht * 5;
+	  _y = _widht - 2;
 	  return ;
 	}
       translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
@@ -78,8 +78,8 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     }
   if (input.getKey(SDLK_RIGHT))
     {
-      _y -= 1;
-      if (_y <= 0)
+      _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_y <= 1)
 	{
 	  _y = 1;
 	  return;
@@ -92,7 +92,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     {
       //ajoute la bombe a _object directement      
       //pose une bombe
-      AObject *bombe = new Bomb(_y - 10, _x);
+      AObject *bombe = new Bomb(_y, _x);
       if (bombe->initialize() != false)
 	object.push_back(bombe);
     }
