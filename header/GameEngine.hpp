@@ -41,7 +41,8 @@ protected:
   std::vector<AObject*> _objects;
   gdl::BasicShader      _shader;
   int                   _pause;
-  AObject                *_menu;
+  AObject               *_menu;
+  int                   _used;
 
 public:
   int			_players;
@@ -52,6 +53,7 @@ public:
   void  draw();
   bool  Menu();
   ~GameEngine();
+  bool  startGame();
 };
 
 #endif /* !GAMEENGINE_HPP_ */

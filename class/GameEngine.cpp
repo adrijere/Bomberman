@@ -44,26 +44,6 @@ bool	GameEngine::initialize() {
       return (false);
     _objects.push_back(_menu);
   }
-
-  else if (this->_pause == 2) {
-    delete _menu;
-    int width = 40;
-    AObject *camera = new Camera(width, _shader);
-    // AObject *model = new Model(20, 10, _objects); //positon next to be set in map
-    AObject *ia = new IA(_objects);
-    Map test(width, width, 2, "test", _objects);
-
-    if (camera->initialize() == false)
-      return (false);
-    // if (model->initialize() == false)
-    //   return (false);
-
-    if (ia->initialize() == false)
-      return (false);
-    _objects.push_back(camera);
-    _objects.push_back(ia);
-    // _objects.push_back(model);
-  }
   return true;
 }
 
@@ -73,26 +53,10 @@ bool	GameEngine::update()
   if (_input.getKey(SDLK_ESCAPE) || _input.getInput(SDL_QUIT))
     return false;
 
-  if (_input.getKey(SDLK_RETURN)) {
+  if (_input.getKey(SDLK_RETURN) && this->_used == 0) {
     this->_pause = 0;
-
-    int width = 40;
-    AObject *camera = new Camera(width, _shader);
-    // AObject *model = new Model(20, 10, _objects); //positon next to be set in map
-    AObject *ia = new IA(_objects);
-    Map test(width, width, 2, "test", _objects);
-
-    if (camera->initialize() == false)
-      return (false);
-    // if (model->initialize() == false)
-    //   return (false);
-
-    if (ia->initialize() == false)
-      return (false);
-    _objects.push_back(camera);
-    _objects.push_back(ia);
-    // _objects.push_back(model);
-
+    this->_used = 1;
+    startGame();
   }
 
   if (_input.getKey(SDLK_p)) {
@@ -105,6 +69,26 @@ bool	GameEngine::update()
   for (size_t i = 0; i < _objects.size(); ++i)
     _objects[i]->update(this->_clock, _input, _objects);
   return true;
+}
+
+bool    GameEngine::startGame() {
+  int width = 40;
+  AObject *camera = new Camera(width, _shader);
+  // AObject *model = new Model(20, 10, _objects); //positon next to be set in map
+  AObject *ia = new IA(_objects);
+  Map test(width, width, 2, "test", _objects);
+
+  if (camera->initialize() == false)
+    return (false);
+  // if (model->initialize() == false)
+  //   return (false);
+
+  if (ia->initialize() == false)
+    return (false);
+  _objects.push_back(camera);
+  _objects.push_back(ia);
+  // _objects.push_back(model);
+  return (true);
 }
 
 void	GameEngine::draw()
@@ -121,6 +105,7 @@ void	GameEngine::draw()
 }
 
 GameEngine::GameEngine() {
+  this->_used = 0;
   this->_pause = 1;
 }
 
