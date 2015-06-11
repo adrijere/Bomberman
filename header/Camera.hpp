@@ -5,13 +5,14 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue Jun  9 17:13:20 2015 Jérémy MATHON
-** Last update Wed Jun 10 17:16:19 2015 Jérémy MATHON
+** Last update Thu Jun 11 10:58:50 2015 Jérémy MATHON
 */
 
 #ifndef CAMERA_HPP_
 # define CAMERA_HPP_
 
-#include	"AObject.hpp"
+# include	"Model.hpp"
+# include	"AObject.hpp"
 
 class	Camera : public AObject
 {
@@ -21,6 +22,7 @@ protected:
   float			_speed;
   int			width;
   gdl::BasicShader	_shader;
+  Model*		_model;
 public:
   Camera(int, gdl::BasicShader &);
   virtual ~Camera();

@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue Jun  9 17:10:58 2015 Jérémy MATHON
-** Last update Wed Jun 10 17:16:40 2015 Jérémy MATHON
+** Last update Thu Jun 11 11:43:53 2015 Jérémy MATHON
 */
 
 #include	"Camera.hpp"
@@ -14,6 +14,7 @@ Camera::Camera(int new_width, gdl::BasicShader &shader)
 {
   width = new_width;
   _shader = shader;
+  _model = NULL;
 }
 
 Camera::~Camera()
@@ -26,6 +27,7 @@ bool	Camera::initialize()
   // 0 2 -5     0 0 0     0 1 0
   transformation = glm::lookAt(glm::vec3((width / 2), 4, -10), glm::vec3((width / 2), 0, 0), glm::vec3(0, 1, 0));
   //et ici la position      
+  _position = glm::vec3((float)(width / 2), 4.0, -10.0);
 
   // on doit TOUJOURS binder le shader AVANT d'appeler les methodes setUniform
   _shader.bind();
@@ -38,6 +40,18 @@ bool	Camera::initialize()
 
 void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&object)
 {
+  glm::vec3	_poscam;
+
+  if (this->_model == NULL)
+    {
+      for (int i = 0; i != object.size(); i++)
+	{
+	  if (dynamic_cast<Model *>(object[i]))
+	    this->_model = (Model *)object[i];
+	}
+    }
+  _position =  glm::vec3((float)this->_model->_y, 4, this->_model->_x);
+  _poscam = glm::vec3((float)this->_model->_y, 6, this->_model->_x - 10);
   if (input.getKey(SDLK_UP))
     translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_DOWN))
@@ -46,6 +60,9 @@ void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
     translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_RIGHT))
     translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
+  transformation = glm::lookAt(_poscam, _position, glm::vec3(0, 1, 0));
+  _shader.bind();
+  _shader.setUniform("view", transformation);
 }
 
 void	Camera::draw(gdl::AShader &shader, gdl::Clock const &clock)
