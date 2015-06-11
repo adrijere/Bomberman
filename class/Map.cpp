@@ -72,7 +72,15 @@ void		Map::setMap(std::vector<AObject *> &object) {
   int		solid_pos;
   int		block_pos;
   AObject	*obj;
-    
+
+  obj = new Model(1, 1, map); //PLAYER INIT
+  obj->initialize();
+  object.push_back(obj);
+  this->map[1][1] = obj;
+  obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
+  obj->initialize();
+  object.push_back(obj);
+  this->map[this->height - 2][this->width -2] = obj;  
   i = -1;
   solid_pos = solid_block_pos();
   while (++i != this->height)
@@ -95,33 +103,20 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	      object.push_back(obj);
 	      this->map[i][j] = obj;
 	    }
-	  else if (i == 1 && j == 1)
-	    {
-	      obj = new Model(i, j, map);
-	      obj->initialize();
-	      object.push_back(obj);
-	      this->map[i][j] = obj;
-	    }
-	  else if (i == (this->height - 2) && j == (this->width - 2))
-	    {
-	      obj = new IA(i, j, map);
-	      obj->initialize();
-	      object.push_back(obj);
-	      this->map[i][j] = obj;
-	    }
-	  else
-	    {
-	      obj = new Grass(i, j);
-	      obj->initialize();
-	      object.push_back(obj);
-	    }
-	  if (j == block_pos)
+	  else if (j == block_pos)
 	    {
 	      obj = new Block(i, j);
 	      obj->initialize();
 	      object.push_back(obj);
 	      this->map[i][j] = obj;
 	      block_pos = rand() % this-> width;
+	    }
+	  else
+	    {
+	      obj = new Grass(i, j);
+	      obj->initialize();
+	      object.push_back(obj);
+	      this->map[i][j] = NULL;
 	    }
 	}
     }
