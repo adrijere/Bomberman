@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Thu Jun 11 18:18:36 2015 hures
+// Last update Thu Jun 11 19:47:55 2015 hures
 */
 
 
@@ -49,20 +49,27 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 	  _x = _height - 2;
 	  return ;
 	}
+      if (_map[_x + 1][_y] != NULL)
+	{
+	  _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  return ;
+	}
       translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-      std::cout << "X = " << _x << " Y = " << _y << " add +3"  << std::endl;
     }
   if (input.getKey(SDLK_DOWN))
     {
       _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_x <= 1)
+      if (_x < 1)
 	{
 	  _x = 1;
 	  return ;
 	}
+      if (_map[_x - 1][_y] != NULL)
+	{
+	  _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  return ;
+	}
       translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
-      std::cout << "X = " << _x << " Y = " << _y << " add -3" << std::endl;
-
     }
   if (input.getKey(SDLK_LEFT))
     {
@@ -72,21 +79,27 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 	  _y = _widht - 2;
 	  return ;
 	}
+      if (_map[_x][_y + 1] != NULL)
+	{
+	  _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  return ;
+	}
       translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-      std::cout << "X = " << _x << " Y = " << _y << " add +3" << std::endl;
-
     }
   if (input.getKey(SDLK_RIGHT))
     {
       _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_y <= 1)
+      if (_y < 1)
 	{
 	  _y = 1;
 	  return;
 	}
+      if (_map[_x][_y - 1] != NULL)
+	{
+	  _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  return ;
+	}
       translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-      std::cout << "X = " << _x << " Y = " << _y << " add +3" << std::endl;
-
     }
   if (input.getKey(SDLK_SPACE))
     {
