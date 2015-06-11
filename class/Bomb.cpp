@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-** Last update Wed Jun 10 18:29:56 2015 Jérémy MATHON
+// Last update Thu Jun 11 16:43:49 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -28,7 +28,7 @@ bool	Bomb::initialize()
       return (false);
     }
   // on set la color d'une premiere face
-  _geometry.setColor(glm::vec4(1, 0, 0, 1));
+  _geometry.setColor(glm::vec4(1, 1, 1, 1));
   // tout les pushVertex qui suivent seront de cette couleur
   // On y push les vertices d une premiere face
   _geometry.pushVertex(glm::vec3(0.5, 0, 0.5));
@@ -41,7 +41,7 @@ bool	Bomb::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
   // ETC ETC
-  _geometry.setColor(glm::vec4(1, 1, 0, 1));
+  _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, 0, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 1, -0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 1, -0.5));
@@ -52,7 +52,7 @@ bool	Bomb::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  _geometry.setColor(glm::vec4(0, 1, 1, 1));
+  _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, 0, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 1, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 1, 0.5));
@@ -63,7 +63,7 @@ bool	Bomb::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  _geometry.setColor(glm::vec4(1, 0, 1, 1));
+  _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(-0.5, 0, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 1, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 1, -0.5));
@@ -74,7 +74,7 @@ bool	Bomb::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  _geometry.setColor(glm::vec4(0, 1, 0, 1));
+  _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, 1, 0.5));
   _geometry.pushVertex(glm::vec3(0.5, 1, -0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 1, -0.5));
@@ -85,7 +85,7 @@ bool	Bomb::initialize()
   _geometry.pushUv(glm::vec2(1.0f, 1.0f));
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
-  _geometry.setColor(glm::vec4(0, 0, 1, 1));
+  _geometry.setColor(glm::vec4(1, 1, 1, 1));
   _geometry.pushVertex(glm::vec3(0.5, 0, -0.5));
   _geometry.pushVertex(glm::vec3(0.5, 0, 0.5));
   _geometry.pushVertex(glm::vec3(-0.5, 0, 0.5));
@@ -106,34 +106,38 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
 {
   if (this->_time > 0)
     _time--;
-  // if (this->_time == 0)
-  //   {
-  //     AObject *flame_up = new Flame(_x, (_y + 1));
-  //     AObject *flame_down = new Flame(_x, (_y - 1));
-  //     AObject *flame_left = new Flame((_x + 1), _y);
-  //     AObject *flame_right = new Flame((_x -1), _y);
+  if (this->_time == 0)
+    {
+      AObject *flame_up = new Flame(_x, (_y + 1));
+      AObject *flame_down = new Flame(_x, (_y - 1));
+      AObject *flame_left = new Flame((_x + 1), _y);
+      AObject *flame_right = new Flame((_x -1), _y);
 
-  //     if (flame_up->initialize() == false)
-  // 	return ;
-  //     if (flame_down->initialize() == false)
-  // 	return ;
-  //     if (flame_left->initialize() == false)
-  // 	return ;
-  //     if (flame_right->initialize() == false)
-  // 	return ;
-  //     object.push_back(flame_up);
-  //     object.push_back(flame_down);
-  //     object.push_back(flame_left);
-  //     object.push_back(flame_right);
-  //deletes la bombes
-  //delete les flames
-  //delete le cube ou le perso que la flame touche
-  //}
+      /*for (int i = 0; i != object.size(); i++)
+	{
+	  if (dynamic_cast<Bomb *>(object[i]))
+	    delete (object[i]);
+	    }*/
+      if (flame_up->initialize() == false)
+   	return ;
+      if (flame_down->initialize() == false)
+   	return ;
+      if (flame_left->initialize() == false)
+   	return ;
+      if (flame_right->initialize() == false)
+  	return ;
+      object.push_back(flame_up);
+      object.push_back(flame_down);
+      object.push_back(flame_left);
+      object.push_back(flame_right);
+      //delete les flames
+      //delete le cube ou le perso que la flame touche
+    }
 }
 
-  void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)
-  {
-    (void)clock;
-    _texture.bind();
-    _geometry.draw(shader, getTransformation(), GL_QUADS);
-  }
+void	Bomb::draw(gdl::AShader& shader, gdl::Clock const& clock)
+{
+  (void)clock;
+  _texture.bind();
+  _geometry.draw(shader, getTransformation(), GL_QUADS);
+}

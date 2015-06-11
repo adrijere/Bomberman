@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Thu Jun 11 20:04:01 2015 hures
+// Last update Thu Jun 11 13:26:52 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
@@ -113,7 +113,6 @@ void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
     }
   if (input == 4)
     {
-      std::cout << "BOOM !!" << std::endl;
       AObject *bomb = new Bomb(_y, _x);
       if(bomb->initialize() == false)
 	{
