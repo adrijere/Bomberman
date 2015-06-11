@@ -1,15 +1,16 @@
 //
 /* Menu.cpp for menu in /home/marsil_g/rendu/cpp_bomberman
-// 
+//
 // Made by Gabriele Marsili
 // Login   <marsil_g@epitech.net>
-// 
+//
 // Started on  Thu Jun  4 17:05:18 2015 Gabriele Marsili
 ** Last update Tue Jun  9 16:30:05 2015 Jérémy MATHON
 */
 
 #include        <sstream>
 #include        "../header/Menu.hpp"
+#include "../lib/includes/Input.hh"
 
 MyMenu::MyMenu() : _players(0), _map("")
 {
@@ -103,7 +104,7 @@ bool	MyMenu::initialize(){
 	return (true);
 }
 
-void MyMenu::update(gdl::Clock const &clock, gdl::Input &input)
+void MyMenu::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>& object)
 {
 std::string   imgMenu;
 
@@ -128,6 +129,7 @@ imgMenu += ".tga";
 BuildImg(imgMenu);
 
 }
+
 
 if (input.getKey(SDLK_UP)){
 int i = 0;
@@ -155,12 +157,12 @@ BuildImg(imgMenu);
 
 if (input.getKey(SDLK_RETURN)){
 if (this->_img == 5)
-	exit(EXIT_SUCCESS);
+exit(EXIT_SUCCESS);
 if (this->_img == 1){
-	this->_players = 1;
+this->_players = 1;
 }
 if (this->_img == 2){
-	this->_players = 2;
+this->_players = 2;
 }
 
 }

@@ -30,6 +30,7 @@
 /*
 On cree sa class GameEngine qui herite de Game
 */
+
 class GameEngine : public gdl::Game
 {
 
@@ -51,4 +52,5 @@ public:
   bool  Menu();
   ~GameEngine();
 };
+
 #endif /* !GAMEENGINE_HPP_ */

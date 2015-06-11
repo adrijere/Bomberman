@@ -40,7 +40,7 @@ public:
   bool	Check(int, char **);
 
   bool		initialize();
-  void		update(gdl::Clock const& clock, gdl::Input &input);
+  void		update(gdl::Clock const& clock, gdl::Input &input, std::vector<AObject*>& );
   void		draw(gdl::AShader &shader, gdl::Clock const& clock);
   void      BuildImg(std::string);
 };

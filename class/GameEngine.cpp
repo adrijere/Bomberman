@@ -29,7 +29,7 @@ bool	GameEngine::initialize() {
 
     AObject *menu = new MyMenu();
 
-    projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
+    projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // Frustum definition
     transformation = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 1), glm::vec3(-175, 1, 0));
     _shader.bind();
     _shader.setUniform("view", transformation);
