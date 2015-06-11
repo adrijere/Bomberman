@@ -9,6 +9,7 @@
 #include <vector>
 #include "Grass.hpp"
 #include "Block.hpp"
+#include "Model.hpp"
 #include "Bomb.hpp"
 #include "AObject.hpp"
 

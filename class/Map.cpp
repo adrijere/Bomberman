@@ -95,6 +95,13 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	      object.push_back(obj);
 	      this->map[i][j] = obj;
 	    }
+	  else if (i == 1 && j == 1)
+	    {
+	      obj = new Model(i, j, object, map);
+	      obj->initialize();
+	      object.push_back(obj);
+	      this->map[i][j] = obj;
+	    }
 	  else
 	    {
 	      obj = new Grass(i, j);
