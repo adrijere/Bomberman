@@ -102,6 +102,13 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	      object.push_back(obj);
 	      this->map[i][j] = obj;
 	    }
+	  else if (i == (this->height - 2) && j == (this->width - 2))
+	    {
+	      obj = new IA(i, j, map);
+	      obj->initialize();
+	      object.push_back(obj);
+	      this->map[i][j] = obj;
+	    }
 	  else
 	    {
 	      obj = new Grass(i, j);

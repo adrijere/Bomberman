@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Thu Jun 11 17:08:25 2015 hures
+// Last update Thu Jun 11 20:07:10 2015 hures
 */
 
 #include	"../header/GameEngine.hpp"
@@ -75,7 +75,7 @@ bool    GameEngine::startGame() {
   int width = 40;
   AObject *camera = new Camera(width, _shader);
   // AObject *model = new Model(20, 10, _objects); //positon next to be set in map
-  AObject *ia = new IA(_objects);
+  // AObject *ia = new IA(_objects);
   Map test(width, width, 2, "test", _objects);
 
   if (camera->initialize() == false)
@@ -83,10 +83,10 @@ bool    GameEngine::startGame() {
   // if (model->initialize() == false)
   //   return (false);
 
-  if (ia->initialize() == false)
-    return (false);
+  // if (ia->initialize() == false)
+  //   return (false);
   _objects.push_back(camera);
-  _objects.push_back(ia);
+  // _objects.push_back(ia);
   // _objects.push_back(model);
   return (true);
 }
