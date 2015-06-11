@@ -11,6 +11,7 @@
 #include        <sstream>
 #include        "../header/Menu.hpp"
 #include "../lib/includes/Input.hh"
+#include "../lib/includes/glm/core/type.hpp"
 
 MyMenu::MyMenu() : _players(0), _map("")
 {
@@ -111,7 +112,7 @@ std::string   imgMenu;
 if (input.getKey(SDLK_DOWN)){
 
 int i = 0;
-while (++i != 20000000);
+while (++i != 17500000);
 //std::cout << i << std::endl;
 
 this->_img += 1;
@@ -130,10 +131,9 @@ BuildImg(imgMenu);
 
 }
 
-
 if (input.getKey(SDLK_UP)){
 int i = 0;
-while (++i != 20000000);
+while (++i != 17500000);
 //std::cout << i << std::endl;
 
 _img -= 1;
@@ -152,20 +152,20 @@ imgMenu += converted;
 imgMenu += ".tga";
 
 BuildImg(imgMenu);
-
 }
 
-if (input.getKey(SDLK_RETURN)){
-if (this->_img == 5)
-exit(EXIT_SUCCESS);
-if (this->_img == 1){
-this->_players = 1;
-}
-if (this->_img == 2){
-this->_players = 2;
-}
+if (input.getKey(SDLK_RETURN)) {
+	if (this->_img == 5)
+		exit(EXIT_SUCCESS);
 
-}
+	if (this->_img == 1){
+		this->_players = 1;
+	}
+
+	if (this->_img == 2){
+		this->_players = 2;
+		}
+	}
 }
 
 void MyMenu::draw(gdl::AShader &shader, gdl::Clock const &clock)

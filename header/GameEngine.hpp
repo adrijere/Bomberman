@@ -41,6 +41,7 @@ protected:
   std::vector<AObject*> _objects;
   gdl::BasicShader      _shader;
   int                   _pause;
+  AObject                *_menu;
 
 public:
   int			_players;

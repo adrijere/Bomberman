@@ -25,11 +25,5 @@ int main(int ac, char **av)
     return (EXIT_FAILURE);
   while (engine.update() == true)
     engine.draw();
-
-/*  if (engine.initialize() == false)
-    return (EXIT_FAILURE);
-  while (engine.update() == true)
-    engine.draw();*/
-
   return EXIT_SUCCESS;
 }
