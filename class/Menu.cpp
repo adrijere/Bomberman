@@ -15,6 +15,7 @@
 
 MyMenu::MyMenu() : _players(0), _map("")
 {
+	this->_img = 1;
 	this->_lvMenu = 0;
 }
 
@@ -109,7 +110,7 @@ void MyMenu::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
 {
 std::string   imgMenu;
 
-if (input.getKey(SDLK_DOWN)){
+if (input.getKey(SDLK_DOWN) && this->_lvMenu == 0) {
 
 int i = 0;
 while (++i != 17500000);
@@ -131,7 +132,7 @@ BuildImg(imgMenu);
 
 }
 
-if (input.getKey(SDLK_UP)){
+if (input.getKey(SDLK_UP) && this->_lvMenu == 0){
 int i = 0;
 while (++i != 17500000);
 //std::cout << i << std::endl;
@@ -154,7 +155,7 @@ imgMenu += ".tga";
 BuildImg(imgMenu);
 }
 
-if (input.getKey(SDLK_RETURN)) {
+if (input.getKey(SDLK_RETURN) && this->_lvMenu == 0) {
 	if (this->_img == 5)
 		exit(EXIT_SUCCESS);
 
@@ -165,6 +166,7 @@ if (input.getKey(SDLK_RETURN)) {
 	if (this->_img == 2){
 		this->_players = 2;
 		}
+	this->_lvMenu = 1;
 	}
 }
 

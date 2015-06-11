@@ -48,11 +48,11 @@ public:
   int			_players;
   std::string		_map;
   GameEngine();
+  ~GameEngine();
   bool  initialize();
   bool  update();
   void  draw();
   bool  Menu();
-  ~GameEngine();
   bool  startGame();
 };
 
