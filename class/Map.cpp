@@ -97,7 +97,7 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	  else if (i == 1 && j == 1)
 	    {
-	      obj = new Model(i, j, object, map);
+	      obj = new Model(i, j, map);
 	      obj->initialize();
 	      object.push_back(obj);
 	      this->map[i][j] = obj;

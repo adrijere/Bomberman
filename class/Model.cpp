@@ -5,17 +5,16 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Thu Jun 11 17:24:16 2015 hures
+// Last update Thu Jun 11 17:31:02 2015 hures
 */
 
 
 #include	"Model.hpp"
 
-Model::Model(int x, int y, std::vector<AObject *> &object, std::vector< std::vector<AObject *> > &map)
+Model::Model(int x, int y, std::vector< std::vector<AObject *> > &map)
 {
   _x = x;
   _y = y;
-  _object = object;
   _map = map;
   _height = _map.size();
   _widht = _map[0].size();
