@@ -23,6 +23,7 @@ Camera::~Camera()
 
 bool	Camera::initialize()
 {
+  this->x = 0;
   projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
   transformation = glm::lookAt(glm::vec3((width / 2), 4, -10), glm::vec3((width / 2), 0, 0), glm::vec3(0, 1, 0));
   //et ici la position      
@@ -50,7 +51,12 @@ void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
 	}
     }
   _position =  glm::vec3((float)this->_model->_x, 4, this->_model->_y);
-  _poscam = glm::vec3((float)this->_model->_x, 6, this->_model->_y - 10);
+  _poscam = glm::vec3((float)this->_model->_x, 6, this->_model->_y - 10 + this->x);
+
+  if (input.getKey(SDLK_KP_PLUS) && this->x <= 7)
+    zoom();
+  if (input.getKey(SDLK_KP_MINUS) && this->x <= 7)
+    dezoom();
   if (input.getKey(SDLK_UP))
     translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_DOWN))
@@ -68,4 +74,12 @@ void	Camera::draw(gdl::AShader &shader, gdl::Clock const &clock)
 {
   (void)clock;
   (void)shader;
+}
+
+void        Camera::zoom(){
+  this->x += 0.1;
+}
+
+void        Camera::dezoom(){
+  this->x -= 0.1;
 }

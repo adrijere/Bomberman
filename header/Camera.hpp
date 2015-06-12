@@ -23,12 +23,15 @@ protected:
   int			width;
   gdl::BasicShader	_shader;
   Model*		_model;
+  float         x;
 public:
   Camera(int, gdl::BasicShader &);
   virtual ~Camera();
   bool	initialize();
   void	update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*> &object);
   void	draw(gdl::AShader &shader, gdl::Clock const &clock);
+  void  zoom();
+  void  dezoom();
 };
 
 #endif /* !CAMERA_HPP_ */
