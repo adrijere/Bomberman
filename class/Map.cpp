@@ -71,12 +71,8 @@ void		Map::setMap(std::vector<AObject *> &object) {
   int		j;
   int		solid_pos;
   int		block_pos;
-  int		player_pos_x;
-  int		player_pos_y;
-  AObject	*obj;
-  
-  player_pos_x = 1;
-  player_pos_y = 1;
+   AObject	*obj;
+ 
   i = -1;
   solid_pos = solid_block_pos();
   while (++i != this->height)
@@ -87,7 +83,13 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	{
 	  if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
 	    {
-	      if (i == player_pos_y && j == player_pos_x)
+	      if (i == P_Y && j == P_X)
+		continue;
+	      if (i == IA_TOP_LEFT_Y && j == IA_TOP_LEFT_X)
+		continue;
+	      if (i == IA_TOP_RIGHT_Y && j == IA_TOP_RIGHT_X)
+		continue;
+	      if (i == IA_BOT_LEFT_Y && j == IA_BOT_LEFT_X)
 		continue;
 	      obj = new Cube(i, j);
 	      obj->initialize();
@@ -96,7 +98,13 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	  else if (solid_pos != 1 && j % solid_pos == 0 && i % solid_pos == 0)
 	    {
-	      if (i == player_pos_y && j == player_pos_x)
+	      if (i == P_Y && j == P_X)
+		continue;
+	      if (i == IA_TOP_LEFT_Y && j == IA_TOP_LEFT_X)
+		continue;
+	      if (i == IA_TOP_RIGHT_Y && j == IA_TOP_RIGHT_X)
+		continue;
+	      if (i == IA_BOT_LEFT_Y && j == IA_BOT_LEFT_X)
 		continue;
 	      obj = new Cube(i, j);
 	      obj->initialize();
@@ -105,7 +113,13 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	  else if (j == block_pos)
 	    {
-	      if (i == player_pos_y && j == player_pos_x)
+	      if (i == P_Y && j == P_X)
+		continue;
+	      if (i == IA_TOP_LEFT_Y && j == IA_TOP_LEFT_X)
+		continue;
+	      if (i == IA_TOP_RIGHT_Y && j == IA_TOP_RIGHT_X)
+		continue;
+	      if (i == IA_BOT_LEFT_Y && j == IA_BOT_LEFT_X)
 		continue;
 	      obj = new Block(i, j);
 	      obj->initialize();
@@ -122,25 +136,25 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	}
     }
-  obj = new Model(1, 1, map); //PLAYER INIT
+  obj = new Model(P_X, P_Y, map); //PLAYER INIT
   obj->initialize();
   object.push_back(obj);
-  this->map[1][1] = obj;
+  this->map[P_X][P_Y] = obj;
 
-  obj = new IA(this->height - 2, this->width - 2, map); //IA INIT UP/LEFT
+  obj = new IA(IA_BOT_LEFT_X, IA_TOP_LEFT_Y, map); //IA INIT UP/LEFT
   obj->initialize();
   object.push_back(obj);
-  this->map[this->height - 2][this->width -2] = obj;
+  this->map[IA_BOT_LEFT_X][IA_TOP_LEFT_Y] = obj;
   
-  obj = new IA(2, this->width - 2, map); //IA INIT UP/RIGHT
+  obj = new IA(IA_TOP_RIGHT_X, IA_TOP_RIGHT_Y, map); //IA INIT UP/RIGHT
   obj->initialize();
   object.push_back(obj);
-  this->map[2][this->width -2] = obj;
+  this->map[IA_TOP_RIGHT_X][IA_TOP_RIGHT_Y] = obj;
 
-  obj = new IA(this->height - 2, 2, map); //IA INIT DOWN/LEFT
+  obj = new IA(IA_BOT_LEFT_X, IA_BOT_LEFT_Y, map); //IA INIT DOWN/LEFT
   obj->initialize();
   object.push_back(obj);
-  this->map[this->height - 2][2] = obj;
+  this->map[IA_BOT_LEFT_X][IA_BOT_LEFT_Y] = obj;
 }
 
 std::vector<AObject*>	Map::operator[](size_t i)
