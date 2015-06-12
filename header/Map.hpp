@@ -15,11 +15,11 @@
 #include "AObject.hpp"
 #define P_X 1
 #define P_Y 1
-#define IA_TOP_LEFT_X this->height - 2
-#define IA_TOP_LEFT_Y this->width - 2
+#define IA_TOP_LEFT_X (this->height - 2)
+#define IA_TOP_LEFT_Y (this->width - 2)
 #define IA_TOP_RIGHT_X 2
-#define IA_TOP_RIGHT_Y this->width - 2
-#define IA_BOT_LEFT_X this->height - 2
+#define IA_TOP_RIGHT_Y (this->width - 2)
+#define IA_BOT_LEFT_X (this->height - 2)
 #define IA_BOT_LEFT_Y 2
 
 

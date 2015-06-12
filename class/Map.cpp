@@ -129,6 +129,14 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	  else
 	    {
+	      if (i == P_Y && j == P_X)
+		continue;
+	      if (i == IA_TOP_LEFT_Y && j == IA_TOP_LEFT_X)
+		continue;
+	      if (i == IA_TOP_RIGHT_Y && j == IA_TOP_RIGHT_X)
+		continue;
+	      if (i == IA_BOT_LEFT_Y && j == IA_BOT_LEFT_X)
+		continue;
 	      obj = new Grass(i, j);
 	      obj->initialize();
 	      object.push_back(obj);
