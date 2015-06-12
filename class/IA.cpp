@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Fri Jun 12 23:25:40 2015 hures
+// Last update Fri Jun 12 23:42:46 2015 hures
 */
 
 #include	"IA.hpp"
@@ -35,18 +35,6 @@ bool		IA::initialize()
   this->scale(glm::vec3(0.0018, 0.0018, 0.0018));
   translate(glm::vec3(_x, 0, _y));
   return (true);
-}
-
-void		IA::go_back(gdl::Clock const& clock, int input)
-{
-  if (input == 0)
-    translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
-  if (input == 1)
-    translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
-  if (input == 2)
-    translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
-  if (input == 3)
-    translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
 }
 
 void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
@@ -112,7 +100,6 @@ void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
 	  return ;
 	}
       object.push_back(bomb);
-      go_back(clock, input);
     }
 }
 
