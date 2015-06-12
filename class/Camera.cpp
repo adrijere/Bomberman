@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue Jun  9 17:10:58 2015 Jérémy MATHON
-** Last update Thu Jun 11 11:43:53 2015 Jérémy MATHON
+** Last update Fri Jun 12 11:47:33 2015 Jérémy MATHON
 */
 
 #include	"Camera.hpp"
@@ -24,7 +24,6 @@ Camera::~Camera()
 bool	Camera::initialize()
 {
   projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // on définit ici le frustum
-  // 0 2 -5     0 0 0     0 1 0
   transformation = glm::lookAt(glm::vec3((width / 2), 4, -10), glm::vec3((width / 2), 0, 0), glm::vec3(0, 1, 0));
   //et ici la position      
   _position = glm::vec3((float)(width / 2), 4.0, -10.0);
@@ -34,7 +33,7 @@ bool	Camera::initialize()
   _shader.setUniform("view", transformation);
   _shader.setUniform("projection", projection);
 
-  this->_speed = 10.0f;
+  this->_speed = 5.0f;
   return (true);
 }
 
