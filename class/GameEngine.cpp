@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Fri Jun 12 16:29:17 2015 Valentin Cardon
+// Last update Fri Jun 12 17:20:45 2015 Valentin Cardon
 */
 
 #include	"../header/GameEngine.hpp"
@@ -69,7 +69,7 @@ bool	GameEngine::update()
 }
 
 bool    GameEngine::startGame() {
-  int width = 25;
+  int width = 40;
 
   AObject *camera = new Camera(width, _shader, this->_menu->getDdd());
   Map test(width, width, 2, "test", _objects);
