@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Fri Jun 12 16:30:15 2015 Valentin Cardon
+** Last update Fri Jun 12 16:43:46 2015 Jérémy MATHON
 */
 
 #include	"Bomb.hpp"
@@ -123,7 +123,8 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
 	    {
 	      object.erase(i);
 	      j--;
-	      continue;
+	      //continue;
+	      break;
 	    }
 	  j++;
 	  ++i;

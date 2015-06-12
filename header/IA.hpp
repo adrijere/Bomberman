@@ -1,12 +1,12 @@
-//
+/*
 // IA.hpp for bomberman in /home/cardon_v/Documents/CPP/cpp_bomberman/class
 // 
 // Made by Valentin Cardon
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:01:48 2015 Valentin Cardon
-// Last update Fri Jun 12 23:42:57 2015 hures
-//
+** Last update Fri Jun 12 17:01:40 2015 Jérémy MATHON
+*/
 
 #ifndef		_IA_HPP_
 #define		_IA_HPP_
@@ -31,7 +31,7 @@ private:
   float		_y;
   int		_widht;
   int		_height;
-  
+  int		_nbbomb;
 public:
   IA(int, int, std::vector< std::vector<AObject *> > &);
   virtual ~IA();

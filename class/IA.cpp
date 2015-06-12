@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Fri Jun 12 23:42:46 2015 hures
+** Last update Fri Jun 12 17:02:17 2015 Jérémy MATHON
 */
 
 #include	"IA.hpp"
@@ -17,6 +17,7 @@ IA::IA(int x, int y, std::vector< std::vector<AObject *> > &map)
   _map = map;
   _height = map.size();
   _widht = map[0].size();
+  _nbbomb = 1;
 }
 
 IA::~IA()
@@ -91,7 +92,7 @@ void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
 	}
       translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     }
-  if (input == 4)
+  if (input == 4 && this->_nbbomb != 0)
     {
       AObject *bomb = new Bomb(round(_x), round(_y));
       if(bomb->initialize() == false)
@@ -100,6 +101,7 @@ void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
 	  return ;
 	}
       object.push_back(bomb);
+      this->_nbbomb = 0;
     }
 }
 

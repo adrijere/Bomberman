@@ -4,3 +4,4 @@ MESSAGE DU COMMIT EXPLICITE
 Option -l pour la save
 map prédéfinie (parser à faire)
 Draw seulement objects sur la map que le player peut voir (evite les chutes de FPS)
+ID sur les Bomb pour le check de suppression

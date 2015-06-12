@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Fri Jun 12 23:23:41 2015 hures
+** Last update Fri Jun 12 16:56:15 2015 Jérémy MATHON
 */
 
 
@@ -18,6 +18,7 @@ Model::Model(int x, int y, std::vector< std::vector<AObject *> > &map)
   _map = map;
   _height = _map.size();
   _widht = _map[0].size();
+  _nbbomb = 1;
 }
 
 Model::~Model()
@@ -92,10 +93,11 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 	}
       translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     }
-  if (input.getKey(SDLK_SPACE))
+  if (input.getKey(SDLK_SPACE) && this->_nbbomb != 0)
     {
       //ajoute la bombe a _object directement      
       //pose une bombe
+      this->_nbbomb = 0;
       AObject *bombe = new Bomb(round(_x), round(_y));
       if (bombe->initialize() != false)
 	object.push_back(bombe);

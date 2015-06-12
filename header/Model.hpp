@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-// Last update Fri Jun 12 16:48:28 2015 hures
+** Last update Fri Jun 12 16:57:41 2015 Jérémy MATHON
 */
 
 #ifndef MODEL_HPP_
@@ -23,7 +23,7 @@ private:
   std::vector< std::vector<AObject *> > _map;
   int           _height;
   int           _widht;
-  
+  int		_nbbomb;
 public:
   float		_x; // test
   float		_y; // make getter
