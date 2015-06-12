@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Fri Jun 12 23:19:23 2015 hures
+// Last update Fri Jun 12 16:33:11 2015 Valentin Cardon
 */
 
 #include	"Flame.hpp"
@@ -122,8 +122,6 @@ void Flame::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
       std::vector<AObject*>::iterator i = object.begin();
       while (i != object.end())
 	{
-	  std::cout << "SIZE OBJECT DANS FLAMME : " << object.size() << std::endl;
-	  std::cout << " J DANS FLAMME : " << j << std::endl;
 	  if (dynamic_cast<Flame *>(object[j]))
 	    {
 	      object.erase(i);

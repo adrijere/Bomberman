@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Fri Jun 12 23:16:54 2015 hures
+// Last update Fri Jun 12 16:30:15 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -119,8 +119,6 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
       std::vector<AObject*>::iterator i = object.begin();
       while(i != object.end())
 	{
-	  std::cout << "SIZE OBJECT DANS BOMB : " << object.size() << std::endl;
-	  std::cout << "J DANS BOMB : " << j << std::endl;
 	  if (dynamic_cast<Bomb *>(object[j]))
 	    {
 	      object.erase(i);

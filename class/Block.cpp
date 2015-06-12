@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:16:43 2015 Valentin Cardon
+// Last update Fri Jun 12 15:57:49 2015 Valentin Cardon
 */
 
 #include	"Block.hpp"
@@ -28,7 +28,7 @@ bool	Block::initialize()
   // On charge la texture qui sera affichee sur chaque face du Cube
   if (_texture.load("./lib/assets/block.tga") == false)
     {
-      std::cerr << "Cannot load the cube texture" << std::endl;
+      std::cerr << "Cannot load the Block texture" << std::endl;
       return (false);
     }
   // on set la color d'une premiere face

@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 15:17:03 2015 Valentin Cardon
-// Last update Wed Jun 10 17:18:45 2015 Valentin Cardon
+// Last update Fri Jun 12 15:59:20 2015 Valentin Cardon
 //
 
 
@@ -25,7 +25,7 @@ bool		Grass::initialize()
 {
   if (_texture.load("./lib/assets/grass.tga") == false)
     {
-      std::cerr << "Cannot load the grass texture" << std::endl;
+      std::cerr << "Cannot load the Grass texture" << std::endl;
       return false;
     }
   _geometry.setColor(glm::vec4(1, 1, 1, 1));

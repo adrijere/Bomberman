@@ -5,16 +5,16 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Fri Jun 12 14:00:23 2015 Valentin Cardon
+// Last update Fri Jun 12 16:29:17 2015 Valentin Cardon
 */
 
 #include	"../header/GameEngine.hpp"
-#include    "../header/Menu.hpp"
-#include "../lib/includes/SDL_keycode.h"
-#include "../lib/includes/SDL_events.h"
-#include "../lib/includes/GL/glew.h"
-#include "../lib/includes/glm/core/type.hpp"
-#include "../lib/includes/glm/gtc/matrix_transform.hpp"
+#include	"../header/Menu.hpp"
+#include	"../lib/includes/SDL_keycode.h"
+#include	"../lib/includes/SDL_events.h"
+#include	"../lib/includes/GL/glew.h"
+#include	"../lib/includes/glm/core/type.hpp"
+#include	"../lib/includes/glm/gtc/matrix_transform.hpp"
 
 bool	GameEngine::initialize() {
   if (!_context.start(1280, 720, "Bomberman")) // on cree une fenetre
@@ -69,23 +69,14 @@ bool	GameEngine::update()
 }
 
 bool    GameEngine::startGame() {
-  int width = 40;
+  int width = 25;
 
   AObject *camera = new Camera(width, _shader, this->_menu->getDdd());
-  // AObject *model = new Model(20, 10, _objects); //positon next to be set in map
-  // AObject *ia = new IA(_objects);
   Map test(width, width, 2, "test", _objects);
 
   if (camera->initialize() == false)
     return (false);
-  // if (model->initialize() == false)
-  //   return (false);
-
-  // if (ia->initialize() == false)
-  //   return (false);
   _objects.push_back(camera);
-  // _objects.push_back(ia);
-  // _objects.push_back(model);
   return (true);
 }
 

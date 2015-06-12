@@ -126,10 +126,21 @@ void		Map::setMap(std::vector<AObject *> &object) {
   obj->initialize();
   object.push_back(obj);
   this->map[1][1] = obj;
-  // obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
-  // obj->initialize();
-  // object.push_back(obj);
-  // this->map[this->height - 2][this->width -2] = obj;
+
+  obj = new IA(this->height - 2, this->width - 2, map); //IA INIT UP/LEFT
+  obj->initialize();
+  object.push_back(obj);
+  this->map[this->height - 2][this->width -2] = obj;
+  
+  obj = new IA(2, this->width - 2, map); //IA INIT UP/RIGHT
+  obj->initialize();
+  object.push_back(obj);
+  this->map[2][this->width -2] = obj;
+
+  obj = new IA(this->height - 2, 2, map); //IA INIT DOWN/LEFT
+  obj->initialize();
+  object.push_back(obj);
+  this->map[this->height - 2][2] = obj;
 }
 
 std::vector<AObject*>	Map::operator[](size_t i)
