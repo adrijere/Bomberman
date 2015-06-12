@@ -10,11 +10,13 @@
 
 #include	"Camera.hpp"
 
-Camera::Camera(int new_width, gdl::BasicShader &shader)
+Camera::Camera(int new_width, gdl::BasicShader &shader, bool dd)
 {
   width = new_width;
   _shader = shader;
   _model = NULL;
+  _ddd = dd;
+  std::cout << "1" << std::endl;
 }
 
 Camera::~Camera()
@@ -50,9 +52,14 @@ void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
 	    this->_model = (Model *)object[i];
 	}
     }
-  _position =  glm::vec3((float)this->_model->_x, 4, this->_model->_y);
-  _poscam = glm::vec3((float)this->_model->_x, 6, this->_model->_y - 10 + this->x);
-
+    if (this->_ddd == true){
+    _position = glm::vec3((float) this->_model->_x, 4, this->_model->_y);
+    _poscam = glm::vec3((float) this->_model->_x, 6, this->_model->_y - 10 + this->x);
+}
+    else{
+    _position = glm::vec3((float) this->_model->_x, 4, this->_model->_y);
+    _poscam = glm::vec3((float) this->_model->_x, 15, this->_model->_y - 10 + 9.5);
+}
   if (input.getKey(SDLK_KP_PLUS) && this->x <= 7)
     zoom();
   if (input.getKey(SDLK_KP_MINUS) && this->x >= -7)

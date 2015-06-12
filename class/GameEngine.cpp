@@ -33,7 +33,6 @@ bool	GameEngine::initialize() {
 
   if (this->_pause == 1) {
 
-
     projection = glm::perspective(60.0f, 1280.0f / 720.0f, 0.1f, 100.0f); // Frustum definition
     transformation = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 1), glm::vec3(-175, 1, 0));
     _shader.bind();
@@ -52,13 +51,11 @@ bool	GameEngine::update()
   // Si la touche ECHAP est appuyee ou si l'utilisateur ferme la fenetre, on quitte les programmes
   if (_input.getKey(SDLK_ESCAPE) || _input.getInput(SDL_QUIT))
     return false;
-
   if (_input.getKey(SDLK_RETURN) && this->_used == 0) {
     this->_pause = 0;
     this->_used = 1;
     startGame();
   }
-
   if (_input.getKey(SDLK_p)) {
     this->_pause = 1;
   }
@@ -73,7 +70,8 @@ bool	GameEngine::update()
 
 bool    GameEngine::startGame() {
   int width = 40;
-  AObject *camera = new Camera(width, _shader);
+
+  AObject *camera = new Camera(width, _shader, this->_menu->getDdd());
   // AObject *model = new Model(20, 10, _objects); //positon next to be set in map
   // AObject *ia = new IA(_objects);
   Map test(width, width, 2, "test", _objects);

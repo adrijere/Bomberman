@@ -24,8 +24,10 @@ protected:
   gdl::BasicShader	_shader;
   Model*		_model;
   float         x;
+  bool          _ddd;
+
 public:
-  Camera(int, gdl::BasicShader &);
+  Camera(int, gdl::BasicShader &, bool);
   virtual ~Camera();
   bool	initialize();
   void	update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*> &object);

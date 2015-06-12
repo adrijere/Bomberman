@@ -31,6 +31,7 @@ class		MyMenu : public AObject
   float		          _speed;
   int                 _img;
   int                 _lvMenu;
+  bool                _ddd;
 
 public:
   int			_players;
@@ -39,6 +40,7 @@ public:
   ~MyMenu();
   bool	Check(int, char **);
 
+  bool		getDdd();
   bool		initialize();
   void		update(gdl::Clock const& clock, gdl::Input &input, std::vector<AObject*>& );
   void		draw(gdl::AShader &shader, gdl::Clock const& clock);

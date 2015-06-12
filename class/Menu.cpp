@@ -114,7 +114,6 @@ if (input.getKey(SDLK_DOWN) && this->_lvMenu == 0) {
 
 int i = 0;
 while (++i != 17500000);
-//std::cout << i << std::endl;
 
 this->_img += 1;
 
@@ -135,7 +134,6 @@ BuildImg(imgMenu);
 if (input.getKey(SDLK_UP) && this->_lvMenu == 0){
 int i = 0;
 while (++i != 17500000);
-//std::cout << i << std::endl;
 
 _img -= 1;
 
@@ -161,13 +159,19 @@ if (input.getKey(SDLK_RETURN) && this->_lvMenu == 0) {
 
 	if (this->_img == 1){
 		this->_players = 1;
+		this->_ddd = true;
 	}
 
 	if (this->_img == 2){
 		this->_players = 2;
+		this->_ddd = false;
 		}
 	this->_lvMenu = 1;
 	}
+}
+
+bool		MyMenu::getDdd(){
+	return (this->_ddd);
 }
 
 void MyMenu::draw(gdl::AShader &shader, gdl::Clock const &clock)
