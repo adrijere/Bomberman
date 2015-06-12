@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Fri Jun 12 14:11:05 2015 Valentin Cardon
+// Last update Fri Jun 12 14:51:52 2015 Valentin Cardon
 */
 
 #include	"Flame.hpp"
@@ -27,7 +27,7 @@ bool	Flame::initialize()
   // On charge la texture qui sera affichee sur chaque face du Cube
   if (_texture.load("./lib/assets/flame.tga") == false)
     {
-      std::cerr << "Cannot load the cube texture" << std::endl;
+      std::cerr << "Cannot load the Flame texture" << std::endl;
       return (false);
     }
   // on set la color d'une premiere face

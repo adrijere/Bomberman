@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Fri Jun 12 14:11:01 2015 Valentin Cardon
+// Last update Fri Jun 12 14:51:55 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -14,7 +14,7 @@ Bomb::Bomb(int x, int y)
 {
   _x = x;
   _y = y;
-  _time = 100;
+  _time = 70;
 }
 
 Bomb::~Bomb()
@@ -24,7 +24,7 @@ bool	Bomb::initialize()
 {
   if (_texture.load("./lib/assets/bombe.tga") == false)
     {
-      std::cerr << "Cannot load the cube texture" << std::endl;
+      std::cerr << "Cannot load the Bomb texture" << std::endl;
       return (false);
     }
   // on set la color d'une premiere face
