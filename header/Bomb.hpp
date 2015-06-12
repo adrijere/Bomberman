@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:01:08 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:59:19 2015 Valentin Cardon
+** Last update Fri Jun 12 15:00:23 2015 Jérémy MATHON
 */
 
 #ifndef BOMB_HPP_
@@ -13,6 +13,7 @@
 
 #include	<Texture.hh>
 #include	<Geometry.hh>
+#include	<list>
 #include	"Flame.hpp"
 #include	"AObject.hpp"
 
@@ -23,7 +24,7 @@ class Bomb : public AObject
   int           _time;
   int		_x;
   int		_y;
-
+  
 public:
   Bomb(int x, int y);
   virtual ~Bomb();
