@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Fri Jun 12 18:58:51 2015 hures
+// Last update Fri Jun 12 23:01:41 2015 hures
 */
 
 
@@ -45,8 +45,8 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
   move_val = 1 * static_cast<float>(clock.getElapsed()) * _speed;
   if (input.getKey(SDLK_UP))
     {
-      if (_map[_x][_y + 1 + move_val] != NULL || _map[_x][_y + move_val] != NULL)
-	return ;
+      if (_map[round(_x)][round(_y + move_val + 0.3)] != NULL)
+      	  return ;
       _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
       if (_y >= _height - 2)
 	{
@@ -57,8 +57,9 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     }
   if (input.getKey(SDLK_DOWN))
     {
-      if (/*_map[_x][_y - 1 - move_val] != NULL ||*/ _map[_x][_y - move_val] != NULL)     
-	return ;
+      if (_y > 2)
+	if (_map[round(_x)][round(_y - move_val - 0.3)] != NULL)  
+	  return ;
       _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
       if (_y < 1)
 	{
@@ -69,7 +70,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     }
   if (input.getKey(SDLK_LEFT))
     {
-      if (_map[_x + 1 + move_val][_y] != NULL || _map[_x + move_val][_y] != NULL)     
+      if (_map[round(_x + move_val + 0.3)][round(_y)] != NULL)
 	return ;
       _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
       if (_x >= _widht - 2)
@@ -81,8 +82,8 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     }
   if (input.getKey(SDLK_RIGHT))
     {
-      if (/*_map[_x - 1 - move_val][_y] != NULL ||*/ _map[_x - move_val][_y] != NULL)     
-	return ;
+      if (_map[round(_x - move_val - 0.3)][round(_y)] != NULL)     
+       	return ;
       _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
       if (_x < 1)
 	{

@@ -71,13 +71,17 @@ void		Map::setMap(std::vector<AObject *> &object) {
   int		j;
   int		solid_pos;
   int		block_pos;
+  int		player_pos_x;
+  int		player_pos_y;
   AObject	*obj;
   
   // obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
   // obj->initialize();
   // object.push_back(obj);
   // this->map[this->height - 2][this->width -2] = obj;
-  
+
+  player_pos_x = 1;
+  player_pos_y = 1;
   i = -1;
   solid_pos = solid_block_pos();
   while (++i != this->height)
@@ -88,6 +92,8 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	{
 	  if (i == 0 || j == 0 || i == this->height - 1 || j == this->width - 1)
 	    {
+	      if (i == player_pos_y && j == player_pos_x)
+		continue;
 	      obj = new Cube(i, j);
 	      obj->initialize();
 	      object.push_back(obj);
@@ -95,6 +101,8 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	  else if (solid_pos != 1 && j % solid_pos == 0 && i % solid_pos == 0)
 	    {
+	      if (i == player_pos_y && j == player_pos_x)
+		continue;
 	      obj = new Cube(i, j);
 	      obj->initialize();
 	      object.push_back(obj);
@@ -102,6 +110,8 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	  else if (j == block_pos)
 	    {
+	      if (i == player_pos_y && j == player_pos_x)
+		continue;
 	      obj = new Block(i, j);
 	      obj->initialize();
 	      object.push_back(obj);
