@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Wed May  6 15:34:08 2015 Jérémy MATHON
-// Last update Thu Jun 11 20:21:41 2015 hures
+// Last update Fri Jun 12 14:00:23 2015 Valentin Cardon
 */
 
 #include	"../header/GameEngine.hpp"
@@ -17,7 +17,7 @@
 #include "../lib/includes/glm/gtc/matrix_transform.hpp"
 
 bool	GameEngine::initialize() {
-  if (!_context.start(1280, 720, "Bomberman 0.0.1")) // on cree une fenetre
+  if (!_context.start(1280, 720, "Bomberman")) // on cree une fenetre
     return false;
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_BLEND);

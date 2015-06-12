@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Fri Jun 12 13:07:22 2015 Valentin Cardon
+// Last update Fri Jun 12 14:11:01 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
