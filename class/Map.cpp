@@ -75,11 +75,6 @@ void		Map::setMap(std::vector<AObject *> &object) {
   int		player_pos_y;
   AObject	*obj;
   
-  // obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
-  // obj->initialize();
-  // object.push_back(obj);
-  // this->map[this->height - 2][this->width -2] = obj;
-
   player_pos_x = 1;
   player_pos_y = 1;
   i = -1;
@@ -131,6 +126,10 @@ void		Map::setMap(std::vector<AObject *> &object) {
   obj->initialize();
   object.push_back(obj);
   this->map[1][1] = obj;
+  // obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
+  // obj->initialize();
+  // object.push_back(obj);
+  // this->map[this->height - 2][this->width -2] = obj;
 }
 
 std::vector<AObject*>	Map::operator[](size_t i)

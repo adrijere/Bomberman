@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-// Last update Thu Jun 11 13:26:52 2015 Valentin Cardon
+// Last update Fri Jun 12 23:09:09 2015 hures
 */
 
 #include	"IA.hpp"
@@ -51,69 +51,61 @@ void		IA::go_back(gdl::Clock const& clock, int input)
 
 void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
 {
+  float move_val;
+
+  move_val = 1 * static_cast<float>(clock.getElapsed()) * _speed;
   if (input == 0)
     {
-      _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_x >= _height - 2)
+      if (_map[round(_x)][round(_y + move_val + 0.4)] != NULL)
+	return ;
+      _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_y >= _height - 2)
 	{
-	  _x = _height - 2;
-	  return ;
-	}
-      if (_map[_x + 1][_y] != NULL)
-	{
-	  _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  _y = _height - 2;
 	  return ;
 	}
       translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
     }
   if (input == 1)
     {
-      _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_x < 1)
-	{
-	  _x = 1;
+      if (_y > 2)
+	if (_map[round(_x)][round(_y - move_val - 0.4)] != NULL)
 	  return ;
-	}
-      if (_map[_x - 1][_y] != NULL)
+      _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_y < 1)
 	{
-	  _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  _y = 1;
 	  return ;
 	}
       translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
     }
   if (input == 2)
     {
-      _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_y >= _widht - 2)
+      if (_map[round(_x + move_val + 0.4)][round(_y)] != NULL)
+	return ;
+      _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_x >= _widht - 2)
 	{
-	  _y = _widht - 2;
-	  return ;
-	}
-      if (_map[_x][_y + 1] != NULL)
-	{
-	  _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  _x = _widht - 2;
 	  return ;
 	}
       translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     }    
   if (input == 3)
     {
-      _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_y < 1)
+      if (_map[round(_x - move_val - 0.4)][round(_y)] != NULL)
+	return ;
+      _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_x < 1)
 	{
-	  _y = 1;
+	  _x = 1;
 	  return;
-	}
-      if (_map[_x][_y - 1] != NULL)
-	{
-	  _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
-	  return ;
 	}
       translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     }
   if (input == 4)
     {
-      AObject *bomb = new Bomb(_y, _x);
+      AObject *bomb = new Bomb(_x, _y);
       if(bomb->initialize() == false)
 	{
 	  std::cerr << "Cannot load the bomb" << std::endl;
