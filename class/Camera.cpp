@@ -55,7 +55,7 @@ void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
 
   if (input.getKey(SDLK_KP_PLUS) && this->x <= 7)
     zoom();
-  if (input.getKey(SDLK_KP_MINUS) && this->x <= 7)
+  if (input.getKey(SDLK_KP_MINUS) && this->x >= -7)
     dezoom();
   if (input.getKey(SDLK_UP))
     translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
@@ -81,5 +81,6 @@ void        Camera::zoom(){
 }
 
 void        Camera::dezoom(){
+  std::cout << "diocane" << std::endl;
   this->x -= 0.1;
 }
