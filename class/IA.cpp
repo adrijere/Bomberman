@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-** Last update Fri Jun 12 17:02:17 2015 Jérémy MATHON
+** Last update Fri Jun 12 17:54:52 2015 Jérémy MATHON
 */
 
 #include	"IA.hpp"
@@ -95,6 +95,7 @@ void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
   if (input == 4 && this->_nbbomb != 0)
     {
       AObject *bomb = new Bomb(round(_x), round(_y));
+      this->_bomb.push_back(bomb);
       if(bomb->initialize() == false)
 	{
 	  std::cerr << "Cannot load the bomb" << std::endl;

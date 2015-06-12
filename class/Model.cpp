@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-** Last update Fri Jun 12 16:56:15 2015 Jérémy MATHON
+** Last update Fri Jun 12 18:05:12 2015 Jérémy MATHON
 */
 
 
@@ -43,11 +43,13 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 {
   float move_val;
 
+  if (this->_bomb.empty())
+    this->_nbbomb = 1;
   move_val = 1 * static_cast<float>(clock.getElapsed()) * _speed;
   if (input.getKey(SDLK_UP))
     {
       if (_map[round(_x)][round(_y + move_val + 0.4)] != NULL)
-      	  return ;
+	return ;
       _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
       if (_y >= _height - 2)
 	{
@@ -99,6 +101,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
       //pose une bombe
       this->_nbbomb = 0;
       AObject *bombe = new Bomb(round(_x), round(_y));
+      this->_bomb.push_back(bombe);
       if (bombe->initialize() != false)
 	object.push_back(bombe);
     }

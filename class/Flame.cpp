@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-** Last update Fri Jun 12 16:45:12 2015 Jérémy MATHON
+** Last update Fri Jun 12 18:05:59 2015 Jérémy MATHON
 */
 
 #include	"Flame.hpp"

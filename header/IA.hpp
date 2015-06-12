@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:01:48 2015 Valentin Cardon
-** Last update Fri Jun 12 17:01:40 2015 Jérémy MATHON
+** Last update Fri Jun 12 17:58:14 2015 Jérémy MATHON
 */
 
 #ifndef		_IA_HPP_
@@ -32,6 +32,7 @@ private:
   int		_widht;
   int		_height;
   int		_nbbomb;
+  std::vector<AObject *>	_bomb;
 public:
   IA(int, int, std::vector< std::vector<AObject *> > &);
   virtual ~IA();
