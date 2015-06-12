@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-// Last update Thu Jun 11 16:43:49 2015 Valentin Cardon
+** Last update Fri Jun 12 11:59:40 2015 Jérémy MATHON
 */
 
 #include	"Bomb.hpp"
@@ -14,7 +14,7 @@ Bomb::Bomb(int x, int y)
 {
   _x = x;
   _y = y;
-  _time = 3;
+  _time = 15;
 }
 
 Bomb::~Bomb()
@@ -113,11 +113,11 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
       AObject *flame_left = new Flame((_x + 1), _y);
       AObject *flame_right = new Flame((_x -1), _y);
 
-      /*for (int i = 0; i != object.size(); i++)
+      for (int i = 0; i != object.size(); i++)
 	{
 	  if (dynamic_cast<Bomb *>(object[i]))
-	    delete (object[i]);
-	    }*/
+	    object.erase(object.begin() + i);
+	}
       if (flame_up->initialize() == false)
    	return ;
       if (flame_down->initialize() == false)
