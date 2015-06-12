@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-** Last update Fri Jun 12 16:04:15 2015 Jérémy MATHON
+// Last update Fri Jun 12 23:16:54 2015 hures
 */
 
 #include	"Bomb.hpp"
@@ -116,16 +116,19 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
       AObject *flame_right = new Flame((_x -1), _y);
 
       j = 0;
-      for (std::vector<AObject*>::iterator i = object.begin(); i != object.end(); ++i)
+      std::vector<AObject*>::iterator i = object.begin();
+      while(i != object.end())
 	{
 	  std::cout << "SIZE OBJECT DANS BOMB : " << object.size() << std::endl;
 	  std::cout << "J DANS BOMB : " << j << std::endl;
 	  if (dynamic_cast<Bomb *>(object[j]))
 	    {
-	    object.erase(i);
-	    j--;
+	      object.erase(i);
+	      j--;
+	      continue;
 	    }
 	  j++;
+	  ++i;
 	}
       if (flame_up->initialize() == false)
    	return ;

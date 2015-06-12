@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-** Last update Fri Jun 12 16:03:45 2015 Jérémy MATHON
+// Last update Fri Jun 12 23:19:23 2015 hures
 */
 
 #include	"Flame.hpp"
@@ -119,7 +119,8 @@ void Flame::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
   if (this->_time == 0)
     {
       j = 0;
-      for (std::vector<AObject*>::iterator i = object.begin(); i != object.end(); ++i)
+      std::vector<AObject*>::iterator i = object.begin();
+      while (i != object.end())
 	{
 	  std::cout << "SIZE OBJECT DANS FLAMME : " << object.size() << std::endl;
 	  std::cout << " J DANS FLAMME : " << j << std::endl;
@@ -127,8 +128,10 @@ void Flame::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 	    {
 	      object.erase(i);
 	      j--;
+	      continue;
 	    }
 	  j++;
+	  ++i;
 	}
     }
 }
