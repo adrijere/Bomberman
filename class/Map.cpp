@@ -72,15 +72,12 @@ void		Map::setMap(std::vector<AObject *> &object) {
   int		solid_pos;
   int		block_pos;
   AObject	*obj;
-
-  obj = new Model(1, 1, map); //PLAYER INIT
-  obj->initialize();
-  object.push_back(obj);
-  this->map[1][1] = obj;
-  obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
-  obj->initialize();
-  object.push_back(obj);
-  this->map[this->height - 2][this->width -2] = obj;  
+  
+  // obj = new IA(this->height - 2, this->width - 2, map); //IA INIT
+  // obj->initialize();
+  // object.push_back(obj);
+  // this->map[this->height - 2][this->width -2] = obj;
+  
   i = -1;
   solid_pos = solid_block_pos();
   while (++i != this->height)
@@ -120,6 +117,10 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	    }
 	}
     }
+  obj = new Model(1, 1, map); //PLAYER INIT
+  obj->initialize();
+  object.push_back(obj);
+  this->map[1][1] = obj;
 }
 
 std::vector<AObject*>	Map::operator[](size_t i)

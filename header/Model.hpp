@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-// Last update Thu Jun 11 18:23:08 2015 hures
+// Last update Fri Jun 12 16:48:28 2015 hures
 */
 
 #ifndef MODEL_HPP_

@@ -22,7 +22,7 @@ class Map
   std::string     name;
   
   std::vector < std::vector<AObject *> >	map;
-
+  
 public:
   Map(std::vector<AObject *> &);
   Map(int, int, int, std::string, std::vector<AObject *> &);

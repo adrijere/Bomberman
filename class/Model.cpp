@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Thu Jun 11 20:41:52 2015 hures
+// Last update Fri Jun 12 18:58:51 2015 hures
 */
 
 
@@ -40,63 +40,54 @@ bool	Model::initialize()
 
 void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&object)
 {
+  float move_val;
+
+  move_val = 1 * static_cast<float>(clock.getElapsed()) * _speed;
   if (input.getKey(SDLK_UP))
     {
-      _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_x >= _height - 2)
+      if (_map[_x][_y + 1 + move_val] != NULL || _map[_x][_y + move_val] != NULL)
+	return ;
+      _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_y >= _height - 2)
 	{
-	  _x = _height - 2;
-	  return ;
-	}
-      if (_map[_x + 1][_y] != NULL)
-	{
-	  _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  _y = _height - 2;
 	  return ;
 	}
       translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
     }
   if (input.getKey(SDLK_DOWN))
     {
-      _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_x < 1)
+      if (/*_map[_x][_y - 1 - move_val] != NULL ||*/ _map[_x][_y - move_val] != NULL)     
+	return ;
+      _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_y < 1)
 	{
-	  _x = 1;
-	  return ;
-	}
-      if (_map[_x - 1][_y] != NULL)
-	{
-	  _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  _y = 1;
 	  return ;
 	}
       translate(glm::vec3(0, 0, -1) * static_cast<float>(clock.getElapsed()) * _speed);
     }
   if (input.getKey(SDLK_LEFT))
     {
-      _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_y >= _widht - 2)
+      if (_map[_x + 1 + move_val][_y] != NULL || _map[_x + move_val][_y] != NULL)     
+	return ;
+      _x += 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_x >= _widht - 2)
 	{
-	  _y = _widht - 2;
-	  return ;
-	}
-      if (_map[_x][_y + 1] != NULL)
-	{
-	  _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+	  _x = _widht - 2;
 	  return ;
 	}
       translate(glm::vec3(1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     }
   if (input.getKey(SDLK_RIGHT))
     {
-      _y -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
-      if (_y < 1)
+      if (/*_map[_x - 1 - move_val][_y] != NULL ||*/ _map[_x - move_val][_y] != NULL)     
+	return ;
+      _x -= 1 * static_cast<float>(clock.getElapsed()) * _speed;
+      if (_x < 1)
 	{
-	  _y = 1;
+	  _x = 1;
 	  return;
-	}
-      if (_map[_x][_y - 1] != NULL)
-	{
-	  _y += 1 * static_cast<float>(clock.getElapsed()) * _speed;
-	  return ;
 	}
       translate(glm::vec3(-1, 0, 0) * static_cast<float>(clock.getElapsed()) * _speed);
     }
@@ -104,7 +95,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
     {
       //ajoute la bombe a _object directement      
       //pose une bombe
-      AObject *bombe = new Bomb(_y, _x);
+      AObject *bombe = new Bomb(_x, _y);
       if (bombe->initialize() != false)
 	object.push_back(bombe);
     }

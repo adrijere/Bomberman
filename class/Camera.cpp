@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue Jun  9 17:10:58 2015 Jérémy MATHON
-** Last update Fri Jun 12 11:47:33 2015 Jérémy MATHON
+// Last update Fri Jun 12 18:57:20 2015 hures
 */
 
 #include	"Camera.hpp"
@@ -49,8 +49,8 @@ void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
 	    this->_model = (Model *)object[i];
 	}
     }
-  _position =  glm::vec3((float)this->_model->_y, 4, this->_model->_x);
-  _poscam = glm::vec3((float)this->_model->_y, 6, this->_model->_x - 10);
+  _position =  glm::vec3((float)this->_model->_x, 4, this->_model->_y);
+  _poscam = glm::vec3((float)this->_model->_x, 6, this->_model->_y - 10);
   if (input.getKey(SDLK_UP))
     translate(glm::vec3(0, 0, 1) * static_cast<float>(clock.getElapsed()) * _speed);
   if (input.getKey(SDLK_DOWN))
