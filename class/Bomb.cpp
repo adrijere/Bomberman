@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed Jun  3 18:00:47 2015 Jérémy MATHON
-** Last update Fri Jun 12 11:59:40 2015 Jérémy MATHON
+// Last update Fri Jun 12 13:07:22 2015 Valentin Cardon
 */
 
 #include	"Bomb.hpp"
@@ -14,7 +14,7 @@ Bomb::Bomb(int x, int y)
 {
   _x = x;
   _y = y;
-  _time = 15;
+  _time = 100;
 }
 
 Bomb::~Bomb()
@@ -128,9 +128,8 @@ void	Bomb::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObjec
   	return ;
       object.push_back(flame_up);
       object.push_back(flame_down);
-      object.push_back(flame_left);
       object.push_back(flame_right);
-      //delete les flames
+      object.push_back(flame_left);
       //delete le cube ou le perso que la flame touche
     }
 }

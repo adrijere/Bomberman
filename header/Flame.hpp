@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Tue Jun  9 19:40:37 2015 Valentin Cardon
-// Last update Wed Jun 10 17:57:33 2015 Valentin Cardon
+// Last update Fri Jun 12 12:59:56 2015 Valentin Cardon
 //
 
 #ifndef FLAME_HPP_
@@ -25,6 +25,7 @@ private:
   gdl::Geometry _geometry;   // La geometrie du Cube
   int	_x;
   int	_y;
+  int	_time;
   
 public:
   Flame(int x, int y);

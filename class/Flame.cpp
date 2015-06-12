@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Wed May  6 15:57:46 2015 Jérémy MATHON
-// Last update Wed Jun 10 17:34:07 2015 Valentin Cardon
+// Last update Fri Jun 12 13:06:00 2015 Valentin Cardon
 */
 
 #include	"Flame.hpp"
@@ -14,6 +14,7 @@ Flame::Flame(int x, int y)
 {
   _x = x;
   _y = y;
+  _time = 80;
 }
 
 Flame::~Flame()
@@ -110,7 +111,18 @@ bool	Flame::initialize()
 }
 
 void Flame::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*> &object)
-{}
+{
+  if (this->_time > 0)
+    _time--;
+  if (this->_time == 0)
+    {
+      for (int i = 0; i != object.size(); i++)
+	{
+	  if (dynamic_cast<Flame *>(object[i]))
+	    object.erase(object.begin() + i);
+	}
+    }
+}
 
 void Flame::draw(gdl::AShader &shader, gdl::Clock const &clock)
 {
