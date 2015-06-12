@@ -81,6 +81,5 @@ void        Camera::zoom(){
 }
 
 void        Camera::dezoom(){
-  std::cout << "diocane" << std::endl;
   this->x -= 0.1;
 }
