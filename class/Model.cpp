@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-** Last update Fri Jun 12 18:05:12 2015 Jérémy MATHON
+// Last update Fri Jun 12 19:08:35 2015 hures
 */
 
 
@@ -37,6 +37,54 @@ bool	Model::initialize()
   this->scale(glm::vec3(0.0018, 0.0018, 0.0018));
   translate(glm::vec3(_x, 0, _y)); //===> changer les coordonéees en fonction de la map
   return (true);
+}
+
+void	Model::destroy_block(std::vector<AObject *>&object)
+{
+  AObject *tmp;
+  AObject *obj;
+
+  //NEED BOMB TIME TO REMOVE AT THE SAME TIME
+  tmp = NULL;
+  if (dynamic_cast<Block *>(_map[round(_x + 1)][round(_y)]))
+    {
+      tmp = _map[round(_x + 1)][round(_y)];
+      obj = new Grass(round(_x + 1), round(_y));
+      obj->initialize();
+      object.push_back(obj);
+      this->_map[round(_x + 1)][round(_y)] = NULL;
+    }
+  if (dynamic_cast<Block *>(_map[round(_x - 1)][round(_y)]))
+    {
+      tmp = _map[round(_x - 1)][round(_y)];
+      obj = new Grass(round(_x - 1), round(_y));
+      obj->initialize();
+      object.push_back(obj);
+      this->_map[round(_x - 1)][round(_y)] = NULL;
+    }
+  if (dynamic_cast<Block *>(_map[round(_x)][round(_y + 1)]))
+    {
+      tmp = _map[round(_x)][round(_y + 1)];
+      obj = new Grass(round(_x), round(_y + 1));
+      obj->initialize();
+      object.push_back(obj);
+      this->_map[round(_x)][round(_y + 1)] = NULL;
+    }
+  if (dynamic_cast<Block *>(_map[round(_x)][round(_y - 1)]))
+    {
+      tmp = _map[round(_x)][round(_y - 1)];
+      obj = new Grass(round(_x), round(_y - 1));
+      obj->initialize();
+      object.push_back(obj);
+      this->_map[round(_x)][round(_y - 1)] = NULL;
+    }
+  std::vector<AObject*>::iterator i = object.begin();
+  while(i != object.end())
+    {
+      if (tmp == *i)
+	object.erase(i);
+      ++i;
+    }
 }
 
 void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&object)
@@ -101,6 +149,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
       //pose une bombe
       this->_nbbomb = 0;
       AObject *bombe = new Bomb(round(_x), round(_y));
+      destroy_block(object);
       this->_bomb.push_back(bombe);
       if (bombe->initialize() != false)
 	object.push_back(bombe);
