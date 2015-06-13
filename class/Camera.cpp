@@ -58,7 +58,7 @@ void	Camera::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObj
 }
     else{
     _position = glm::vec3((float) this->_model->_x, 4, this->_model->_y);
-    _poscam = glm::vec3((float) this->_model->_x, 15, this->_model->_y - 10 + 9.5);
+ _poscam = glm::vec3((float) this->_model->_x, 15, this->_model->_y - 0.5);
 }
   if (input.getKey(SDLK_KP_PLUS) && this->x <= 7)
     zoom();

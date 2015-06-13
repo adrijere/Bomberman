@@ -5,7 +5,7 @@
 // Login   <marsil_g@epitech.net>
 //
 // Started on  Thu Jun  4 17:05:18 2015 Gabriele Marsili
-// Last update Fri Jun 12 16:00:33 2015 Valentin Cardon
+// Last update Sat Jun 13 13:03:48 2015 Gabriele Marsili
 */
 
 #include        <sstream>
@@ -86,23 +86,7 @@ bool	MyMenu::initialize(){
   imgMenu += "1";
   imgMenu += ".tga";
 
-  if (_texture.load(imgMenu) == false)
-    {
-      std::cerr << "Cannot load the texture " << imgMenu << " needed for the menu."<< std::endl;
-      return (false);
-    }
-
-  _geometry.pushVertex(glm::vec3(0.5, -0.9, 9.15));
-  _geometry.pushVertex(glm::vec3(0.5, 0.9, 9.15));
-  _geometry.pushVertex(glm::vec3(-0.5, 0.9, 9.15));
-  _geometry.pushVertex(glm::vec3(-0.5, -0.9, 9.15));
-
-  _geometry.pushUv(glm::vec2(0.0f, 0.0f));
-  _geometry.pushUv(glm::vec2(1.0f, 0.0f));
-  _geometry.pushUv(glm::vec2(1.0f, 1.0f));
-  _geometry.pushUv(glm::vec2(0.0f, 1.0f));
-
-  _geometry.build();
+  BuildImg(imgMenu);
   return (true);
 }
 
