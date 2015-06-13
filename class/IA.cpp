@@ -5,7 +5,7 @@
 // Login   <cardon_v@epitech.net>
 // 
 // Started on  Thu May 28 17:02:21 2015 Valentin Cardon
-** Last update Fri Jun 12 17:54:52 2015 Jérémy MATHON
+// Last update Sat Jun 13 16:12:45 2015 Valentin Cardon
 */
 
 #include	"IA.hpp"
@@ -104,6 +104,7 @@ void		IA::move(gdl::Clock const& clock, int input, std::vector<AObject*>&object)
       object.push_back(bomb);
       this->_nbbomb = 0;
     }
+  this->_nbbomb = 1; 
 }
 
 void		IA::draw(gdl::AShader &shader, gdl::Clock const& clock)

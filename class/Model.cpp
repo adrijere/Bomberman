@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Sat Jun 13 12:02:20 2015 hures
+// Last update Sat Jun 13 16:13:00 2015 Valentin Cardon
 */
 
 
@@ -163,6 +163,7 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 	object.push_back(bombe);
     }
   this->_model.setCurrentAnim(0); // FULL ANIMATION NEED TO CREATE SUB ANIM
+  this->_nbbomb = 1;
 }
 
 void	Model::draw(gdl::AShader &shader, gdl::Clock const &clock)
