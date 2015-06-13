@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Fri Jun 12 19:42:48 2015 hures
+// Last update Sat Jun 13 12:02:20 2015 hures
 */
 
 
@@ -19,7 +19,7 @@ Model::Model(int x, int y, std::vector< std::vector<AObject *> > &map)
   _height = _map.size();
   _widht = _map[0].size();
   _nbbomb = 1;
-  _time = 60;
+  _time = 999;
 }
 
 Model::~Model()
@@ -50,41 +50,26 @@ void	Model::destroy_block(std::vector<AObject *>&object)
   x = _bomb_x;
   y = _bomb_y;
 
-  // x = _x;
-  // y = _y;
-
   //NEED BOMB TIME TO REMOVE AT THE SAME TIME
   tmp = NULL;
   if (dynamic_cast<Block *>(_map[round(x + 1)][round(y)]))
     {
       tmp = _map[round(x + 1)][round(y)];
-      obj = new Grass(round(x + 1), round(y));
-      obj->initialize();
-      object.push_back(obj);
       this->_map[round(x + 1)][round(y)] = NULL;
     }
   if (dynamic_cast<Block *>(_map[round(x - 1)][round(y)]))
     {
       tmp = _map[round(x - 1)][round(y)];
-      obj = new Grass(round(x - 1), round(y));
-      obj->initialize();
-      object.push_back(obj);
       this->_map[round(x - 1)][round(y)] = NULL;
     }
   if (dynamic_cast<Block *>(_map[round(x)][round(y + 1)]))
     {
       tmp = _map[round(x)][round(y + 1)];
-      obj = new Grass(round(_x), round(_y + 1));
-      obj->initialize();
-      object.push_back(obj);
       this->_map[round(x)][round(y + 1)] = NULL;
     }
   if (dynamic_cast<Block *>(_map[round(x)][round(y - 1)]))
     {
       tmp = _map[round(x)][round(y - 1)];
-      obj = new Grass(round(x), round(y - 1));
-      obj->initialize();
-      object.push_back(obj);
       this->_map[round(x)][round(y - 1)] = NULL;
     }
   if (tmp != NULL)
@@ -97,18 +82,20 @@ void	Model::destroy_block(std::vector<AObject *>&object)
 	  ++i;
 	}
     }
+  _time = 999;
 }
 
 void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObject*>&object)
 {
   float move_val;
 
-  //tmp for bomb vs block
-  if (this->_time > 0)
-    _time--;
-  if (this->_time == 0)
-    destroy_block(object);
-  //
+  if (this->_time != 999)
+    {
+      if (this->_time > 0)
+	_time--;
+      if (this->_time == 0)
+	destroy_block(object);
+    }
   
   if (this->_bomb.empty())
     this->_nbbomb = 1;
@@ -168,10 +155,9 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
       //pose une bombe
       this->_nbbomb = 0;
       AObject *bombe = new Bomb(round(_x), round(_y));
-      //tmp for bomb vs block
       _bomb_x = round(_x);
       _bomb_y = round(_y);
-      //
+      _time = 70;
       this->_bomb.push_back(bombe);
       if (bombe->initialize() != false)
 	object.push_back(bombe);

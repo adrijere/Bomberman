@@ -125,6 +125,9 @@ void		Map::setMap(std::vector<AObject *> &object) {
 	      obj->initialize();
 	      object.push_back(obj);
 	      this->map[i][j] = obj;
+	      obj = new Grass(i, j);
+	      obj->initialize();
+	      object.push_back(obj);
 	      block_pos = rand() % this-> width;
 	    }
 	  else
