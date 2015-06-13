@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 09:59:55 2015 Jérémy MATHON
-// Last update Fri Jun 12 19:08:35 2015 hures
+// Last update Fri Jun 12 19:42:48 2015 hures
 */
 
 
@@ -19,6 +19,7 @@ Model::Model(int x, int y, std::vector< std::vector<AObject *> > &map)
   _height = _map.size();
   _widht = _map[0].size();
   _nbbomb = 1;
+  _time = 60;
 }
 
 Model::~Model()
@@ -43,47 +44,58 @@ void	Model::destroy_block(std::vector<AObject *>&object)
 {
   AObject *tmp;
   AObject *obj;
+  int		x;
+  int		y;
+
+  x = _bomb_x;
+  y = _bomb_y;
+
+  // x = _x;
+  // y = _y;
 
   //NEED BOMB TIME TO REMOVE AT THE SAME TIME
   tmp = NULL;
-  if (dynamic_cast<Block *>(_map[round(_x + 1)][round(_y)]))
+  if (dynamic_cast<Block *>(_map[round(x + 1)][round(y)]))
     {
-      tmp = _map[round(_x + 1)][round(_y)];
-      obj = new Grass(round(_x + 1), round(_y));
+      tmp = _map[round(x + 1)][round(y)];
+      obj = new Grass(round(x + 1), round(y));
       obj->initialize();
       object.push_back(obj);
-      this->_map[round(_x + 1)][round(_y)] = NULL;
+      this->_map[round(x + 1)][round(y)] = NULL;
     }
-  if (dynamic_cast<Block *>(_map[round(_x - 1)][round(_y)]))
+  if (dynamic_cast<Block *>(_map[round(x - 1)][round(y)]))
     {
-      tmp = _map[round(_x - 1)][round(_y)];
-      obj = new Grass(round(_x - 1), round(_y));
+      tmp = _map[round(x - 1)][round(y)];
+      obj = new Grass(round(x - 1), round(y));
       obj->initialize();
       object.push_back(obj);
-      this->_map[round(_x - 1)][round(_y)] = NULL;
+      this->_map[round(x - 1)][round(y)] = NULL;
     }
-  if (dynamic_cast<Block *>(_map[round(_x)][round(_y + 1)]))
+  if (dynamic_cast<Block *>(_map[round(x)][round(y + 1)]))
     {
-      tmp = _map[round(_x)][round(_y + 1)];
+      tmp = _map[round(x)][round(y + 1)];
       obj = new Grass(round(_x), round(_y + 1));
       obj->initialize();
       object.push_back(obj);
-      this->_map[round(_x)][round(_y + 1)] = NULL;
+      this->_map[round(x)][round(y + 1)] = NULL;
     }
-  if (dynamic_cast<Block *>(_map[round(_x)][round(_y - 1)]))
+  if (dynamic_cast<Block *>(_map[round(x)][round(y - 1)]))
     {
-      tmp = _map[round(_x)][round(_y - 1)];
-      obj = new Grass(round(_x), round(_y - 1));
+      tmp = _map[round(x)][round(y - 1)];
+      obj = new Grass(round(x), round(y - 1));
       obj->initialize();
       object.push_back(obj);
-      this->_map[round(_x)][round(_y - 1)] = NULL;
+      this->_map[round(x)][round(y - 1)] = NULL;
     }
-  std::vector<AObject*>::iterator i = object.begin();
-  while(i != object.end())
+  if (tmp != NULL)
     {
-      if (tmp == *i)
-	object.erase(i);
-      ++i;
+      std::vector<AObject*>::iterator i = object.begin();
+      while(i != object.end())
+	{
+	  if (tmp == *i)
+	    object.erase(i);
+	  ++i;
+	}
     }
 }
 
@@ -91,6 +103,13 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
 {
   float move_val;
 
+  //tmp for bomb vs block
+  if (this->_time > 0)
+    _time--;
+  if (this->_time == 0)
+    destroy_block(object);
+  //
+  
   if (this->_bomb.empty())
     this->_nbbomb = 1;
   move_val = 1 * static_cast<float>(clock.getElapsed()) * _speed;
@@ -149,7 +168,10 @@ void	Model::update(gdl::Clock const &clock, gdl::Input &input, std::vector<AObje
       //pose une bombe
       this->_nbbomb = 0;
       AObject *bombe = new Bomb(round(_x), round(_y));
-      destroy_block(object);
+      //tmp for bomb vs block
+      _bomb_x = round(_x);
+      _bomb_y = round(_y);
+      //
       this->_bomb.push_back(bombe);
       if (bombe->initialize() != false)
 	object.push_back(bombe);

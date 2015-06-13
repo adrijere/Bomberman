@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Tue May 12 10:00:00 2015 Jérémy MATHON
-// Last update Fri Jun 12 19:07:22 2015 hures
+// Last update Fri Jun 12 19:31:46 2015 hures
 */
 
 #ifndef MODEL_HPP_
@@ -22,9 +22,14 @@ class Model : public AObject
 private:
   gdl::Model	_model;
   float		_speed;
+  int		_time;
   std::vector< std::vector<AObject *> > _map;
   int           _height;
   int           _widht;
+  //tmp for bomb vs block
+  int		_bomb_x;
+  int		_bomb_y;
+  //
   int		_nbbomb;
   std::vector<AObject *>	_bomb;
 public:
