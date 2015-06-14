@@ -184,5 +184,4 @@ void		MyMenu::BuildImg(std::string imgMenu){
   _geometry.pushUv(glm::vec2(0.0f, 1.0f));
 
   _geometry.build();
-
 }
